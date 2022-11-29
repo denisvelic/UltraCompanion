@@ -9,5 +9,4 @@ Rails.application.routes.draw do
   resources :races, only: %i[index show]
 
 
-
 end
