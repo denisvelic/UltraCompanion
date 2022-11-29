@@ -7,20 +7,25 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'date'
 
+puts "Destroying all"
+
 Race.destroy_all
 User.destroy_all
+
+puts "Creating users"
 
 celine = User.create!(email: "celine@hotmail.fr", password: "password", first_name: "Céline", last_name: "Brin", phone_number: "0987654326", description: "Passionnée de sport et on m'a conseillé de faire un parcours")
 pierre = User.create!(email: "pierre@gmail.fr", password: "password", first_name: "Pierre", last_name: "Caro",  phone_number: "0698714320", description: "passionné de triath et pas à ma première expérience de race")
 
-race_gpx_1 = File.read('db/seeds/fixtures/race1.txt')
+race_gpx_1 = 'db/seeds/fixtures/race1.txt'
 
-race_gpx_2 = File.read('db/seeds/fixtures/race2.txt')
+race_gpx_2 = 'db/seeds/fixtures/race2.txt'
 
-race_gpx_3 = File.read('db/seeds/fixtures/race3.txt')
+race_gpx_3 = 'db/seeds/fixtures/race3.txt'
 
-race_gpx_4 = File.read('db/seeds/fixtures/race4.txt')
+race_gpx_4 = 'db/seeds/fixtures/race4.txt'
 
+puts "Creating races"
 
 race1 = Race.create!(
   user: pierre,
@@ -58,13 +63,15 @@ race3 = Race.create!(
 
 race4 = Race.create!(
   user: celine,
-  name: "gravelman pays basques",
+  name: "gravelman pays basque",
   date: DateTime.strptime("09/12/2022 09:57", "%m/%d/%Y %H:%M"),
   distance: 332,
   elevationgain: 8010,
   elevationloss: 8010,
   gpx_file: race_gpx_4
 )
+
+puts "Adding photos"
 
 file = File.open(Rails.root.join('db/seeds/images/races/biking_man_map.png'))
 race1.photo.attach(io: file, filename: "biking_man_map.png", content_type: "image/png")
@@ -83,3 +90,6 @@ pierre.photo.attach(io: file, filename: "pierre.png", content_type: "image/png")
 
 file = File.open(Rails.root.join('db/seeds/images/races/celine.png'))
 celine.photo.attach(io: file, filename: "celine.png", content_type: "image/png")
+
+
+puts "Finished"

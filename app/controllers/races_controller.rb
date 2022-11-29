@@ -3,26 +3,27 @@ class RacesController < ApplicationController
 
 
   def index
-    # parse_gpx(gpx_file)
   end
 
   def show
     @race = Race.find(params[:id])
+    @gpx_file = @race.gpx_file
+    @markers = parse_gpx('db/seeds/fixtures/race1.txt')
   end
 
   private
 
-  # def self.parse_gpx(gpx_file)
-  #   file = File.open(gpx_file)
-  #   doc = Nokogiri::XML(file)
-  #   trackpoints = doc.xpath('//xmlns:trkpt')
-  #   route = Array.new
-  #   trackpoints.each do |trkpt|
-  #     latitude = trkpt.xpath('@lat').to_s.to_f
-  #     longitude = trkpt.xpath('@lon').to_s.to_f
-  #     elevation = trkpt.text.strip.to_f
-  #     route << {latitude: latitude, longitude: longitude, elevation: elevation}
-  #   end
-  #   route
-  # end
+  def parse_gpx(filepath)
+    file = File.open(filepath)
+    doc = Nokogiri::XML(file)
+    trackpoints = doc.xpath('//xmlns:trkpt')
+    route = Array.new
+    trackpoints.each do |trkpt|
+      lat = trkpt.xpath('@lat').to_s.to_f
+      lng = trkpt.xpath('@lon').to_s.to_f
+      # ele = trkpt.text.strip.to_f
+      route << {lat: lat, lng: lng}
+    end
+    route.first(10) ## Pour test, on renvoie les 4 premiers points
+  end
 end
