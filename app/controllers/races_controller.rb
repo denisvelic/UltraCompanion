@@ -17,13 +17,19 @@ class RacesController < ApplicationController
     file = File.open(filepath)
     doc = Nokogiri::XML(file)
     trackpoints = doc.xpath('//xmlns:trkpt')
-    route = Array.new
+    # funnel = Array.new
     route = trackpoints.map do |trkpt|
       lat = trkpt.xpath('@lat').to_s.to_f
       lng = trkpt.xpath('@lon').to_s.to_f
       # ele = trkpt.text.strip.to_f
       [lng, lat]
     end
-    route.first(4) ## Pour test, on renvoie les 4 premiers points
+    # route.map do |coor|
+    #   if route.index(coor) % (route.length/100) == 0
+    #    funnel.push(coor)
+    #   end
+    #  end
+    # funnel
+    route.first(50) ## Pour test, on renvoie les 4 premiers points
   end
 end
