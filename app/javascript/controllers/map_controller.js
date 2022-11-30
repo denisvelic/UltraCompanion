@@ -8,6 +8,8 @@ export default class extends Controller {
   }
 
   connect() {
+    // console.log(this.markersValue);
+    console.log(this.#getEveryNth(this.markersValue, 10));
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -24,7 +26,7 @@ export default class extends Controller {
       'properties': {},
       'geometry': {
       'type': 'LineString',
-      'coordinates': this.markersValue
+      'coordinates': this.#getEveryNth(this.markersValue, 10)
       }
       }
       });
@@ -37,11 +39,12 @@ export default class extends Controller {
       'line-cap': 'round'
       },
       'paint': {
-      'line-color': '#888',
+      'line-color': '#0000FF',
       'line-width': 8
       }
       });
     })
+
 
     // this.#addMarkersToMap()
     // this.#addLineToMap()
@@ -91,5 +94,15 @@ export default class extends Controller {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+  }
+
+  #getEveryNth(arr, nth) {
+    const result = [];
+
+    for (let i = 0; i < arr.length; i += nth) {
+      result.push(arr[i]);
+    }
+
+    return result;
   }
 }
