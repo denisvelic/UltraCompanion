@@ -12,10 +12,41 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/mapbox/streets-v12",
+      center: this.markersValue[0],
+      zoom: 14
     })
-    this.#addMarkersToMap()
-    this.#fitMapToMarkers()
+    this.map.on('load', () => {
+      this.map.addSource('route', {
+      'type': 'geojson',
+      'data': {
+      'type': 'Feature',
+      'properties': {},
+      'geometry': {
+      'type': 'LineString',
+      'coordinates': this.markersValue
+      }
+      }
+      });
+      this.map.addLayer({
+      'id': 'route',
+      'type': 'line',
+      'source': 'route',
+      'layout': {
+      'line-join': 'round',
+      'line-cap': 'round'
+      },
+      'paint': {
+      'line-color': '#888',
+      'line-width': 8
+      }
+      });
+    })
+
+    // this.#addMarkersToMap()
+    // this.#addLineToMap()
+    // this.#fitMapToMarkers()
+    // console.log(this.markersValue);
   }
 
   #addMarkersToMap() {
@@ -25,6 +56,36 @@ export default class extends Controller {
       .addTo(this.map)
   })
   }
+
+  #addLineToMap() {
+      // this.map.addLayer({
+      //   'id': 'route',
+      //   'type': 'line',
+      //   'source': 'route',
+      //   'layout': {
+      //   'line-join': 'round',
+      //   'line-cap': 'round'
+      //   },
+      //   'paint': {
+      //   'line-color': '#888',
+      //   'line-width': 8
+      //   }
+      // });
+      this.map.addSource("route", this.markersValue);
+      this.map.addLayer({
+        id: 'route',
+        type: 'line',
+        source: 'route', // <= the same source id
+        layout: {
+          'line-cap': "round",
+          'line-join': "round"
+        },
+        paint: {
+          'line-color': "#6084eb",
+          'line-width': 8
+        }
+      });
+    }
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
