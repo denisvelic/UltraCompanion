@@ -1,3 +1,6 @@
+// Ce btn est à utiliser sur la home page et
+// le formulaire d'inscription et le search de la météo
+
 .home-button {
   font-family: $body-font;
   color: white;
@@ -11,4 +14,19 @@
   font-size: 16px;
 }
 
+// Ce bouton est à utiliser pour importer la course et accéder à la navigation
 
+.principal-btn {
+  font-family: $body-font;
+  color: white;
+  background-color: $blue;
+  border-radius: 5px;
+  display: block;
+  padding: 10px 50px;
+  margin: 500px auto;
+  width: 90%;
+  text-align: center;
+  font-size: 16px;
+}
+
+// exemple : <button type="button" class="principal-btn">Valider</button>
