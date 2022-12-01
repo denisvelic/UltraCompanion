@@ -9,7 +9,7 @@ export default class extends Controller {
 
   connect() {
     // console.log(this.markersValue);
-    console.log(this.#getEveryNth(this.markersValue, 10));
+    // console.log(this.#getEveryNth(this.markersValue, 10));
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -26,7 +26,7 @@ export default class extends Controller {
       'properties': {},
       'geometry': {
       'type': 'LineString',
-      'coordinates': this.#getEveryNth(this.markersValue, 10)
+      'coordinates': this.markersValue
       }
       }
       });
@@ -52,13 +52,13 @@ export default class extends Controller {
     // console.log(this.markersValue);
   }
 
-  #addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
-    new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
-      .addTo(this.map)
-  })
-  }
+  // #addMarkersToMap() {
+  //   this.markersValue.forEach((marker) => {
+  //   new mapboxgl.Marker()
+  //     .setLngLat([ marker.lng, marker.lat ])
+  //     .addTo(this.map)
+  // })
+  // }
 
   #addLineToMap() {
       // this.map.addLayer({
@@ -74,35 +74,35 @@ export default class extends Controller {
       //   'line-width': 8
       //   }
       // });
-      this.map.addSource("route", this.markersValue);
-      this.map.addLayer({
-        id: 'route',
-        type: 'line',
-        source: 'route', // <= the same source id
-        layout: {
-          'line-cap': "round",
-          'line-join': "round"
-        },
-        paint: {
-          'line-color': "#6084eb",
-          'line-width': 8
-        }
-      });
+      // this.map.addSource("route", this.markersValue);
+      // this.map.addLayer({
+      //   id: 'route',
+      //   type: 'line',
+      //   source: 'route', // <= the same source id
+      //   layout: {
+      //     'line-cap': "round",
+      //     'line-join': "round"
+      //   },
+      //   paint: {
+      //     'line-color': "#6084eb",
+      //     'line-width': 8
+      //   }
+      // });
     }
 
-  #fitMapToMarkers() {
-    const bounds = new mapboxgl.LngLatBounds()
-    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
-  }
+  // #fitMapToMarkers() {
+  //   const bounds = new mapboxgl.LngLatBounds()
+  //   this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+  //   this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+  // }
 
-  #getEveryNth(arr, nth) {
-    const result = [];
+  // #getEveryNth(arr, nth) {
+  //   const result = [];
 
-    for (let i = 0; i < arr.length; i += nth) {
-      result.push(arr[i]);
-    }
+  //   for (let i = 0; i < arr.length; i += nth) {
+  //     result.push(arr[i]);
+  //   }
 
-    return result;
-  }
+  //   return result;
+  // }
 }

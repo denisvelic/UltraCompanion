@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :races, only: %i[index show]
+  resources :waters, only: %i[index show]
 
 end

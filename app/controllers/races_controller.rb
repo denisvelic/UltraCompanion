@@ -8,7 +8,7 @@ class RacesController < ApplicationController
   def show
     @race = Race.find(params[:id])
     @gpx_file = @race.gpx_file
-    @markers = parse_gpx('db/seeds/fixtures/race1.txt')
+    @markers = parse_gpx('db/seeds/fixtures/race7.txt')
   end
 
 
@@ -32,6 +32,6 @@ class RacesController < ApplicationController
     #   end
     #  end
     # funnel
-    route.first(50) ## Pour test, on renvoie les 4 premiers points
+    route ## Pour test, on renvoie les 4 premiers points
   end
 end
