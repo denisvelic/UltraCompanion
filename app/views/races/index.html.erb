@@ -9,6 +9,19 @@
 
   <div class="precedentes-courses">
     <h2>Mes précédentes courses</h2>
+
+    <h1>List of tasks</h1>
+
+<ol>
+  <% @races.each do |race|%>
+  <li>
+    <%= link_to race.name, race_path(race)%>
+  </li>
+  <% end %>
+
+<%= link_to "Nouvelle course", new_race_path%>
+</ol>
+
   </div>
 
 </div>
