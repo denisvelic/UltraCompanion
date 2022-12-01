@@ -14,6 +14,7 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v12",
+      center: this.pointsValue[0],
       zoom: 14
     })
 
@@ -30,7 +31,7 @@ export default class extends Controller {
         // console.log(marker[0]);
         // console.log(marker[1]);
       new mapboxgl.Marker()
-        .setLngLat([ marker[1], marker[0] ])
+        .setLngLat([ marker[0], marker[1] ])
         .addTo(this.map)
     })
   }
