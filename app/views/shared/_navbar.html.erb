@@ -1,6 +1,6 @@
 <div class="navbar">
-  <%= link_to image_tag("icons/accueil.svg"), races_path, class: "bloc-icon" %>
-  <%= link_to image_tag("icons/clock.svg"), races_path, class: "bloc-icon"%>
-  <%= link_to image_tag("icons/weather.svg"), races_path, class: "bloc-icon" %>
-  <%= link_to image_tag("icons/profil.svg"), races_path, class: "bloc-icon" %>
+  <%= link_to image_tag("icons/accueil.svg"), races_path, class: "bloc-icon #{'active' if current_page?(races_path)}", id:"accueil"%>
+  <%= link_to image_tag("icons/clock.svg"), races_path, class: "bloc-icon", id:"clock"%>
+  <%= link_to image_tag("icons/weather.svg"), races_path, class: "bloc-icon", id:"weather"%>
+  <%= link_to image_tag("icons/profil.svg"), races_path, class: "bloc-icon", id:"profil"%>
 </div>

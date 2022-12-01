@@ -1,4 +1,14 @@
+// Avatar de la page index
+
 .avatar {
+  width: 40px;
+  border-radius: 50%;
+  background-image: url('pierre.png');
+}
+
+// Avatar de la page profile
+
+.avatar-profil {
   width: 40px;
   border-radius: 50%;
   background-image: url('pierre.png');
