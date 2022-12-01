@@ -11,6 +11,8 @@ class RacesController < ApplicationController
     @markers = parse_gpx('db/seeds/fixtures/race1.txt')
   end
 
+
+
   private
 
   def parse_gpx(filepath)

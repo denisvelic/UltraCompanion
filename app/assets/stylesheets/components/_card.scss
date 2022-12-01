@@ -1,0 +1,9 @@
+// Card à utiliser dans l'index pour les courses
+
+.card-photo {
+  background-image: url('bike.jpg');
+  border-radius: 5px;
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
