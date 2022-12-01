@@ -3,6 +3,7 @@ class RacesController < ApplicationController
 
 
   def index
+    @races = Race.all
   end
 
   def show
@@ -11,6 +12,15 @@ class RacesController < ApplicationController
     @markers = parse_gpx('db/seeds/fixtures/race1.txt')
   end
 
+  def new
+    @race = Race.new
+  end
+
+  def create
+    @race = Race.new(race_params)
+    @race.save
+    redirect_to race_path(@race)
+  end
 
 
   private
@@ -32,6 +42,12 @@ class RacesController < ApplicationController
     #   end
     #  end
     # funnel
-    route.first(50) ## Pour test, on renvoie les 4 premiers points
+    # route.first(50) ## Pour test, on renvoie les 4 premiers points
   end
+
+  def race_params
+    params.require(:race).permit(:name, :date)
+  end
+
+
 end

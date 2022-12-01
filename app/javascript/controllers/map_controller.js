@@ -16,7 +16,7 @@ export default class extends Controller {
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v12",
       center: this.markersValue[0],
-      zoom: 14
+      zoom: 7
     })
     this.map.on('load', () => {
       this.map.addSource('route', {
@@ -26,7 +26,7 @@ export default class extends Controller {
       'properties': {},
       'geometry': {
       'type': 'LineString',
-      'coordinates': this.#getEveryNth(this.markersValue, 10)
+      'coordinates': this.markersValue
       }
       }
       });
@@ -47,7 +47,6 @@ export default class extends Controller {
 
 
     // this.#addMarkersToMap()
-    // this.#addLineToMap()
     // this.#fitMapToMarkers()
     // console.log(this.markersValue);
   }
@@ -60,35 +59,7 @@ export default class extends Controller {
   })
   }
 
-  #addLineToMap() {
-      // this.map.addLayer({
-      //   'id': 'route',
-      //   'type': 'line',
-      //   'source': 'route',
-      //   'layout': {
-      //   'line-join': 'round',
-      //   'line-cap': 'round'
-      //   },
-      //   'paint': {
-      //   'line-color': '#888',
-      //   'line-width': 8
-      //   }
-      // });
-      this.map.addSource("route", this.markersValue);
-      this.map.addLayer({
-        id: 'route',
-        type: 'line',
-        source: 'route', // <= the same source id
-        layout: {
-          'line-cap': "round",
-          'line-join': "round"
-        },
-        paint: {
-          'line-color': "#6084eb",
-          'line-width': 8
-        }
-      });
-    }
+
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
@@ -96,13 +67,13 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 
-  #getEveryNth(arr, nth) {
-    const result = [];
+  // #getEveryNth(arr, nth) {
+  //   const result = [];
 
-    for (let i = 0; i < arr.length; i += nth) {
-      result.push(arr[i]);
-    }
+  //   for (let i = 0; i < arr.length; i += nth) {
+  //     result.push(arr[i]);
+  //   }
 
-    return result;
-  }
+  //   return result;
+  // }
 }
