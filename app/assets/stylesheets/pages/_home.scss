@@ -3,9 +3,9 @@
 .home-container {
   background-image: url('home.jpg');
   background-size: cover;
-  background-position: 25% 75%;
+  background-position: 29% 61%;
   width: 100%;
-  height: 700px;
+  height: 100vh;
 
   h1 {
     font-family: $title-font;
@@ -20,6 +20,6 @@
   .home-title {
     color: white;
     text-align: center;
-    padding-top: 450px;
+    padding-top: 65vh;
   }
 }
