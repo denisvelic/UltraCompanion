@@ -5,23 +5,24 @@
     <div class="salut"><p>Salut,<br><strong>Pierre</strong></p></div>
   </div>
 
-  <div class="ajouter">
-    <h3>Ajouter une course</h3>
-      <%= link_to new_race_path do %>
-      <div class="card-photo-vide">
-        <i class="fas fa-plus-circle"></i>
-      </div>
-      <% end %>
-  </div>
-
-  <div class="precedentes">
-    <h3>Mes précédentes courses</h3>
-      <div class="card-photo">
-          <div class="card-text">
-            <p>GM Pays Basque</p>
-            <p><em>St Jean de Luz, France</em></p>
-          </div>
+  <div class="big-card">
+    <div class="ajouter">
+      <h3>Ajouter une course</h3>
+        <%= link_to new_race_path do %>
+        <div class="card-photo-vide">
+          <i class="fas fa-plus-circle"></i>
         </div>
+        <% end %>
+    </div>
+    <div class="precedentes">
+      <h3>Mes précédentes courses</h3>
+        <div class="card-photo">
+            <div class="card-text">
+              <p>GM Pays Basque</p>
+              <p><em>St Jean de Luz, France</em></p>
+            </div>
+          </div>
+    </div>
   </div>
 
 </div>
