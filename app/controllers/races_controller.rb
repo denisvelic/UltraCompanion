@@ -19,7 +19,7 @@ class RacesController < ApplicationController
   def create
     @race = Race.new(race_params)
     @race.save
-    redirect_to race_path(@race)
+    redirect_to races_path(@race)
   end
 
 

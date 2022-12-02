@@ -67,13 +67,13 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 
-  // #getEveryNth(arr, nth) {
-  //   const result = [];
+  #getEveryNth(arr, nth) {
+    const result = [];
 
-  //   for (let i = 0; i < arr.length; i += nth) {
-  //     result.push(arr[i]);
-  //   }
+    for (let i = 0; i < arr.length; i += nth) {
+      result.push(arr[i]);
+    }
 
-  //   return result;
-  // }
+    return result;
+  }
 }
