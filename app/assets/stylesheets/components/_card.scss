@@ -2,48 +2,56 @@
 
 .card-photo {
   background-image: url('bike.jpg');
-  border-radius: 5px;
-  height: 265px;
-  width: 230px;
+  border-radius: 20px;
+  height: 230px;
+  width: 200px;
   background-size: cover;
   background-position: 25% 75%;
   position: relative;
-  margin-top: 70px ;
+  margin-left: 33px;
+  overflow: hidden;
+}
+
+.card-photo-vide {
+  background-color: $light-gray;
+  font-size: 55px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: black;
+  background-size: cover;
+  background-position: 25% 75%;
+  border-radius: 20px;
+  height: 230px;
+  width: 200px;
   margin-left: 33px;
 }
 
+// Titre à l'interieur de la card
+
 .card-text {
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 100%;
-  font-size: 20px;
-  position: absolute;
-  bottom: 0;
   color: white;
-  z-index: 5;
+  height: 100%;
+  padding: 1rem;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(180deg, rgba(44, 68, 92, 0) 66.76%, #2C445C 88.03%), url(.jpg);
 }
 
-// .card-photo-vide {
-//   background-color: #E1E1E1;
-//   border-color: black;
-//   background-size: cover;
-//   background-position: 25% 75%;
-//   margin-top: 70px ;
-//   margin-left: 33px;
-//   border-radius: 5px;
-//   height: 265px;
-//   width: 230px;
-// }
+.ajouter {
+  position: absolute;
+  margin-top: 50px;
+}
 
+.precedentes {
+  position: absolute;
+  margin-top: 340px;
+}
 
-// background-image: url('bike.jpg');
-//   background-size: cover;
-//   background-position: 25% 75%;
-//   margin-top: 270px ;
-//   margin-left: 33px;
-//   border-radius: 5px;
-//   height: 265px;
-//   width: 230px;
 
 .white-card{
   background-color: #FAFAFA;
@@ -67,3 +75,4 @@
   position: relative;
   height: 280px;
 }
+
