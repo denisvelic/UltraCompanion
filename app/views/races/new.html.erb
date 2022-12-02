@@ -1,3 +1,22 @@
-<h1>Ajouter une course </h1>
 
-<%= render "form", task: @task%>
+<div class = "position-relative">
+
+  <div class="yeah">
+    <%= image_tag 'road.jpg', class: 'class', id: 'identifier', style: 'background-size: cover;
+      width: 100%;
+      height: 170px' %>
+  </div>
+
+	<div class="position-absolute" style = " background-color: #FAFAFA; filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.25)); border-radius: 3.4%; width: 100%;
+height: 40px;">
+		<strong>Ajouter une course</strong>
+	</div>
+
+</div>
+
+<div class = "form-add">
+  <%= render "form", race: @race%>
+</div>
+
+
+<%= link_to "Ajouter", races_path, class: "principal-btn" %>

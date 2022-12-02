@@ -42,8 +42,6 @@
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(180deg, rgba(44, 68, 92, 0) 66.76%, #2C445C 88.03%), url(.jpg);
 }
 
-// Les cards comprenant le titre et les images
-
 .ajouter {
   position: absolute;
   margin-top: 50px;
@@ -52,5 +50,29 @@
 .precedentes {
   position: absolute;
   margin-top: 340px;
+}
+
+
+.white-card{
+  background-color: #FAFAFA;
+  border-radius: 5px;
+  margin-left: 16px;
+  margin-right: 16px;
+  position: relative;
+  height: 80px;
+  display: flex;
+  text-align: inline;
+  justify-content: space-around;
+}
+
+.white-card-companion{
+  background-color: #FAFAFA;
+  border-radius: 5px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  position: relative;
+  height: 280px;
 }
 
