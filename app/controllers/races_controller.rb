@@ -42,7 +42,8 @@ class RacesController < ApplicationController
     #   end
     #  end
     # funnel
-    # route.first(50) ## Pour test, on renvoie les 4 premiers points
+    route ## Pour test, on renvoie les 4 premiers points
+
   end
 
   def race_params
