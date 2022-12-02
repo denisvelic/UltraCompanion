@@ -1,9 +1,16 @@
+// Card des 2 cards de l'index
+
+.big-card {
+  display: flex;
+  margin: auto;
+}
+
 // Card à utiliser dans l'index pour les courses
 
 .card-photo {
   background-image: url('bike.jpg');
   border-radius: 20px;
-  height: 230px;
+  height: 240px;
   width: 200px;
   background-size: cover;
   background-position: 25% 75%;
@@ -23,7 +30,7 @@
   background-size: cover;
   background-position: 25% 75%;
   border-radius: 20px;
-  height: 230px;
+  height: 240px;
   width: 200px;
   margin-left: 33px;
 }
@@ -44,7 +51,7 @@
 
 .ajouter {
   position: absolute;
-  margin-top: 50px;
+  margin-top: 2vh;
 }
 
 .precedentes {
@@ -75,4 +82,3 @@
   position: relative;
   height: 280px;
 }
-

@@ -1,13 +1,12 @@
 // Avatar de la page index
-
 .profil {
-  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 5vh;
+  margin-top: 5vh;
 }
 
 .avatar {
-  top: 40px;
-  right: 30px;
-  position: absolute;
   width: 50px;
   height: 50px;
   border-radius: 5px;
@@ -19,10 +18,8 @@
 // Salut, Pierre
 
 .salut {
-  top: 45px;
-  right: 90px;
-  position: absolute;
   text-align: right;
+  margin-right: 1vh;
 }
 
 // Avatar de la page profile
