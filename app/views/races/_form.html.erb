@@ -1,12 +1,10 @@
 
+<div class="p-5">
 
-
-<%= form_with model: task do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-
-
-
-  <%= f.submit%>
+<%= simple_form_for race, input_html: { class: 'p-5' } do |f| %>
+  <%= f.input :name,  label: 'Nom de la course' %>
+  <%= f.input :date, as: :date, html5: true, label: "Date de départ" %>
+  <%= f.input :photo, as: :file %>
+  <%= f.input :gpx_file, as: :file, label: "Importer une trace GPS" %>
 <% end %>
+</div>
