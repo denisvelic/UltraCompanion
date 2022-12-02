@@ -44,3 +44,26 @@
 //   border-radius: 5px;
 //   height: 265px;
 //   width: 230px;
+
+.white-card{
+  background-color: #FAFAFA;
+  border-radius: 5px;
+  margin-left: 16px;
+  margin-right: 16px;
+  position: relative;
+  height: 80px;
+  display: flex;
+  text-align: inline;
+  justify-content: space-around;
+}
+
+.white-card-companion{
+  background-color: #FAFAFA;
+  border-radius: 5px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  position: relative;
+  height: 280px;
+}
