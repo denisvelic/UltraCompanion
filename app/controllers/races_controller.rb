@@ -9,7 +9,7 @@ class RacesController < ApplicationController
   def show
     @race = Race.find(params[:id])
     @gpx_file = @race.gpx_file
-    @markers = parse_gpx('db/seeds/fixtures/race1.txt')
+    @markers = parse_gpx(@gpx_file)
   end
 
   def new

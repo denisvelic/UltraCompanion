@@ -9,7 +9,7 @@ export default class extends Controller {
 
   connect() {
     // console.log(this.markersValue);
-    console.log(this.#getEveryNth(this.markersValue, 10));
+    // console.log(this.#getEveryNth(this.markersValue, 10));
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
