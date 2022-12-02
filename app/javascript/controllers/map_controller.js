@@ -16,7 +16,7 @@ export default class extends Controller {
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v12",
       center: this.markersValue[0],
-      zoom: 7
+      zoom: 10
     })
     this.map.on('load', () => {
       this.map.addSource('route', {
