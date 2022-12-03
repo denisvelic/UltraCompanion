@@ -59,16 +59,21 @@
   margin-top: 340px;
 }
 
-
+// Les cartes de fond pour les pages d'affichage des courses
 .white-card{
   background-color: #FAFAFA;
   border-radius: 5px;
   margin-left: 16px;
   margin-right: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   position: relative;
-  height: 80px;
+  height: 100%;
   display: flex;
   text-align: inline;
+  text-align: center;
   justify-content: space-around;
 }
 
@@ -77,8 +82,9 @@
   border-radius: 5px;
   margin-left: 16px;
   margin-right: 16px;
-  margin-top: 16px;
   margin-bottom: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   position: relative;
-  height: 280px;
+  height: 100%;
 }

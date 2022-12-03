@@ -1,0 +1,45 @@
+  <%# la page de progression pendant la course %>
+  <%# Afficher la carte du parcours - Automatiser en présentant la bonne page%>
+  <div
+    style="width: 100%; height: 300px; box-shadow: 0 4px 2px -2px gray;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <%# Automatiser le nom de la course  %>
+  <div>
+    <h3>Nom de la course</h3>
+  </div>
+
+  <div class="white-card">
+    <div style= "position: relative; top: 10px">
+      <%=image_tag("icons/clock.svg")%>
+    </div>
+
+    <div>
+      <p><strong>5 h 30 min</strong></p>
+      <p style = "color : #245611">Temps passé</p>
+    </div>
+
+    <div style= "position: relative; top: 10px">
+      <%=image_tag("icons/bike.svg")%>
+    </div>
+
+    <div>
+      <p><strong>120 km</strong></p>
+      <p style = "color : #245611">Parcouru</p>
+    </div>
+  </div>
+
+
+  <div class="white-card-companion">
+    <div style="margin-left : 10px;" >
+      <div>
+        <h5><strong>Profil de la course</strong></h5>
+      </div >
+      <div>
+      <%=image_tag("profil.png")%>
+      </div>
+        <%# Avoir le profil de chaque course dans les seed %>
+    </div>
+  </div>
