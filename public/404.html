@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>La page que vous recherchez n'existe pas (404)</title>
+  <title>Erreur 404</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <!-- Mettre css style ICI et corrige font family-->
-<!-- <link rel="stylesheet" /> -->
-
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,600;1,300&family=Roboto:wght@300;500&display=swap');
+
 .image {
     background-image: url('404.png');
     background-size: contain;
@@ -30,6 +29,7 @@
 }
 
 .dialog {
+    font-family: "Jost";
     margin-top: 5em;
     margin-left: 1em;
     margin-right: 1em;
@@ -48,8 +48,8 @@
   <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div>
-      <h1>Oups la page 404</h1>
-      <h2>La page que vous recherchez n'existe pas.</h2>
+      <h1>Oups, erreur 404</h1>
+      <h2>Un coup de pompe et on repart !</h2>
       <button class="btn"onclick="window.location.href = 'https://ultracompanion.herokuapp.com/';"><strong>Retour en selle</strong> </button>
     </div>
   </div>

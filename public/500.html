@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Nous sommes désolés, mais quelque chose s'est mal passé (500)</title>
+  <title>Erreur 500</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <!-- Mettre css style ICI et corrige font family-->
-
   <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,600;1,300&family=Roboto:wght@300;500&display=swap');
+
 
  .image {
     background-image: url('500.png');
@@ -31,17 +32,17 @@
 }
 
 .dialog {
-    font-family: $body-font;
-    margin-top: 2em;
-    margin-left: 1em;
-    margin-right: 1em;
-    padding: 10px;
-    background-color: #E1E1E1;
-    text-align: center;
-    border: 1px solid #E1E1E1;
-    border-radius: 20px;
-    color: #245611;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  font-family: "Jost";
+  margin-top: 2em;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding: 10px;
+  background-color: #E1E1E1;
+  text-align: center;
+  border: 1px solid #E1E1E1;
+  border-radius: 20px;
+  color: #245611;
+  box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
 }
   </style>
 </head>
@@ -50,8 +51,8 @@
   <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
-      <h1>Oups la page 500</h1>
-      <h2>Nous sommes désolés, mais quelque chose s'est mal passé.</h2>
+      <h1>Oups, erreur 500</h1>
+      <h2>On remplace la roue et on repart !</h2>
       <button class="btn"onclick="window.location.href = 'https://ultracompanion.herokuapp.com/';"><strong>Retour en selle</strong> </button>
     </div>
   </div>
