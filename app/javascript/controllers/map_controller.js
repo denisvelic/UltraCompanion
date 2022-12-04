@@ -16,9 +16,7 @@ export default class extends Controller {
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v12",
       center: this.markersValue[0],
-
-
-      zoom: 10
+      zoom: 7
 
     })
     this.map.on('load', () => {
@@ -50,7 +48,7 @@ export default class extends Controller {
 
 
     // this.#addMarkersToMap()
-    // this.#fitMapToMarkers()
+    this.#fitMapToMarkers()
     // console.log(this.markersValue);
   }
 
@@ -62,19 +60,19 @@ export default class extends Controller {
   // })
   // }
 
-  // #fitMapToMarkers() {
-  //   const bounds = new mapboxgl.LngLatBounds()
-  //   this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-  //   this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
-  // }
-
-  #getEveryNth(arr, nth) {
-    const result = [];
-
-    for (let i = 0; i < arr.length; i += nth) {
-      result.push(arr[i]);
-    }
-
-    return result;
+  #fitMapToMarkers() {
+    const bounds = new mapboxgl.LngLatBounds()
+    this.markersValue.forEach(marker => bounds.extend([ marker[0], marker[1] ]))
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
+
+  // #getEveryNth(arr, nth) {
+  //   const result = [];
+
+  //   for (let i = 0; i < arr.length; i += nth) {
+  //     result.push(arr[i]);
+  //   }
+
+  //   return result;
+  // }
 }
