@@ -37,7 +37,7 @@ puts "Creating races"
 
 race1 = Race.create!(
   user: pierre,
-  name: "Bikingman Cannes, France",
+  name: "Bikingman Cannes",
   date: DateTime.strptime("09/12/2022 09:57", "%m/%d/%Y %H:%M"),
   distance: 1040,
   elevationgain: 20_000,
@@ -48,7 +48,8 @@ race1 = Race.create!(
   time: 88,
   comp_distance: "Le format habituel des courses Biking man avec 1000 km. 3 grands cols à passer avec le légendaire Mont-Ventoux, Vars et la Bonnette",
   comp_elevation: "Le dénivelé globale de 20 000m va être un gros défi.",
-  comp_time: "Le temps estimé est de 88 heures."
+  comp_time: "Le temps estimé est de 88 heures.",
+  status: "done"
 )
 
 race2 = Race.create!(
@@ -64,7 +65,8 @@ race2 = Race.create!(
   time: 20,
   comp_distance: "Le format habituel des courses gravel man de 355 km. L'édition est cette fois en Bretagne Nord.",
   comp_elevation: "L'association vent et bosses courtes vont être un vrai challenge.",
-  comp_time: "Le temps estimé est de 20 heures."
+  comp_time: "Le temps estimé est de 20 heures.",
+  status: "done"
 )
 
 race3 = Race.create!(
@@ -80,7 +82,8 @@ race3 = Race.create!(
   time: 30,
   comp_distance: "Une distance intéressante de preque 500 km. Prends le temps de t'hydrater et de te reposer.",
   comp_elevation: "La sucession des petites bosses bretonnes va t'émousser. Attaque les tranquillement.",
-  comp_time: "Le temps estimé est de 30 heures."
+  comp_time: "Le temps estimé est de 30 heures.",
+  status: "undone"
 )
 
 race4 = Race.create!(
@@ -96,7 +99,8 @@ race4 = Race.create!(
   time: 80,
   comp_distance: "Une distance sérieuse de 1000 km. Prends le temps de t'hydrater et de te reposer.",
   comp_elevation: "La sucession des petites bosses bretonnes va t'émousser. Attaque les tranquillement.",
-  comp_time: "Le temps estimé est de 80 heures."
+  comp_time: "Le temps estimé est de 80 heures.",
+  status: "undone"
 )
 
 race5 = Race.create!(
@@ -112,7 +116,8 @@ race5 = Race.create!(
   time: 25,
   comp_distance: "Méfies-toi de la distance qui semble courte sur le papier. La concentration des cols en début de parcours va faire mal.",
   comp_elevation: "Le dénivelé va faire mal. Soit prêt pour la bataille dans le col d'Arnosteguy et de Bagargui.",
-  comp_time: "Compte environ une journée de course à une allure moyenne de 14km/h."
+  comp_time: "Compte environ une journée de course à une allure moyenne de 14km/h.",
+  status: "done"
 )
 
 race6 = Race.create!(
@@ -128,7 +133,8 @@ race6 = Race.create!(
   time: 26,
   comp_distance: "Fais-toi plaisir sur ce parcours autour du Mont Blanc.",
   comp_elevation: "Le dénivelé va faire mal. Tu vas passer par des cols mythiques des Alpes.",
-  comp_time: "Compte environ une journée de course à une allure moyenne de 13km/h."
+  comp_time: "Compte environ une journée de course à une allure moyenne de 13km/h.",
+  status: "done"
 )
 
 race7 = Race.create!(
@@ -144,7 +150,8 @@ race7 = Race.create!(
   time: 1,
   comp_distance: "pas de commentaire",
   comp_elevation: "pas de commentaire",
-  comp_time: "pas de commentaire"
+  comp_time: "pas de commentaire",
+  status: "done"
 )
 
 race8 = Race.create!(
@@ -160,7 +167,8 @@ race8 = Race.create!(
   time: 1,
   comp_distance: "pas de commentaire",
   comp_elevation: "pas de commentaire",
-  comp_time: "pas de commentaire"
+  comp_time: "pas de commentaire",
+  status: "done"
 )
 
 puts "Adding races map pictures"
