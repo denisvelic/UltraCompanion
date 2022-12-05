@@ -50,7 +50,6 @@ export default class extends Controller {
             'line-width': 8
           }
         });
-
       }
     )
 
@@ -73,7 +72,6 @@ export default class extends Controller {
 
       new mapboxgl.Marker(customMarker)
         .setLngLat([ point.lng, point.lat ])
-
         .addTo(this.map)
     })
   }
