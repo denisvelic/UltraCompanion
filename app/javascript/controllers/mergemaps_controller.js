@@ -20,6 +20,10 @@ export default class extends Controller {
       zoom: 3
     })
 
+
+
+
+
     this.map.on('load', () => {
       this.map.addSource('route', {
           'type': 'geojson',
@@ -55,7 +59,9 @@ export default class extends Controller {
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-  }
+
+
+
 
   #addMarkersToMap() {
     this.waterpointsValue.forEach((point) => {
@@ -81,4 +87,6 @@ export default class extends Controller {
       this.racepointsValue.forEach(point => bounds.extend([ point[0], point[1] ]))
       this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
     }
+
+  }
 }
