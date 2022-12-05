@@ -73,6 +73,7 @@ export default class extends Controller {
 
       new mapboxgl.Marker(customMarker)
         .setLngLat([ point.lng, point.lat ])
+
         .addTo(this.map)
     })
   }
