@@ -53,10 +53,31 @@ export default class extends Controller {
         this.#addMarkersToMap()
         this.#fitMapToMarkers()
 
+        // this.waterpointsValue.forEach(function() {
+        //   // create a DOM element for the marker
+        //   let customPoint = document.createElement("div");
+        //   customPoint.className = "marker";
+        //   customPoint.style.backgroundImage = `url('icons/water-bottle.png')`;
+        //   customPoint.style.width = marker.properties.iconSize[0] + 'px';
+        //   customPoint.style.height = marker.properties.iconSize[1] + 'px';
+        // });
+
       })
     }
     #addMarkersToMap() {
       this.waterpointsValue.forEach((point) => {
+
+        // let customPoint = document.createElement("div");
+        // customPoint.className = "marker";
+        // customPoint.style.backgroundImage = `url('icons/water-bottle.png')`;
+      // Create a HTML element for your custom marker
+      // const customMarker = document.createElement("div")
+      // customMarker.className = "marker"
+      // customMarker.style.backgroundImage = `url('icons/water-bottle.png')`
+      // customMarker.style.backgroundSize = "contain"
+      // customMarker.style.width = "25px"
+      // customMarker.style.height = "25px"
+
       new mapboxgl.Marker()
         .setLngLat([ point[0], point[1] ])
         .addTo(this.map)
