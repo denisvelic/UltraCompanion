@@ -20,6 +20,13 @@ export default class extends Controller {
       zoom: 3
     })
 
+    const geolocate = new mapboxgl.GeolocateControl({
+      positionOptions: {
+      enableHighAccuracy: true
+      },
+      trackUserLocation: true
+      });
+
     this.map.on('load', () => {
       this.map.addSource('route', {
           'type': 'geojson',
@@ -47,7 +54,7 @@ export default class extends Controller {
           },
           'paint': {
             'line-color': '#0000FF',
-            'line-width': 8
+            'line-width': 5
           }
         });
       }
@@ -55,6 +62,14 @@ export default class extends Controller {
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+
+        // Add the control to the map.
+    this.map.addControl(geolocate);
+    // Set an event listener that fires
+    // when a geolocate event occurs.
+    geolocate.on('geolocate', () => {
+    console.log('A geolocate event has occurred.');
+    });
   }
 
   #addMarkersToMap() {
