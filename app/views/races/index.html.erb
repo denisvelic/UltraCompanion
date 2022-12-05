@@ -6,15 +6,16 @@
   </div>
 
   <div class="big-card">
-    <% if current_user.races.last == "undone" %>
+    <% if current_user.races.last.status == "undone" %>
       <h3>Ma prochaine course</h3>
-        <div class="card-carousel">
-          <%= current_user.races.last.photo %>
+       <%= link_to race_path(id: current_user.races.last.id) do %>
+        <div class="card-course">
             <div class="card-text">
               <p><%= current_user.races.last.name %></p>
-              <p><em><%= current_user.races.last.city %></em></p>
+              <p><em><%= current_user.races.last.date %></em></p>
             </div>
         </div>
+        <% end %>
     <% else %>
       <div class="ajouter">
         <h3>Ajouter une course</h3>
