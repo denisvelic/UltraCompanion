@@ -17,12 +17,13 @@ export default class extends Controller {
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v12",
       center: this.racepointsValue[0],
-      zoom: 3
+      zoom: 12,
+      pitch: 0
     })
 
     const geolocate = new mapboxgl.GeolocateControl({
       positionOptions: {
-      enableHighAccuracy: true
+        enableHighAccuracy: true
       },
       trackUserLocation: true
       });
@@ -68,7 +69,7 @@ export default class extends Controller {
     // Set an event listener that fires
     // when a geolocate event occurs.
     geolocate.on('geolocate', () => {
-    console.log('A geolocate event has occurred.');
+      console.log('A geolocate event has occurred.');
     });
   }
 
