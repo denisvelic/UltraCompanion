@@ -3,6 +3,7 @@ class RacesController < ApplicationController
   before_action :set_race, only: [:show, :update]
 
 
+
   def index
     @races = Race.all
   end
@@ -24,10 +25,16 @@ class RacesController < ApplicationController
 
   def create
     @race = Race.new(race_params)
-    @race.save
-    redirect_to races_path(@race)
-  end
+    @race.user = current_user
+    @race.status = "undone"
+    # @race = Race.find(params[:race_id])
 
+    if @race.save
+      redirect_to races_path(@race)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
   private
 
