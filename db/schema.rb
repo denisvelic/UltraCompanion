@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema[7.0].define(version: 2022_12_05_161130) do
-ActiveRecord::Schema[7.0].define(version: 2022_12_05_133506) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,8 +58,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_133506) do
     t.text "comp_distance"
     t.text "comp_elevation"
     t.text "comp_time"
-    t.time "started_at"
     t.string "status"
+    t.time "started_at"
     t.index ["user_id"], name: "index_races_on_user_id"
   end
 
