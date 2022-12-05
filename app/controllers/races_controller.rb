@@ -18,8 +18,13 @@ class RacesController < ApplicationController
 
   def create
     @race = Race.new(race_params)
-    @race.save
-    redirect_to races_path(@race)
+    @race.user = current_user
+
+    if @race.save
+      redirect_to races_path(@race)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
 
