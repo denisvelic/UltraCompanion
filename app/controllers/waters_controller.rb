@@ -18,9 +18,11 @@ class WatersController < ApplicationController
     doc = Nokogiri::XML(file)
     trackpoints = doc.xpath('//xmlns:wpt')
     amenity = trackpoints.map do |wpt|
-      lat = wpt.xpath('@lat').to_s.to_f
-      lng = wpt.xpath('@lon').to_s.to_f
-      [lng, lat]
+      {
+        lat: wpt.xpath('@lat').to_s.to_f,
+        lng: wpt.xpath('@lon').to_s.to_f,
+        image_url: helpers.asset_url("icons/bottle_true.svg")
+      }
     end
     amenity
   end
