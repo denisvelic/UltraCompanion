@@ -1,0 +1,102 @@
+$large: 1200px;
+
+.card-carousel {
+  background-image: url('biking.jpg');
+  border-radius: 20px;
+  height: 240px;
+  width: 200px;
+  background-size: cover;
+  background-position: 25% 75%;
+  margin-left: 33px;
+  overflow: hidden;
+  z-index: 1.5;
+}
+
+.card-carousel2 {
+  background-image: url('gravel.jpg');
+  border-radius: 20px;
+  height: 240px;
+  width: 200px;
+  background-size: cover;
+  background-position: 25% 75%;
+  margin-left: 33px;
+  overflow: hidden;
+  z-index: 1.5;
+}
+
+.card-carousel3 {
+  background-image: url('mountain.jpg');
+  border-radius: 20px;
+  height: 240px;
+  width: 200px;
+  background-size: cover;
+  background-position: 25% 75%;
+  margin-left: 33px;
+  overflow: hidden;
+  z-index: 1.5;
+}
+
+.wrapper {
+  overflow: hidden;
+  display: grid;
+  grid-gap: 10px;
+
+  @media screen and (min-width: $large) {
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto;
+  }
+}
+
+.gallery {
+  scroll-behavior: smooth;
+  display: flex;
+
+  @media screen and (min-width: $large) {
+    display: block;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+  }
+}
+
+.gallery__card-carousel {
+  scroll-snap-align: start;
+  margin-bottom: 10px;
+  object-fit: cover;
+
+  @media screen and (min-width: $large) {
+    min-width: auto;
+    min-height: 40vh;
+  }
+}
+
+.lil-nav {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  grid-row-start: 2;
+  -ms-overflow-style: none; // IE 10+
+  overflow: -moz-scrollbars-none; // Firefox
+
+  @media screen and (min-width: $large) {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: block;
+    grid-row-start: auto;
+  }
+}
+
+.lil-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.lil-nav__card-carousel {
+  object-fit: cover;
+  filter: saturate(0);
+  transition: 0.3s ease all;
+
+  &:hover {
+    transform: scale(1.05);
+    filter: saturate(1);
+  }
+}
