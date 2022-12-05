@@ -6,14 +6,26 @@
   </div>
 
   <div class="big-card">
-    <div class="ajouter">
-      <h3>Ajouter une course</h3>
-        <%= link_to new_race_path do %>
-        <div class="card-photo-vide">
-          <i class="fas fa-plus-circle"></i>
+    <% if current_user.races.last == "undone" %>
+      <h3>Ma prochaine course</h3>
+        <div class="card-carousel">
+          <%= current_user.races.last.photo %>
+            <div class="card-text">
+              <p><%= current_user.races.last.name %></p>
+              <p><em><%= current_user.races.last.city %></em></p>
+            </div>
         </div>
-        <% end %>
-    </div>
+    <% else %>
+      <div class="ajouter">
+        <h3>Ajouter une course</h3>
+          <%= link_to new_race_path do %>
+            <div class="card-photo-vide">
+              <i class="fas fa-plus-circle"></i>
+            </div>
+          <% end %>
+      </div>
+    <% end %>
+
 
   <%# Carrousel des courses déjà réalisées %>
 <h3>Mes précédentes courses</h3>
@@ -44,6 +56,7 @@
         </div>
 
       </div>
+    </div>
   </div>
 
 </div>

@@ -1,11 +1,10 @@
 
-
-
 <%= simple_form_for race, input_html: { class: 'form-race' } do |f| %>
   <div class="w-auto" ><%= f.input :name,  label: 'Nom de la course' %></div>
   <%= f.input :date, as: :date, html5: true, label: "Date de départ" %>
   <%= f.input :photo, as: :file %>
   <%= f.input :gpx_file, as: :file, label: "Importer une trace GPX" %>
+  <%= f.submit "Ajouter", class: "principal-btn"%>
 <% end %>
 
 
