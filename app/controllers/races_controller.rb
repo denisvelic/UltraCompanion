@@ -1,6 +1,5 @@
 class RacesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show] ##a enlever
-
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @races = Race.all

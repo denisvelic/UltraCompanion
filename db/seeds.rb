@@ -151,7 +151,7 @@ race7 = Race.create!(
   comp_distance: "pas de commentaire",
   comp_elevation: "pas de commentaire",
   comp_time: "pas de commentaire",
-  status: "done"
+  status: "undone"
 )
 
 race8 = Race.create!(
@@ -168,7 +168,7 @@ race8 = Race.create!(
   comp_distance: "pas de commentaire",
   comp_elevation: "pas de commentaire",
   comp_time: "pas de commentaire",
-  status: "done"
+  status: "undone"
 )
 
 puts "Adding races map pictures"
