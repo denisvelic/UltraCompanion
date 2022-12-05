@@ -1,17 +1,16 @@
 
+
 <div class = "new-container" >
-
-
-
-	<div class="test position-absolute">
-		<strong>Ajouter une course</strong>
+	<div class="test">
+		<strong><h3>Ajouter une course</h3></strong>
 	</div>
-
 </div>
 
-<div class = "form-add">
-  <%= render "form", race: @race%>
+<div>
+  <div class = "form-add" >
+    <%= render "form", race: @race%>
+  </div>
+
+
+  <%= link_to "Ajouter", waters_path, class: "principal-btn" %>
 </div>
-
-
-<%= link_to "Ajouter", waters_path, class: "principal-btn" %>
