@@ -1,10 +1,14 @@
 
-<div class="p-5">
 
-<%= simple_form_for race, input_html: { class: 'p-5' } do |f| %>
-  <%= f.input :name,  label: 'Nom de la course' %>
+
+<%= simple_form_for race, input_html: { class: 'form-race' } do |f| %>
+  <div class="w-auto" ><%= f.input :name,  label: 'Nom de la course' %></div>
   <%= f.input :date, as: :date, html5: true, label: "Date de départ" %>
   <%= f.input :photo, as: :file %>
-  <%= f.input :gpx_file, as: :file, label: "Importer une trace GPS" %>
+  <%= f.input :gpx_file, as: :file, label: "Importer une trace GPX" %>
 <% end %>
-</div>
+
+
+
+<%# # soit classe en inspectant on les note
+# soit cré classe et on modifie input_html : { class 'form-race'} %>
