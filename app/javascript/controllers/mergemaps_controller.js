@@ -97,11 +97,9 @@ export default class extends Controller {
     })
   }
 
-    #fitMapToMarkers() {
-      const bounds = new mapboxgl.LngLatBounds()
-      this.racepointsValue.forEach(point => bounds.extend([ point[0], point[1] ]))
-      this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
-    }
-
+  #fitMapToMarkers() {
+    const bounds = new mapboxgl.LngLatBounds()
+    this.racepointsValue.forEach(point => bounds.extend([ point[0], point[1] ]))
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 }
