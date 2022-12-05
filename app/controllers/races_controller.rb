@@ -27,7 +27,6 @@ class RacesController < ApplicationController
     end
   end
 
-
   private
 
   def parse_gpx(filepath)
@@ -52,7 +51,7 @@ class RacesController < ApplicationController
   end
 
   def race_params
-    params.require(:race).permit(:name, :date)
+    params.require(:race).permit(:status, :name, :date)
   end
 
 

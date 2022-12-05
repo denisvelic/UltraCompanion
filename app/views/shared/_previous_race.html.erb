@@ -6,24 +6,24 @@
     data-map-markers-value="<%= @markers %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <%# Automatiser le nom de la course  %>
+
   <div>
-    <h3>Nom de la course</h3>
+    <h3><%= @race.name%></h3>
   </div>
 
   <div class="white-card">
 
     <div>
       <%=image_tag("icons/bike.svg")%>
-      <p style="margin-top: 3px">1 000 km</p> <%# # Ajouter ici une automatisation depuis seed %>
+      <p style="margin-top: 3px"><strong><%= @race.distance %> km</strong></p>
     </div>
     <div>
       <%=image_tag("icons/denivele.svg")%>
-      <p style="margin-top: 3px">20 000 m</p> <%# # Ajouter ici une automatisation depuis seed %>
+      <p style="margin-top: 3px"><strong><%= @race.elevationgain %> m</strong></p>
     </div>
     <div>
       <%=image_tag("icons/clock.svg")%>
-      <p style="margin-top: 3px">90 h</p> <%# # Ajouter ici une automatisation depuis seed %>
+      <p style="margin-top: 3px"><strong><%= @race.time %> h</strong></p>
     </div>
 
   </div>
