@@ -1,0 +1,48 @@
+<%# Afficher la carte du parcours %>
+  <div class="display_map">
+    <div
+      style="width: 100%; height: 230px; box-shadow: 0 4px 2px -2px gray;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+
+  <div>
+    <h3><%= @race.name%></h3>
+  </div>
+
+  <div class="white-card">
+
+    <div>
+      <%=image_tag("icons/bike.svg")%>
+      <p style="margin-top: 3px"><strong><%= @race.distance %> km</strong></p>
+    </div>
+    <div>
+      <%=image_tag("icons/denivele.svg")%>
+      <p style="margin-top: 3px"><strong><%= @race.elevationgain %> m</strong></p>
+    </div>
+    <div>
+      <%=image_tag("icons/clock.svg")%>
+      <p style="margin-top: 3px"><strong><%= @race.time %> h</strong></p>
+    </div>
+
+  </div>
+
+
+  <div class="white-card-companion">
+    <div style="margin-left : 20px;" >
+      <div>
+        <h5><strong>Les conseils du companion</strong></h5>
+      </div>
+      <p style="margin-top: 8px"><strong>Distance</strong></p>
+      <p><%= @race.comp_distance %></p>
+      <p><strong>Dénivelé</strong></p>
+      <p><%= @race.comp_elevation %></p>
+      <p><strong>Temps estimé</strong></p>
+      <p><%= @race.comp_time %></p>
+    </div>
+  </div>
+
+
+  <%= link_to "Démarrer la navigation", waters_path, class: "principal-btn" %> <%# # Modifier le lien pour arriver sur la page de navigation %>
