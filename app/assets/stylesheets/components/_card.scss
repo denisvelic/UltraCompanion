@@ -19,6 +19,16 @@
   overflow: hidden;
 }
 
+.card-course {
+  border-radius: 20px;
+  height: 240px;
+  width: 38vh;
+  background-size: cover;
+  background-position: 25% 75%;
+  margin-left: 33px;
+  overflow: hidden;
+}
+
 .card-photo-vide {
   background-color: $light-gray;
   font-size: 55px;

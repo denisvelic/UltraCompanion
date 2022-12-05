@@ -19,6 +19,8 @@ class RacesController < ApplicationController
   def create
     @race = Race.new(race_params)
     @race.user = current_user
+    @race.status = "undone"
+    # @race = Race.find(params[:race_id])
 
     if @race.save
       redirect_to races_path(@race)
