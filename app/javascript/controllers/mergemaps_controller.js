@@ -19,6 +19,7 @@ export default class extends Controller {
       center: this.racepointsValue[0],
       zoom: 3
     })
+
     this.map.on('load', () => {
       this.map.addSource('route', {
           'type': 'geojson',
@@ -50,15 +51,28 @@ export default class extends Controller {
           }
         });
 
-        this.#addMarkersToMap()
-        this.#fitMapToMarkers()
+      }
+    )
 
-      })
-    }
-    #addMarkersToMap() {
-      this.waterpointsValue.forEach((point) => {
-      new mapboxgl.Marker()
-        .setLngLat([ point[0], point[1] ])
+    this.#addMarkersToMap()
+    this.#fitMapToMarkers()
+  }
+
+  #addMarkersToMap() {
+    this.waterpointsValue.forEach((point) => {
+
+      const customMarker = document.createElement("div")
+      customMarker.className = "marker"
+      customMarker.style.backgroundImage = `url('${point.image_url}')`
+      customMarker.style.backgroundSize = "contain"
+      customMarker.style.width = "25px"
+      customMarker.style.height = "25px"
+
+
+
+
+      new mapboxgl.Marker(customMarker)
+        .setLngLat([ point.lng, point.lat ])
         .addTo(this.map)
     })
   }
