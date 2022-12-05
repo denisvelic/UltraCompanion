@@ -2,21 +2,10 @@
 // @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,600;1,300&family=Roboto:wght@300;500&display=swap');
 
-
 // Define fonts for body and headers
 $body-font: "Jost", "Helvetica", "sans-serif";
 $headers-font: "Jost", "Helvetica", "sans-serif";
 
-
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
 @font-face {
   font-family: "Jack";
   font-display: swap;
@@ -30,5 +19,3 @@ $title-sub: "Jack";
   src: url('nova.woff2') format('woff2');
 }
 $title-font: "Nova";
-
-
