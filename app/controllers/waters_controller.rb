@@ -7,8 +7,8 @@ class WatersController < ApplicationController
   def show
     @water = Water.find(params[:id])
     @gpx_file = @water.gpx_file
-    @water_markers = parse_gpx('db/seeds/fixtures/paysloire.txt')
-    @markers = parse_gpx_race('db/seeds/fixtures/race7.txt')
+    @water_markers = parse_gpx('db/seeds/fixtures/water_west_france.txt')
+    @markers = parse_gpx_race('db/seeds/fixtures/race4.txt')
   end
 
   private

@@ -37,62 +37,98 @@ puts "Creating races"
 
 race1 = Race.create!(
   user: pierre,
-  name: "bikingman france",
+  name: "Bikingman Cannes, France",
   date: DateTime.strptime("09/12/2022 09:57", "%m/%d/%Y %H:%M"),
-  distance: 1000,
+  distance: 1040,
   elevationgain: 20_000,
   elevationloss: 20_000,
-  gpx_file: race_gpx_1
+  gpx_file: race_gpx_1,
+  city: "Cannes",
+  country: "France",
+  time: 88,
+  comp_distance: "Le format habituel des courses Biking man avec 1000 km. 3 grands cols à passer avec le légendaire Mont-Ventoux, Vars et la Bonnette",
+  comp_elevation: "Le dénivelé globale de 20 000m va être un gros défi.",
+  comp_time: "Le temps estimé est de 88 heures."
 )
 
 race2 = Race.create!(
   user: pierre,
-  name: "gravelman breizh",
+  name: "Gravelman Breizh",
   date: DateTime.strptime("10/12/2022 09:57", "%m/%d/%Y %H:%M"),
   distance: 355,
   elevationgain: 3720,
   elevationloss: 3720,
-  gpx_file: race_gpx_2
+  gpx_file: race_gpx_2,
+  city: "Plogoff",
+  country: "France",
+  time: 20,
+  comp_distance: "Le format habituel des courses gravel man de 355 km. L'édition est cette fois en Bretagne Nord.",
+  comp_elevation: "L'association vent et bosses courtes vont être un vrai challenge.",
+  comp_time: "Le temps estimé est de 20 heures."
 )
 
 race3 = Race.create!(
   user: pierre,
-  name: "gravelman mont-blanc",
+  name: "Ultra Nantes",
   date: DateTime.strptime("11/12/2022 09:57", "%m/%d/%Y %H:%M"),
-  distance: 327,
-  elevationgain: 8830,
-  elevationloss: 8830,
-  gpx_file: race_gpx_3
+  distance: 480,
+  elevationgain: 2330,
+  elevationloss: 2327,
+  gpx_file: race_gpx_3,
+  city: "Nantes",
+  country: "France",
+  time: 30,
+  comp_distance: "Une distance intéressante de preque 500 km. Prends le temps de t'hydrater et de te reposer.",
+  comp_elevation: "La sucession des petites bosses bretonnes va t'émousser. Attaque les tranquillement.",
+  comp_time: "Le temps estimé est de 30 heures."
 )
 
 race4 = Race.create!(
-  user: celine,
-  name: "gravelman pays basque",
+  user: pierre,
+  name: "Ultra de Noël",
   date: DateTime.strptime("09/12/2022 09:57", "%m/%d/%Y %H:%M"),
-  distance: 332,
-  elevationgain: 8010,
-  elevationloss: 8010,
-  gpx_file: race_gpx_4
+  distance: 1013,
+  elevationgain: 6563,
+  elevationloss: 6561,
+  gpx_file: race_gpx_4,
+  city: "Nantes",
+  country: "France",
+  time: 80,
+  comp_distance: "Une distance sérieuse de 1000 km. Prends le temps de t'hydrater et de te reposer.",
+  comp_elevation: "La sucession des petites bosses bretonnes va t'émousser. Attaque les tranquillement.",
+  comp_time: "Le temps estimé est de 80 heures."
 )
 
 race5 = Race.create!(
   user: pierre,
-  name: "Nantes Nord 54",
+  name: "Gravelman Pays Basque",
   date: DateTime.strptime("05/12/2022 09:57", "%m/%d/%Y %H:%M"),
-  distance: 54,
-  elevationgain: 104,
-  elevationloss: 104,
-  gpx_file: race_gpx_5
+  distance: 332,
+  elevationgain: 8010,
+  elevationloss: 8010,
+  gpx_file: race_gpx_5,
+  city: "St Jean de Luz",
+  country: "France",
+  time: 25,
+  comp_distance: "Méfies-toi de la distance qui semble courte sur le papier. La concentration des cols en début de parcours va faire mal.",
+  comp_elevation: "Le dénivelé va faire mal. Soit prêt pour la bataille dans le col d'Arnosteguy et de Bagargui.",
+  comp_time: "Compte environ une journée de course à une allure moyenne de 14km/h."
 )
 
 race6 = Race.create!(
   user: pierre,
-  name: "Nantes Sud 47",
+  name: "Gravelman Pays Mont Blanc",
   date: DateTime.strptime("06/12/2022 09:57", "%m/%d/%Y %H:%M"),
-  distance: 47,
-  elevationgain: 211,
-  elevationloss: 211,
-  gpx_file: race_gpx_6
+  distance: 327,
+  elevationgain: 8830,
+  elevationloss: 8830,
+  gpx_file: race_gpx_6,
+  city: "Chamonix",
+  country: "France",
+  time: 26,
+  comp_distance: "Fais-toi plaisir sur ce parcours autour du Mont Blanc.",
+  comp_elevation: "Le dénivelé va faire mal. Tu vas passer par des cols mythiques des Alpes.",
+  comp_time: "Compte environ une journée de course à une allure moyenne de 13km/h."
 )
 
 race7 = Race.create!(
@@ -102,7 +138,13 @@ race7 = Race.create!(
   distance: 17,
   elevationgain: 113,
   elevationloss: 113,
-  gpx_file: race_gpx_7
+  gpx_file: race_gpx_7,
+  city: "Nantes",
+  country: "France",
+  time: 1,
+  comp_distance: "pas de commentaire",
+  comp_elevation: "pas de commentaire",
+  comp_time: "pas de commentaire"
 )
 
 race8 = Race.create!(
@@ -112,7 +154,13 @@ race8 = Race.create!(
   distance: 17,
   elevationgain: 110,
   elevationloss: 110,
-  gpx_file: race_gpx_8
+  gpx_file: race_gpx_8,
+  city: "Nantes",
+  country: "France",
+  time: 1,
+  comp_distance: "pas de commentaire",
+  comp_elevation: "pas de commentaire",
+  comp_time: "pas de commentaire"
 )
 
 puts "Adding races map pictures"
@@ -151,10 +199,16 @@ puts "Adding Drinking Water GPX location"
 # Points d'eau pour la région Pays de la Loire
 
 water_gpx_paysloire = 'db/seeds/fixtures/paysloire.txt'
+water_gpx_west_france = 'db/seeds/fixtures/water_west_france.txt'
 
 water_paysloire = Water.create!(
-  name: "Pays de la loire",
+  name: "Water Pays de la loire",
   gpx_file: water_gpx_paysloire
+)
+
+water_west_france = Water.create!(
+  name: "Water Ouest France",
+  gpx_file: water_gpx_west_france
 )
 
 puts "Finished"
