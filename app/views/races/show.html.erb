@@ -4,9 +4,11 @@
 <% content_for :meta_image %>
 
 
+
 <%# conditions mise en place sur le status par rapport aux pages current race et previous race.%>
 <% if @race.status == "undone"%>
 <%= render "shared/current_race" %>
 <% else %>
 <%= render "shared/previous_race"%>
 <% end %>
+

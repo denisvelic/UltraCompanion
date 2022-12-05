@@ -20,12 +20,15 @@ export default class extends Controller {
       zoom: 3
     })
 
+
+
     const geolocate = new mapboxgl.GeolocateControl({
       positionOptions: {
       enableHighAccuracy: true
       },
       trackUserLocation: true
       });
+
 
     this.map.on('load', () => {
       this.map.addSource('route', {
@@ -63,6 +66,7 @@ export default class extends Controller {
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
 
+
         // Add the control to the map.
     this.map.addControl(geolocate);
     // Set an event listener that fires
@@ -71,6 +75,7 @@ export default class extends Controller {
     console.log('A geolocate event has occurred.');
     });
   }
+
 
   #addMarkersToMap() {
     this.waterpointsValue.forEach((point) => {
@@ -96,4 +101,6 @@ export default class extends Controller {
       this.racepointsValue.forEach(point => bounds.extend([ point[0], point[1] ]))
       this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
     }
+
+  }
 }

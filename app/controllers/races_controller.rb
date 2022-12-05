@@ -1,5 +1,8 @@
 class RacesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_race, only: [:show, :update]
+
+
 
   def index
     @races = Race.all
@@ -13,6 +16,11 @@ class RacesController < ApplicationController
 
   def new
     @race = Race.new
+  end
+
+  def update
+    @race.update(race_params)
+    redirect_to race_path(@race)
   end
 
   def create
@@ -52,7 +60,11 @@ class RacesController < ApplicationController
   end
 
   def race_params
-    params.require(:race).permit(:status, :name, :date)
+    params.require(:race).permit(:name, :date, :started_at)
+  end
+
+  def set_race
+    @race = Race.find(params[:id])
   end
 
 
