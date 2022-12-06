@@ -1,31 +1,7 @@
 $large: 1200px;
 
 .card-carousel {
-  background-image: url('mont_blanc.jpg');
-  border-radius: 20px;
-  height: 240px;
-  width: 200px;
-  background-size: cover;
-  background-position: 25% 75%;
-  margin-left: 33px;
-  overflow: hidden;
-  z-index: 1.5;
-}
-
-.card-carousel2 {
-  background-image: url('gravel.jpg');
-  border-radius: 20px;
-  height: 240px;
-  width: 200px;
-  background-size: cover;
-  background-position: 25% 75%;
-  margin-left: 33px;
-  overflow: hidden;
-  z-index: 1.5;
-}
-
-.card-carousel3 {
-  background-image: url('mountain.jpg');
+  // background-image: url('mont_blanc.jpg');
   border-radius: 20px;
   height: 240px;
   width: 200px;
@@ -39,7 +15,6 @@ $large: 1200px;
 .wrapper {
   overflow: hidden;
   display: grid;
-  grid-gap: 10px;
 
   @media screen and (min-width: $large) {
     grid-template-columns: 1fr 5fr;
