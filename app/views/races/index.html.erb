@@ -8,7 +8,7 @@
   <div class="big-card">
     <% if current_user.races.last.status == "undone" %>
       <h3>Ma prochaine course</h3>
-       <%= link_to race_path(id: current_user.races.last.id) do %>
+      <%= link_to race_path(id: current_user.races.last.id) do %>
         <div class="card-course">
             <div class="card-text">
               <p><%= current_user.races.last.name %></p>

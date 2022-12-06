@@ -18,26 +18,28 @@ class WatersController < ApplicationController
   def parse_gpx(filepath)
     file = File.open(filepath)
     doc = Nokogiri::XML(file)
-    trackpoints = doc.xpath('//xmlns:wpt')
-    amenity = trackpoints.map do |wpt|
-      {
-        lat: wpt.xpath('@lat').to_s.to_f,
-        lng: wpt.xpath('@lon').to_s.to_f,
-        image_url: helpers.asset_url("icons/bottle_true.svg")
-      }
-    end
-    amenity
-  end
-
-  def parse_gpx_race(filepath)
-    file = File.open(filepath)
-    doc = Nokogiri::XML(file)
     trackpoints = doc.xpath('//xmlns:trkpt')
+    # funnel = Array.new
     route = trackpoints.map do |trkpt|
       lat = trkpt.xpath('@lat').to_s.to_f
       lng = trkpt.xpath('@lon').to_s.to_f
+      # ele = trkpt.text.strip.to_f
       [lng, lat]
     end
-    route
+    # route.map do |coor|
+    #   if route.index(coor) % (route.length/100) == 0
+    #    funnel.push(coor)
+    #   end
+    #  end
+    # funnel
+    route ## Pour test, on renvoie les 4 premiers points
+  end
+
+  def race_params
+    params.require(:race).permit(:name, :date, :started_at)
+  end
+
+  def set_race
+    @race = Race.find(params[:id])
   end
 end

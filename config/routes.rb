@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
   resources :races, only: %i[index show new create] do
     resource :waters, only: %i[show]
+    resource :progressions, only: %i[show]
   end
 end
