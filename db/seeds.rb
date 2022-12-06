@@ -7,6 +7,20 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'date'
 
+def parse_gpx(filepath)
+  file = File.read(filepath)
+  doc = Nokogiri::XML(file)
+  trackpoints = doc.xpath('//xmlns:trkpt')
+  # funnel = Array.new
+  trackpoints.map do |trkpt|
+    lat = trkpt.xpath('@lat').to_s.to_f
+    lng = trkpt.xpath('@lon').to_s.to_f
+    # ele = trkpt.text.strip.to_f
+    [lng, lat]
+  end
+
+end
+
 puts "Destroying all"
 
 Race.destroy_all
@@ -52,6 +66,9 @@ race1 = Race.create!(
   status: "done"
 )
 
+race1.gpx_path = parse_gpx(race_gpx_1)
+race1.save
+
 race2 = Race.create!(
   user: pierre,
   name: "Gravelman Breizh",
@@ -68,6 +85,9 @@ race2 = Race.create!(
   comp_time: "Le temps estimé est de 20 heures.",
   status: "done"
 )
+
+race2.gpx_path = parse_gpx(race_gpx_2)
+race2.save
 
 race3 = Race.create!(
   user: pierre,
@@ -86,6 +106,9 @@ race3 = Race.create!(
   status: "undone"
 )
 
+race3.gpx_path = parse_gpx(race_gpx_3)
+race3.save
+
 race4 = Race.create!(
   user: pierre,
   name: "Ultra de Noël",
@@ -102,6 +125,9 @@ race4 = Race.create!(
   comp_time: "Le temps estimé est de 80 heures.",
   status: "undone"
 )
+
+race4.gpx_path = parse_gpx(race_gpx_4)
+race4.save
 
 race5 = Race.create!(
   user: pierre,
@@ -120,6 +146,9 @@ race5 = Race.create!(
   status: "done"
 )
 
+race5.gpx_path = parse_gpx(race_gpx_5)
+race5.save
+
 race6 = Race.create!(
   user: pierre,
   name: "Gravelman Pays Mont Blanc",
@@ -136,6 +165,9 @@ race6 = Race.create!(
   comp_time: "Compte environ une journée de course à une allure moyenne de 13km/h.",
   status: "done"
 )
+
+race6.gpx_path = parse_gpx(race_gpx_6)
+race6.save
 
 race7 = Race.create!(
   user: celine,
@@ -154,6 +186,9 @@ race7 = Race.create!(
   status: "undone"
 )
 
+race7.gpx_path = parse_gpx(race_gpx_7)
+race7.save
+
 race8 = Race.create!(
   user: pierre,
   name: "Nantes Beaujoire",
@@ -170,6 +205,9 @@ race8 = Race.create!(
   comp_time: "pas de commentaire",
   status: "undone"
 )
+
+race8.gpx_path = parse_gpx(race_gpx_8)
+race8.save
 
 puts "Adding races map pictures"
 
