@@ -6,7 +6,7 @@
     data-mergemaps-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
-   <div class="menu-map-top">
+  <div class="menu-map-top">
     <div style ="margin-top: 7px;">
       <%=image_tag("icons/clock.svg")%>
     </div>
@@ -46,15 +46,13 @@
       <% end%></h5>
       <p>Localisation</p>
     </div>
-    <div class="menu-map-bottom-play">
-      <h5><% if  @race.started_at == nil %>
-            <%= link_to "" do %>
-            <%= image_tag("play.svg",  size: "40x40") %>
-            <% end %>
+    <div class="menu-map-bottom-play" data-controller="play">
+      <h5 data-action="click->play#toggle">
+        <%= link_to "", race_waters_path do %>
+          <%= image_tag("play.svg",  size: "40x40", data: {target: "icon"}) %>
+        <% end %>
         <%# <i class="fa-regular fa-square-check"></i> %>
-      <% else %>
-        <i class="fa-regular fa-square"></i>
-      <% end%></h5>
+      </h5>
       <p>Démarrer</p>
     </div>
   </div>
