@@ -38,7 +38,8 @@
 
         <% @races.each do |race| %>
           <% if race.status == "done" %>
-            <div class="card-carousel"><%= link_to race_path(race) do %>
+            <div class="card-carousel">
+            <%= link_to race_path(race) do %>
               <div class="card-text">
                 <p><%=race.name%></p>
                 <p><em><%=race.city%>, <%=race.country%></em></p>

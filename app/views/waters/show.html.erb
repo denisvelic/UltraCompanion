@@ -11,7 +11,7 @@
   <strong>Ca marche ???</strong>
   <div>
     <h5><% if  @race.started_at == nil %>
-          <%= link_to "" do %>
+          <%= link_to races_path do %>
           <%= image_tag("play.svg",  size: "40x40") %>
           <% end %>
       <%# <i class="fa-regular fa-square-check"></i> %>
