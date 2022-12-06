@@ -211,35 +211,41 @@ race8.save
 
 puts "Adding races map pictures"
 
-file = File.open(Rails.root.join('db/seeds/images/races/biking_man_map.png'))
-race1.photo.attach(io: file, filename: "biking_man_map.png", content_type: "image/png")
-
-file = File.open(Rails.root.join('db/seeds/images/races/gravel_man_breizh_map.png'))
-race2.photo.attach(io: file, filename: "gravel_man_breizh_map.png", content_type: "image/png")
-
-file = File.open(Rails.root.join('db/seeds/images/races/gravel_man_mont_blanc_map.png'))
-race3.photo.attach(io: file, filename: "gravel_man_mont_blanc_map.png", content_type: "image/png")
-
-file = File.open(Rails.root.join('db/seeds/images/races/gravel_man_pays_basque_map.png'))
-race4.photo.attach(io: file, filename: "gravel_man_pays_basque_map.png", content_type: "image/png")
 
 file = File.open(Rails.root.join('db/seeds/images/races/pierre.png'))
 pierre.photo.attach(io: file, filename: "pierre.png", content_type: "image/png")
 
-file = File.open(Rails.root.join('db/seeds/images/races/celine.png'))
-celine.photo.attach(io: file, filename: "celine.png", content_type: "image/png")
+file = File.open(Rails.root.join('db/seeds/images/races/gravel.jpg'))
+race1.photo.attach(io: file, filename: "gravel.jpg", content_type: "image/png")
+race1.save
 
-file = File.open(Rails.root.join('db/seeds/images/races/race5.png'))
-race1.photo.attach(io: file, filename: "race5.png", content_type: "image/png")
+file = File.open(Rails.root.join('db/seeds/images/races/bm.jpg'))
+race2.photo.attach(io: file, filename: "bm.jpg", content_type: "image/png")
+race2.save
 
-file = File.open(Rails.root.join('db/seeds/images/races/race6.png'))
-race2.photo.attach(io: file, filename: "race6.png", content_type: "image/png")
+file = File.open(Rails.root.join('db/seeds/images/races/tourmalet.jpg'))
+race3.photo.attach(io: file, filename: "tourmalet.jpg", content_type: "image/png")
+race3.save
 
-file = File.open(Rails.root.join('db/seeds/images/races/race7.png'))
-race3.photo.attach(io: file, filename: "race7.png", content_type: "image/png")
+file = File.open(Rails.root.join('db/seeds/images/races/biking.jpg'))
+race4.photo.attach(io: file, filename: "biking.jpg", content_type: "image/png")
+race4.save
 
-file = File.open(Rails.root.join('db/seeds/images/races/race8.png'))
-race4.photo.attach(io: file, filename: "race8.png", content_type: "image/png")
+file = File.open(Rails.root.join('db/seeds/images/races/pays.jpg'))
+race5.photo.attach(io: file, filename: "pays.jpg", content_type: "image/png")
+race5.save
+
+file = File.open(Rails.root.join('db/seeds/images/races/gravel.jpg'))
+race6.photo.attach(io: file, filename: "gravel.jpg", content_type: "image/png")
+race6.save
+
+file = File.open(Rails.root.join('db/seeds/images/races/bm.jpg'))
+race7.photo.attach(io: file, filename: "bm.jpg", content_type: "image/png")
+race7.save
+
+file = File.open(Rails.root.join('db/seeds/images/races/pays.jpg'))
+race8.photo.attach(io: file, filename: "pays.jpg", content_type: "image/png")
+race8.save
 
 puts "Adding Drinking Water GPX location"
 # Points d'eau pour la région Pays de la Loire
