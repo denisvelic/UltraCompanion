@@ -1,9 +1,17 @@
   <%# Afficher le parcours %>
-  <div
-    style="width: 100%; height: 300px; box-shadow: 0 4px 2px -2px gray;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="map-live">
+    <div style="width: 100%; height: 300px; box-shadow: 0 4px 2px -2px gray;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+      <div class="menu-map-bottom-navigation">
+        <h5><%= link_to race_waters_path(@race) do %>
+          <%= image_tag("icons/navigation.svg",  size: "40x40") %>
+          <% end %></h5>
+        <p>Navigation</p>
+      </div>
+    </div>
   </div>
 
   <%# Afficher le nom de la course %>
@@ -37,8 +45,7 @@
         <h5><strong>Profil de la course</strong></h5>
       </div >
       <div>
-      <%=image_tag("profil.png")%>
+      <%= area_chart @elevations.map.with_index{|idx, ele| [ele, idx]}, min: 0, xmin: 0, xmax: 1000 , colors: ["#2C445C"], width: "330px", height: "220px" %>
       </div>
-        <%# Ajouter ici la graphique du profil %>
     </div>
   </div>
