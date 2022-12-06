@@ -1,26 +1,73 @@
 <div class = "map-live">
- <div style="width: 100%; height: 800px;"
+  <div style="width: 100%; height: 800px;"
     data-controller="mergemaps"
     data-mergemaps-racepoints-value="<%= @markers %>"
     data-mergemaps-waterpoints-value="<%= @water_markers.to_json %>"
     data-mergemaps-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
- </div>
-
-  <%# <div class="absolute left 30 bittome 20"> %>
-  <div class="bar-bottom">
-  <strong>Ca marche ???</strong>
-  <div>
-    <h5><% if  @race.started_at == nil %>
-          <%= link_to "" do %>
-          <%= image_tag("play.svg",  size: "40x40") %>
-          <% end %>
-      <%# <i class="fa-regular fa-square-check"></i> %>
-    <% else %>
-      <i class="fa-regular fa-square"></i>
-    <% end%></h5>
-  </div>
   </div>
 
+   <div class="menu-map-top">
+    <div style ="margin-top: 7px;">
+      <%=image_tag("icons/clock.svg")%>
+    </div>
+    <div>
+      <p><strong>5 h 30 </strong></p>
+      <p style ="color:#245611;margin-top: -3px;">Temps passé</p>
+    </div>
+    <div style ="margin-top: 7px;">
+      <%=image_tag("icons/bike.svg")%>
+    </div>
+    <div>
+      <p><strong>120 km</strong></p>
+      <p style ="color:#245611; margin-top: -3px;">Parcouru</p>
+    </div>
+  </div>
 
+  <div class="menu-map-bottom">
+    <div class="menu-map-bottom-water">
+      <h5><% if  @race.started_at == nil %>
+            <%= link_to "" do %>
+            <%= image_tag("icons/bottle.svg",  size: "40x40") %>
+            <% end %>
+        <%# <i class="fa-regular fa-square-check"></i> %>
+      <% else %>
+        <i class="fa-regular fa-square"></i>
+      <% end%></h5>
+      <p>Eau</p>
+    </div>
+    <div class="menu-map-bottom-direction">
+      <h5><% if  @race.started_at == nil %>
+            <%= link_to "" do %>
+            <%= image_tag("icons/direction.svg",  size: "40x40") %>
+            <% end %>
+        <%# <i class="fa-regular fa-square-check"></i> %>
+      <% else %>
+        <i class="fa-regular fa-square"></i>
+      <% end%></h5>
+      <p>Localisation</p>
+    </div>
+    <div class="menu-map-bottom-play">
+      <h5><% if  @race.started_at == nil %>
+            <%= link_to "" do %>
+            <%= image_tag("play.svg",  size: "40x40") %>
+            <% end %>
+        <%# <i class="fa-regular fa-square-check"></i> %>
+      <% else %>
+        <i class="fa-regular fa-square"></i>
+      <% end%></h5>
+      <p>Démarrer</p>
+    </div>
+  </div>
 
+  <div class="menu-map-bottom-progression">
+  <h5><% if  @race.started_at == nil %>
+            <%= link_to race_progressions_path(@race) do %>
+            <%= image_tag("icons/person-biking.svg",  size: "40x40") %>
+            <% end %>
+        <%# <i class="fa-regular fa-square-check"></i> %>
+      <% else %>
+        <i class="fa-regular fa-square"></i>
+      <% end%></h5>
+      <p>Progression</p>
+  </div>
 </div>
