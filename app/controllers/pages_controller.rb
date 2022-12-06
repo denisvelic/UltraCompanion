@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def profil
+    @races = Race.count { |race| race.status == "done"}
+  end
 end

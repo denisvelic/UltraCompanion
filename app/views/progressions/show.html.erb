@@ -1,0 +1,44 @@
+  <%# Afficher le parcours %>
+  <div
+    style="width: 100%; height: 300px; box-shadow: 0 4px 2px -2px gray;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+  <%# Afficher le nom de la course %>
+  <div>
+    <h3><%= @race.name%></h3>
+  </div>
+
+  <%# Avancer en temps et distance de l'utilisateur %>
+  <div class="white-card-live">
+    <div style ="margin-top: 7px;">
+      <%=image_tag("icons/clock.svg")%>
+    </div>
+    <div>
+      <p><strong>5 h 30 </strong></p>
+      <p style ="color:#245611;margin-top: -3px;">Temps passé</p>
+    </div>
+    <div style ="margin-top: 7px;">
+      <%=image_tag("icons/bike.svg")%>
+    </div>
+    <div>
+      <p><strong>120 km</strong></p>
+      <p style ="color:#245611; margin-top: -3px;">Parcouru</p>
+    </div>
+  </div>
+  <%# Ajouter ici l'automatisation du temps passé plus de la distance%>
+
+  <%# Profil de la course %>
+  <div class="white-card-companion">
+    <div style="margin-left: 10px;" >
+      <div>
+        <h5><strong>Profil de la course</strong></h5>
+      </div >
+      <div>
+      <%=image_tag("profil.png")%>
+      </div>
+        <%# Ajouter ici la graphique du profil %>
+    </div>
+  </div>

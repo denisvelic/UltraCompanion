@@ -3,8 +3,6 @@ class RacesController < ApplicationController
   before_action :set_race, only: [:show, :update]
   before_action :set_user, only: [:index]
 
-
-
   def index
     @races = @user.races
   end
