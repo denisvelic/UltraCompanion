@@ -2,8 +2,6 @@ class RacesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_race, only: [:show, :update]
 
-
-
   def index
     @races = Race.all
   end
@@ -27,7 +25,6 @@ class RacesController < ApplicationController
     @race = Race.new(race_params)
     @race.user = current_user
     @race.status = "undone"
-    # @race = Race.find(params[:race_id])
 
     if @race.save
       redirect_to races_path(@race)
