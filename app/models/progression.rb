@@ -1,0 +1,2 @@
+class Progression < ApplicationRecord
+end
