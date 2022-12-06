@@ -4,7 +4,7 @@ class RacesController < ApplicationController
   before_action :set_user, only: [:index]
 
   def index
-    @races = @user.races
+    @races = Race.all
   end
 
   def show
