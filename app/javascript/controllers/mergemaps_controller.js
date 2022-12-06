@@ -21,8 +21,6 @@ export default class extends Controller {
       pitch: 0
     })
 
-
-
     const geolocate = new mapboxgl.GeolocateControl({
       positionOptions: {
         enableHighAccuracy: true
@@ -57,7 +55,7 @@ export default class extends Controller {
             'line-cap': 'round'
           },
           'paint': {
-            'line-color': '#0000FF',
+            'line-color': '#2C445C',
             'line-width': 5
           }
         });
@@ -68,7 +66,7 @@ export default class extends Controller {
     this.#fitMapToMarkers()
 
 
-        // Add the control to the map.
+    // Add the control to the map.
     this.map.addControl(geolocate);
     // Set an event listener that fires
     // when a geolocate event occurs.
@@ -87,9 +85,6 @@ export default class extends Controller {
       customMarker.style.backgroundSize = "contain"
       customMarker.style.width = "25px"
       customMarker.style.height = "25px"
-
-
-
 
       new mapboxgl.Marker(customMarker)
         .setLngLat([ point.lng, point.lat ])

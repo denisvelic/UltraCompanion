@@ -9,7 +9,7 @@ class WatersController < ApplicationController
 
     # @gpx_file = @water.gpx_file
     @race = Race.find(params[:race_id])
-    @water_markers = parse_gpx('db/seeds/fixtures/water_west_france.txt')
+    @water_markers = parse_gpx('db/seeds/fixtures/paysloire.txt')
     @markers = parse_gpx_race(@race.gpx_file)
   end
 

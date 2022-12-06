@@ -40,8 +40,8 @@ export default class extends Controller {
       'line-cap': 'round'
       },
       'paint': {
-      'line-color': '#0000FF',
-      'line-width': 8
+      'line-color': '#2C445C',
+      'line-width': 2
       }
       });
     })
