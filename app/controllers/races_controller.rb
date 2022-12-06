@@ -8,8 +8,9 @@ class RacesController < ApplicationController
   end
 
   def show
-    @race = Race.find(params[:id])
+    @race = Race.find(params[:id]) 
     @markers = @race.gpx_path
+    @elevations = elevation_parse(@gpx_file)
   end
 
   def new
@@ -50,6 +51,17 @@ class RacesController < ApplicationController
       [lng, lat]
     end
   end
+
+    # parsing du fichier pour obtenir les valeurs de l'élévation
+    def elevation_parse(filepath)
+      file = File.open(filepath)
+      doc = Nokogiri::XML(file)
+      trackpoints = doc.xpath('//xmlns:ele')
+      elevation = trackpoints.map do |trkpt|
+        trkpt.text.strip.to_f
+      end
+      elevation
+    end
 
   def race_params
     params.require(:race).permit(:name, :date, :started_at, :gpx_file)

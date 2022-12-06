@@ -94,6 +94,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    chartkick (4.2.1)
     childprocess (4.1.0)
     cloudinary (1.23.0)
       aws_cf_signer
@@ -123,6 +124,8 @@ GEM
     geocoder (1.8.1)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    groupdate (6.1.0)
+      activesupport (>= 5.2)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -275,12 +278,14 @@ DEPENDENCIES
   bootsnap
   byebug
   capybara
+  chartkick
   cloudinary
   debug
   devise
   dotenv-rails
   font-awesome-sass (~> 6.1)
   geocoder
+  groupdate
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
