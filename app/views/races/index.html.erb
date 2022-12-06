@@ -6,13 +6,14 @@
   </div>
 
   <div class="big-card">
-    <% if current_user.races.last.status == "undone" %>
+    <% @races.each do |race| %>
+    <% if race.status == "undone" %>
       <h3>Ma prochaine course</h3>
-      <%= link_to race_path(id: current_user.races.last.id) do %>
+      <%= link_to race_path(race) do %>
         <div class="card-course">
             <div class="card-text">
-              <p><%= current_user.races.last.name %></p>
-              <p><em><%= current_user.races.last.date %></em></p>
+              <p><%= race.name %></p>
+              <p><em><%= race.date %></em></p>
             </div>
         </div>
         <% end %>
@@ -26,6 +27,7 @@
           <% end %>
       </div>
     <% end %>
+  <%end%>
 
 
 <%# Carrousel des courses déjà réalisées %>
@@ -38,7 +40,8 @@
 
         <% @races.each do |race| %>
           <% if race.status == "done" %>
-            <div class="card-carousel"><%= link_to race_path(race) do %>
+            <div class="card-carousel">
+            <%= link_to race_path(race) do %>
               <div class="card-text">
                 <p><%=race.name%></p>
                 <p><em><%=race.city%>, <%=race.country%></em></p>

@@ -5,12 +5,9 @@ class WatersController < ApplicationController
   end
 
   def show
-    # @water = Water.find(params[:id])
-
-    # @gpx_file = @water.gpx_file
     @race = Race.find(params[:race_id])
     @water_markers = parse_gpx('db/seeds/fixtures/water_west_france.txt')
-    @markers = parse_gpx_race(@race.gpx_file)
+    @markers = @race.gpx_path
   end
 
   private
@@ -27,17 +24,5 @@ class WatersController < ApplicationController
       }
     end
     amenity
-  end
-
-  def parse_gpx_race(filepath)
-    file = File.open(filepath)
-    doc = Nokogiri::XML(file)
-    trackpoints = doc.xpath('//xmlns:trkpt')
-    route = trackpoints.map do |trkpt|
-      lat = trkpt.xpath('@lat').to_s.to_f
-      lng = trkpt.xpath('@lon').to_s.to_f
-      [lng, lat]
-    end
-    route
   end
 end
