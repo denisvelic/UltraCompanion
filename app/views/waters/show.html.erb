@@ -47,13 +47,8 @@
       <% end%></h5>
       <p>Localisation</p>
     </div>
-    <div class="menu-map-bottom-play" data-controller="play">
-      <h5 data-action="click->play#toggle">
-        <%= link_to "" do %>
-          <%= image_tag("play.svg",  size: "40x40", data: {target: "icon"}) %>
-        <% end %>
-        <%# <i class="fa-regular fa-square-check"></i> %>
-      </h5>
+    <div class="menu-map-bottom-play" data-controller="play" data-action="click->play#toggle">
+        <%= image_tag("play.svg",  size: "40x40", data: {play_target: "icon"}) %>
       <p>Démarrer</p>
     </div>
   </div>
