@@ -16,15 +16,15 @@
 
     <div>
       <%=image_tag("icons/bike.svg")%>
-      <p style="margin-top: 3px"><strong><%= @race.distance %> km</strong></p>
+      <p style="margin-top: 3px"><strong>109 km</strong></p>
     </div>
     <div>
       <%=image_tag("icons/denivele.svg")%>
-      <p style="margin-top: 3px"><strong><%= @race.elevationgain %> m</strong></p>
+      <p style="margin-top: 3px"><strong>509 m</strong></p>
     </div>
     <div>
       <%=image_tag("icons/clock.svg")%>
-      <p style="margin-top: 3px"><strong><%= @race.time %> h</strong></p>
+      <p style="margin-top: 3px"><strong>4 h</strong></p>
     </div>
 
   </div>
@@ -36,15 +36,14 @@
         <h5><strong>Les conseils du companion</strong></h5>
       </div>
       <p style="margin-top: 8px"><strong>Distance</strong></p>
-      <p><%= @race.comp_distance %></p>
+      <p>Sortie à l'est de Nantes, excellent pour décompresser des semaines passées au Wagon.</p>
       <p><strong>Dénivelé</strong></p>
-      <p><%= @race.comp_elevation %></p>
+      <p>Le parcours est relativement plat. Apporte tes roues de triathlon pour aller vite.</p>
       <p><strong>Temps estimé</strong></p>
-      <p><%= @race.comp_time %></p>
+      <p>4 heures si tu vas tranquilou.</p>
     </div>
   </div>
 
 
 
   <%= link_to "Démarrer la navigation", race_waters_path(@race), class: "principal-btn" %> <%# # Modifier le lien pour arriver sur la page de navigation %>
-
