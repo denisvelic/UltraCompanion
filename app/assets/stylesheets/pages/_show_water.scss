@@ -26,10 +26,9 @@
   background-color: #FAFAFA;
   opacity: 0.9;
   border-radius: 10px;
-  margin-left: 16px;
-  margin-right: 16px;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-left: 2vh;
+  margin-right: 2vh;
+  margin-top: 3vh;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 6px;
@@ -45,7 +44,7 @@
   position: absolute;
   width: 12vh;
   height: 45vh;
-  bottom: 31vh;
+  bottom: 5vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,8 +79,8 @@
 .menu-map-bottom-progression {
   // display: none;
   position: absolute;
-  bottom: 31vh;
-  right: 16px;
+  bottom: 5vh;
+  right: 1vh;
   background-color: white;
   opacity: 0.8;
   text-align: center;
