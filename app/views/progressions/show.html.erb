@@ -14,38 +14,40 @@
     </div>
   </div>
 
-  <%# Afficher le nom de la course %>
-  <div>
-    <h3><%= @race.name%></h3>
-  </div>
+  <div class="card-live-description">
+    <%# Afficher le nom de la course %>
+    <div class="race-name">
+      <h3><%= @race.name%></h3>
+    </div>
 
-  <%# Avancer en temps et distance de l'utilisateur %>
-  <div class="white-card-live">
-    <div style ="margin-top: 7px;">
-      <%=image_tag("icons/clock.svg")%>
+    <%# Avancer en temps et distance de l'utilisateur %>
+    <div class="white-card-live">
+      <div style ="margin-top: 7px;">
+        <%=image_tag("icons/clock.svg")%>
+      </div>
+      <div>
+        <p><strong>5 h 30 </strong></p>
+        <p style ="color:#245611;margin-top: -3px;">Temps passé</p>
+      </div>
+      <div style ="margin-top: 7px;">
+        <%=image_tag("icons/bike.svg")%>
+      </div>
+      <div>
+        <p><strong>120 km</strong></p>
+        <p style ="color:#245611; margin-top: -3px;">Parcouru</p>
+      </div>
     </div>
-    <div>
-      <p><strong>5 h 30 </strong></p>
-      <p style ="color:#245611;margin-top: -3px;">Temps passé</p>
-    </div>
-    <div style ="margin-top: 7px;">
-      <%=image_tag("icons/bike.svg")%>
-    </div>
-    <div>
-      <p><strong>120 km</strong></p>
-      <p style ="color:#245611; margin-top: -3px;">Parcouru</p>
-    </div>
-  </div>
-  <%# Ajouter ici l'automatisation du temps passé plus de la distance%>
+    <%# Ajouter ici l'automatisation du temps passé plus de la distance%>
 
-  <%# Profil de la course %>
-  <div class="white-card-companion">
-    <div style="margin-left: 10px;" >
-      <div>
-        <h5><strong>Profil de la course</strong></h5>
-      </div >
-      <div>
-      <%= area_chart @elevations.map.with_index{|idx, ele| [ele, idx]}, min: 0, colors: ["#2C445C"], width: "400px", height: "220px" %>
+    <%# Profil de la course %>
+    <div class="white-card-companion">
+      <div style="margin-left: 10px;" >
+        <div>
+          <h5><strong>Profil de la course</strong></h5>
+        </div >
+        <div>
+        <%= area_chart @elevations.map.with_index{|idx, ele| [ele, idx]}, min: 0, xmin: 0, xmax: 1000 , colors: ["#2C445C"], width: "330px", height: "20vh" %>
+        </div>
       </div>
     </div>
   </div>

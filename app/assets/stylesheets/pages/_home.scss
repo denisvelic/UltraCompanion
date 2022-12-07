@@ -1,4 +1,9 @@
 // Specific CSS for your home-page
+html {
+  margin: 0;
+  padding: 0;
+  height: 92%;
+}
 
 .home-container {
   background-image: url('home.jpg');
