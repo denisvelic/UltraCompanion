@@ -1,63 +1,55 @@
 <div class="container-index">
 
   <div class="profil">
-    <div class="avatar"></div>
+    <%= link_to profil_path do %>
+      <div class="avatar"></div>
+      <% end %>
     <div class="salut"><p>Salut,<br><strong>Pierre</strong></p></div>
   </div>
 
   <div class="big-card">
-    <% @races.each do |race| %>
-    <% if race.status == "undone" %>
-      <h3>Ma prochaine course</h3>
-
-      <%= link_to race_path(id: current_user.races.last.id) do %>
-            <div class="big-card-carousel-image">
-              <%= cl_image_tag current_user.races.last.photo.key, class:"big-image-carousel"%>
-              <div class="big-card-text">
-                <p><%= current_user.races.last.name %></p>
-                <p><em><%= current_user.races.last.date %></em></p>
-              </div>
-
+    <%# <% @races.each do |race| %>
+      <% if @races.last.status == "undone" %>
+        <h3>Ma prochaine course</h3>
+        <%= link_to race_path(id: current_user.races.last.id) do %>
+          <div class="big-card-carousel-image">
+            <%= cl_image_tag current_user.races.last.photo.key, class:"big-image-carousel"%>
+            <div class="big-card-text">
+              <p><%= current_user.races.last.name %></p>
+              <p><em><%= current_user.races.last.date.strftime("%d/%m/%Y")%></em></p>
             </div>
-      <% end %>
-    <% else %>
-      <div class="ajouter">
-        <h3>Ajouter une course</h3>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="ajouter">
+          <h3>Ajouter une course</h3>
           <%= link_to new_race_path do %>
             <div class="card-photo-vide">
               <i class="fas fa-plus-circle"></i>
             </div>
           <% end %>
-      </div>
-    <% end %>
-  <%end%>
-
-
+        </div>
+      <% end %>
+    <%# <%end%>
 <%# Carrousel des courses déjà réalisées %>
-<h3>Mes précédentes courses</h3>
-
-  <div class="wrapper">
-    <nav class="lil-nav">
+    <h3>Mes précédentes courses</h3>
+    <div class="wrapper">
+      <nav class="lil-nav">
       <div class="gallery">
-
         <% @races.each do |race| %>
           <% if race.status == "done" %>
-
-          <%= link_to race_path(race) do %>
-
+            <%= link_to race_path(race) do %>
               <div class="card-carousel-image">
                 <%= cl_image_tag race.photo.key, class:"image-carousel" %>
                 <div class="card-text">
                   <p><%=race.name%></p>
                   <p><em><%=race.city%>, <%=race.country%></em></p>
                 </div>
-
               </div>
-
-                <% end %>
-
+            <% end %>
           <% end %>
         <% end %>
-
+      </div>
     </div>
   </div>
+</div>
