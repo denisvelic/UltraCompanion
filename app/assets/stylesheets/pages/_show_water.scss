@@ -21,7 +21,7 @@
 
 .menu-map-top {
   position: absolute;
-  top: 40px;
+  top: 1vh;
   width: 90%;
   background-color: #FAFAFA;
   opacity: 0.9;
@@ -43,16 +43,16 @@
 
 .menu-map-bottom {
   position: absolute;
-  width: 90px;
-  height: 300px;
-  bottom: 80px;
+  width: 12vh;
+  height: 45vh;
+  bottom: 31vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: white;
   opacity: 0.8;
   border-radius: 10px;
-  margin-left: 16px;
+  margin-left: 2vh;
   text-align: center;
 }
 
@@ -80,7 +80,7 @@
 .menu-map-bottom-progression {
   // display: none;
   position: absolute;
-  bottom: 80px;
+  bottom: 31vh;
   right: 16px;
   background-color: white;
   opacity: 0.8;
@@ -99,4 +99,12 @@
   text-align: center;
   border-radius: 10px;
   padding: 8px;
+}
+
+.mapboxgl-ctrl-group button:only-child {
+  border-radius: inherit;
+  background-color: red;
+  position: absolute;
+  right: 43vh;
+  top: 58vh;
 }
