@@ -63,8 +63,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_151832) do
     t.text "comp_distance"
     t.text "comp_elevation"
     t.text "comp_time"
-    t.time "started_at"
     t.string "status"
+    t.time "started_at"
     t.string "gpx_path"
     t.index ["user_id"], name: "index_races_on_user_id"
   end

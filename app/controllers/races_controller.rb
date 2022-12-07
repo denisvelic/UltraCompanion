@@ -8,7 +8,7 @@ class RacesController < ApplicationController
   end
 
   def show
-    @race = Race.find(params[:id]) 
+    @race = Race.find(params[:id])
     @markers = @race.gpx_path
     @elevations = elevation_parse(@gpx_file)
   end
@@ -76,5 +76,3 @@ class RacesController < ApplicationController
   end
 
 end
-
-
