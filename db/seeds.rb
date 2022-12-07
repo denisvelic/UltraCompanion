@@ -18,7 +18,16 @@ def parse_gpx(filepath)
     # ele = trkpt.text.strip.to_f
     [lng, lat]
   end
+end
 
+def elevation_parse(filepath)
+  file = File.open(filepath)
+  doc = Nokogiri::XML(file)
+  trackpoints = doc.xpath('//xmlns:trkpt')
+  elevation = trackpoints.map do |trkpt|
+    trkpt.text.strip.to_f
+  end
+  elevation
 end
 
 puts "Destroying all"
@@ -67,6 +76,7 @@ race1 = Race.create!(
 )
 
 race1.gpx_path = parse_gpx(race_gpx_1)
+race1.elevations = elevation_parse(race_gpx_1)
 race1.save
 
 race2 = Race.create!(
@@ -87,6 +97,7 @@ race2 = Race.create!(
 )
 
 race2.gpx_path = parse_gpx(race_gpx_2)
+race2.elevations = elevation_parse(race_gpx_2)
 race2.save
 
 race3 = Race.create!(
@@ -107,6 +118,7 @@ race3 = Race.create!(
 )
 
 race3.gpx_path = parse_gpx(race_gpx_3)
+race3.elevations = elevation_parse(race_gpx_3)
 race3.save
 
 race4 = Race.create!(
@@ -127,6 +139,7 @@ race4 = Race.create!(
 )
 
 race4.gpx_path = parse_gpx(race_gpx_4)
+race4.elevations = elevation_parse(race_gpx_4)
 race4.save
 
 race5 = Race.create!(
@@ -147,6 +160,7 @@ race5 = Race.create!(
 )
 
 race5.gpx_path = parse_gpx(race_gpx_5)
+race5.elevations = elevation_parse(race_gpx_5)
 race5.save
 
 race6 = Race.create!(
@@ -167,6 +181,7 @@ race6 = Race.create!(
 )
 
 race6.gpx_path = parse_gpx(race_gpx_6)
+race6.elevations = elevation_parse(race_gpx_6)
 race6.save
 
 race7 = Race.create!(
@@ -187,6 +202,7 @@ race7 = Race.create!(
 )
 
 race7.gpx_path = parse_gpx(race_gpx_7)
+race7.elevations = elevation_parse(race_gpx_7)
 race7.save
 
 race8 = Race.create!(
@@ -207,6 +223,7 @@ race8 = Race.create!(
 )
 
 race8.gpx_path = parse_gpx(race_gpx_8)
+race8.elevations = elevation_parse(race_gpx_8)
 race8.save
 
 puts "Adding races map pictures"
