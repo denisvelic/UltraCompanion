@@ -5,4 +5,5 @@ class Race < ApplicationRecord
   geocoded_by :gpx_file
 
   serialize :gpx_path, Array
+  serialize :elevations, Array
 end

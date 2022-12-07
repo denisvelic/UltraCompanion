@@ -1,5 +1,4 @@
 class RacesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_race, only: [:show, :update]
   before_action :set_user, only: [:index]
 
@@ -10,7 +9,7 @@ class RacesController < ApplicationController
   def show
     @race = Race.find(params[:id])
     @markers = @race.gpx_path
-    @elevations = elevation_parse(@gpx_file)
+    @elevations = @race.elevations
   end
 
   def new
@@ -26,6 +25,7 @@ class RacesController < ApplicationController
     @race = Race.new(race_params)
     gpx_file = params.require(:race).permit(:gpx_file)[:gpx_file].read
     @race.gpx_path = parse_gpx(gpx_file)
+    @race.elevations = elevation_parse(gpx_file)
     @race.user = current_user
     @race.status = "undone"
 
@@ -34,7 +34,6 @@ class RacesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-
   end
 
   private
@@ -52,16 +51,17 @@ class RacesController < ApplicationController
     end
   end
 
-    # parsing du fichier pour obtenir les valeurs de l'élévation
-    def elevation_parse(filepath)
-      file = File.open(filepath)
-      doc = Nokogiri::XML(file)
-      trackpoints = doc.xpath('//xmlns:ele')
-      elevation = trackpoints.map do |trkpt|
-        trkpt.text.strip.to_f
-      end
-      elevation
+  # parsing du fichier pour obtenir les valeurs de l'élévation
+  def elevation_parse(file)
+    # file = File.open(filepath)
+    doc = Nokogiri::XML(file)
+    trackpoints = doc.xpath('//xmlns:trkpt')
+    elevation = trackpoints.map do |trkpt|
+      ele = trkpt.text.strip.to_f
+      [ele]
     end
+    elevation
+  end
 
   def race_params
     params.require(:race).permit(:name, :date, :started_at, :gpx_file, :photo)
@@ -74,5 +74,4 @@ class RacesController < ApplicationController
   def set_user
     @user = current_user
   end
-
 end
