@@ -40,3 +40,4 @@ export default class extends Controller {
     this.dateTarget.innerText = formattedDate
   }
 }
+

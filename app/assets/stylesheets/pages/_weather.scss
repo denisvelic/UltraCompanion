@@ -6,7 +6,7 @@
   height: 24vh;
 
   h3 {
-    text-align: center;
+    margin: auto;
   }
 }
 
@@ -15,6 +15,13 @@
   width: 90%;
   margin: 0 15px 15px 15px;
   padding-top: 25vh;
+
+  .formulaire {
+    width: 46vw;
+  }
+  .btn-primary {
+    width: 30vw;
+  }
 }
 
 .card-principal {
@@ -36,6 +43,8 @@
 
 .ligne {
   display: inline-flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 .text-secondary {
