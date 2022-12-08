@@ -18,7 +18,7 @@
       <%=image_tag("icons/bike.svg")%>
     </div>
     <div>
-      <p><strong>120 km</strong></p>
+      <p><strong>0 km</strong></p>
       <p style ="color:#245611; margin-top: -3px;">Parcouru</p>
     </div>
   </div>
@@ -44,7 +44,7 @@
       <% end%></h5>
       <p>Localisation</p>
     </div>
-    <div class="menu-map-bottom-play" data-action="click->play#start">
+    <div class="menu-map-bottom-play" data-action="click->play#start click->play#toggle">
         <%= image_tag("play.svg",  size: "40x40", data: {play_target: "icon"}) %>
         <%= image_tag("pause.svg",  size: "40x40", data: {play_target: "pause"}, class: "d-none") %>
 
