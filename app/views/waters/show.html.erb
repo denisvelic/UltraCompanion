@@ -5,13 +5,13 @@
     data-mergemaps-waterpoints-value="<%= @water_markers.to_json %>"
     data-mergemaps-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-
+<div data-controller="play">
   <div class="menu-map-top">
     <div style ="margin-top: 7px;">
       <%=image_tag("icons/clock.svg")%>
     </div>
-    <div class="barre-top-time" data-controller="play" data-action= "click->play#toggle" data-play-target="pause">
-      <p><strong> yeahhh </strong></p>
+    <div>
+      <p><div data-play-target="timer">00:00</div></p>
       <p style ="color:#245611;margin-top: -3px;">Temps passé</p>
     </div>
     <div style ="margin-top: 7px;">
@@ -44,7 +44,7 @@
       <% end%></h5>
       <p>Localisation</p>
     </div>
-    <div class="menu-map-bottom-play" data-controller="play" data-action="click->play#toggle">
+    <div class="menu-map-bottom-play" data-action="click->play#start">
         <%= image_tag("play.svg",  size: "40x40", data: {play_target: "icon"}) %>
         <%= image_tag("pause.svg",  size: "40x40", data: {play_target: "pause"}, class: "d-none") %>
 
@@ -58,4 +58,5 @@
             <% end %>
       <p>Progression</p>
   </div>
+</div>
 </div>
