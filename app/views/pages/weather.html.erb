@@ -1,7 +1,26 @@
-<div class="content-weather">
-  <h3>Météo</h3>
+<div class="container-weather">
 
+  <div class="test">
+		<h3>Météo</h3>
+	</div>
 
+  <div class="content" data-controller="weather">
+    <form class="ligne" data-action="submit->weather#fetchWeather">
+      <input type="text" placeholder="Ville" class="formulaire" data-weather-target="input">
+      <a href="" class="position" data-action="click->weather#fetchWeatherByCoordinates"><i class="bi bi-geo-alt"></i></a>
+      <input type="submit" value="Météo" class="btn btn-primary">
+    </form>
 
+    <div class="card-principal">
+      <h1><span data-weather-target="city"></span></h1>
 
+      <div>
+        <p data-weather-target="description"></p>
+        <div class="d-flex">
+          <img src="" alt="" data-weather-target="icon">
+          <h2 data-weather-target="temperature"></h2>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
