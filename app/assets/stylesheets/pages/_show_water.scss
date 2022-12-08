@@ -42,8 +42,7 @@
 
 .menu-map-bottom {
   position: absolute;
-  width: 12vh;
-  height: 45vh;
+  width: 90px;
   bottom: 5vh;
   display: flex;
   flex-direction: column;
@@ -55,25 +54,54 @@
   text-align: center;
 }
 
-.menu-map-bottom-water {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  border-bottom: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: #2C445C;
-}
+// .menu-map-bottom-water {
+//   padding-top: 8px;
+//   padding-bottom: 8px;
+//   border-bottom: solid;
+//   border-bottom-width: 1px;
+//   border-bottom-color: #2C445C;
+// }
 
 .menu-map-bottom-direction {
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
   border-bottom: solid;
   border-bottom-width: 1px;
   border-bottom-color: #2C445C;
+  position: relative;
 }
 
+.mapboxgl-ctrl-top-right {
+  left: 0;
+  bottom: 155px;
+  width: 90px;
+  height: 11vh;
+  top: unset;
+  opacity: 0;
+  margin: 0 0 0 15px;
+}
+.mapboxgl-ctrl-group:not(:empty) {
+  box-shadow: none;
+}
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+  margin: 0;
+  float: unset;
+}
+.mapboxgl-ctrl-group button:only-child {
+  border-radius: inherit;
+  width: 90px;
+  height: 103px;
+}
+
+
+
+
+
+
 .menu-map-bottom-play {
-  padding-top: 16px;
-  padding-bottom: 8px;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
 }
 
 .menu-map-bottom-progression {
@@ -98,12 +126,4 @@
   text-align: center;
   border-radius: 10px;
   padding: 8px;
-}
-
-.mapboxgl-ctrl-group button:only-child {
-  border-radius: inherit;
-  background-color: red;
-  position: absolute;
-  right: 43vh;
-  top: 58vh;
 }

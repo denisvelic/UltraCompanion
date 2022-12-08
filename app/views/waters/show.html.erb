@@ -4,7 +4,6 @@
     data-mergemaps-racepoints-value="<%= @markers %>"
     data-mergemaps-waterpoints-value="<%= @water_markers.to_json %>"
     data-mergemaps-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-
   </div>
 
   <div class="menu-map-top">
@@ -25,22 +24,18 @@
   </div>
 
   <div class="menu-map-bottom">
-    <div class="menu-map-bottom-water">
       <h5><% if  @race.started_at == nil %>
             <%= link_to "" do %>
-            <%= image_tag("icons/bottle.svg",  size: "40x40") %>
             <% end %>
         <%# <i class="fa-regular fa-square-check"></i> %>
       <% else %>
         <i class="fa-regular fa-square"></i>
       <% end%></h5>
-      <p>Eau</p>
-    </div>
     <div class="menu-map-bottom-direction">
       <h5><% if  @race.started_at == nil %>
-            <%= link_to "" do %>
-            <%= image_tag("icons/direction.svg",  size: "40x40") %>
-            <% end %>
+        <%= link_to "" do %>
+        <%= image_tag("icons/direction.svg",  size: "40x40") %>
+        <% end %>
         <%# <i class="fa-regular fa-square-check"></i> %>
       <% else %>
         <i class="fa-regular fa-square"></i>
