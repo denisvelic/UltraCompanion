@@ -20,6 +20,7 @@ export default class extends Controller {
   start(event) {
     // console.log(event.target.getAttribute("class"));
     if (event.target.getAttribute("class") === "play-button") {
+
       if (!this.interval) {
         this.temps = 0
 
@@ -51,4 +52,3 @@ export default class extends Controller {
       clearInterval(this.interval)
     }
   }
-}

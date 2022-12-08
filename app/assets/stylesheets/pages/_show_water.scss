@@ -53,6 +53,7 @@
   border-radius: 10px;
   margin-left: 2vh;
   text-align: center;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
 }
 
 // .menu-map-bottom-water {
@@ -103,6 +104,7 @@
 .menu-map-bottom-play {
   padding-top: 3vh;
   padding-bottom: 2vh;
+
   .play-button {
     margin-bottom: 1vh;
   }
@@ -110,6 +112,8 @@
     margin-bottom: 1vh;
   }
 }
+
+
 
 .menu-map-bottom-progression {
   // display: none;
@@ -123,6 +127,8 @@
   padding: 8px;
   padding-top: 3vh;
   padding-bottom: 2vh;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+  height: 14vh;
 }
 
 .menu-map-bottom-navigation {
@@ -135,4 +141,5 @@
   text-align: center;
   border-radius: 10px;
   padding: 8px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
 }

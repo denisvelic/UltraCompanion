@@ -47,6 +47,7 @@
     <div class="menu-map-bottom-play" data-action="click->play#toggle">
         <%= image_tag("play.svg",  size: "40x40", data: {action: "click->play#start", play_target: "icon"}, class: "play-button") %>
         <%= image_tag("pause.svg",  size: "40x40", data: {action: "click->play#start", play_target: "pause"}, class: "pause-button d-none") %>
+
       <p><div data-play-target="switchstart">Démarrer</div></p>
       <p><div data-play-target="switchpause" class="d-none">Pause</div></p>
     </div>
