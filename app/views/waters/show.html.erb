@@ -1,10 +1,9 @@
 <div class = "map-live">
-  <div style="width: 100%; height: 800px;"
+  <div style="width: 100%; height: 92vh;"
     data-controller="mergemaps"
     data-mergemaps-racepoints-value="<%= @markers %>"
     data-mergemaps-waterpoints-value="<%= @water_markers.to_json %>"
     data-mergemaps-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-
   </div>
 
   <div class="menu-map-top">
@@ -25,21 +24,30 @@
   </div>
 
   <div class="menu-map-bottom">
-    <div class="menu-map-bottom-water">
+
+      <h5><% if  @race.started_at == nil %>
             <%= link_to "" do %>
-            <%= image_tag("icons/bottle.svg",  size: "40x40") %>
             <% end %>
-      <p>Eau</p>
-    </div>
+
+        <%# <i class="fa-regular fa-square-check"></i> %>
+      <% else %>
+        <i class="fa-regular fa-square"></i>
+      <% end%></h5>
     <div class="menu-map-bottom-direction">
-            <%= link_to "" do %>
-            <%= image_tag("icons/direction.svg",  size: "40x40") %>
-      <% end%>
+      <h5><% if  @race.started_at == nil %>
+        <%= link_to "" do %>
+        <%= image_tag("icons/direction.svg",  size: "40x40") %>
+        <% end %>
+        <%# <i class="fa-regular fa-square-check"></i> %>
+      <% else %>
+        <i class="fa-regular fa-square"></i>
+      <% end%></h5>
       <p>Localisation</p>
     </div>
-    <div class="menu-map-bottom-play" data-controller="play" data-action= "click->play#toggle" >
-          <%= image_tag("play.svg",  size: "40x40", data: {play_target: "icon"}) %>
-          <%= image_tag("pause.svg",  size: "40x40", data: {play_target: "pause"}, class: "d-none") %>
+    <div class="menu-map-bottom-play" data-controller="play" data-action="click->play#toggle">
+        <%= image_tag("play.svg",  size: "40x40", data: {play_target: "icon"}) %>
+        <%= image_tag("pause.svg",  size: "40x40", data: {play_target: "pause"}, class: "d-none") %>
+
       <p>Démarrer</p>
     </div>
   </div>

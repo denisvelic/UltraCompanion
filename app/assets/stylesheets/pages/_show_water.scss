@@ -21,15 +21,14 @@
 
 .menu-map-top {
   position: absolute;
-  top: 40px;
+  top: 1vh;
   width: 90%;
   background-color: #FAFAFA;
   opacity: 0.9;
   border-radius: 10px;
-  margin-left: 16px;
-  margin-right: 16px;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-left: 2vh;
+  margin-right: 2vh;
+  margin-top: 3vh;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 6px;
@@ -44,44 +43,72 @@
 .menu-map-bottom {
   position: absolute;
   width: 90px;
-  height: 300px;
-  bottom: 80px;
+  bottom: 5vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: white;
   opacity: 0.8;
   border-radius: 10px;
-  margin-left: 16px;
+  margin-left: 2vh;
   text-align: center;
 }
 
-.menu-map-bottom-water {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  border-bottom: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: #2C445C;
-}
+// .menu-map-bottom-water {
+//   padding-top: 8px;
+//   padding-bottom: 8px;
+//   border-bottom: solid;
+//   border-bottom-width: 1px;
+//   border-bottom-color: #2C445C;
+// }
 
 .menu-map-bottom-direction {
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
   border-bottom: solid;
   border-bottom-width: 1px;
   border-bottom-color: #2C445C;
+  position: relative;
 }
 
+.mapboxgl-ctrl-top-right {
+  left: 0;
+  bottom: 155px;
+  width: 90px;
+  height: 11vh;
+  top: unset;
+  opacity: 0;
+  margin: 0 0 0 15px;
+}
+.mapboxgl-ctrl-group:not(:empty) {
+  box-shadow: none;
+}
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+  margin: 0;
+  float: unset;
+}
+.mapboxgl-ctrl-group button:only-child {
+  border-radius: inherit;
+  width: 90px;
+  height: 103px;
+}
+
+
+
+
+
+
 .menu-map-bottom-play {
-  padding-top: 16px;
-  padding-bottom: 8px;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
 }
 
 .menu-map-bottom-progression {
   // display: none;
   position: absolute;
-  bottom: 80px;
-  right: 16px;
+  bottom: 5vh;
+  right: 1vh;
   background-color: white;
   opacity: 0.8;
   text-align: center;

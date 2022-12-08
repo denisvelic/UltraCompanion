@@ -1,5 +1,5 @@
 <div class="container-index">
-
+  <div class="logo"></div>
   <div class="profil">
     <%= link_to profil_path do %>
       <div class="avatar"></div>
@@ -10,7 +10,7 @@
   <div class="big-card">
     <%# <% @races.each do |race| %>
       <% if @races.last.status == "undone" %>
-        <h3>Ma prochaine course</h3>
+        <div class = "title" ><h3>Ma prochaine course</h3></div>
         <%= link_to race_path(id: current_user.races.last.id) do %>
           <div class="big-card-carousel-image">
             <%= cl_image_tag current_user.races.last.photo.key, class:"big-image-carousel"%>
