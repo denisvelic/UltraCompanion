@@ -152,7 +152,7 @@ race5 = Race.create!(
   gpx_file: race_gpx_5,
   city: "St Jean de Luz",
   country: "France",
-  time: 25,
+  time: 20,
   comp_distance: "Méfies-toi de la distance qui semble courte sur le papier. La concentration des cols en début de parcours va faire mal.",
   comp_elevation: "Le dénivelé va faire mal. Soit prêt pour la bataille dans le col d'Arnosteguy et de Bagargui.",
   comp_time: "Compte environ une journée de course à une allure moyenne de 14km/h.",
