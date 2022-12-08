@@ -2,7 +2,7 @@
 <div class="wrapper-current-course">
   <div class="display_map">
     <div
-      style="width: 100%; height: 25vh; box-shadow: 0 4px 2px -2px gray;"
+      style="width: 100%; height: 300px; box-shadow: 0 4px 2px -2px gray;"
       data-controller="map"
       data-map-markers-value="<%= @markers %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -34,11 +34,6 @@
   <div class="white-card-companion">
 
       <h5><strong>Les conseils du companion</strong></h5>
-      <br>
-      <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure deserunt ipsum illum, nobis, qui officiis aspernatur repudiandae rerum maxime dolor impedit quam repellendus eos hic doloremque. Consectetur, nobis necessitatibus.
-      </p>
-      <br>
       <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure deserunt ipsum illum, nobis, qui officiis aspernatur repudiandae rerum maxime dolor impedit quam repellendus eos hic doloremque. Consectetur, nobis necessitatibus.
       </p>
@@ -48,4 +43,4 @@
 
   <%= link_to "Démarrer la navigation", race_waters_path(@race), class: "principal-btn" %> <%# # Modifier le lien pour arriver sur la page de navigation %>
 
- </div>
+</div>
