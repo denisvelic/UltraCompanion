@@ -7,4 +7,8 @@ class PagesController < ApplicationController
   def profil
     @races = Race.count { |race| race.status == "done"}
   end
+
+  # def weather
+  #   @result = File.open(.....).to_json
+  # end
 end

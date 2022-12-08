@@ -22,36 +22,33 @@ export default class extends Controller {
     if (event.target.getAttribute("class") === "play-button") {
 
       if (!this.interval) {
-      this.temps = 0
+        this.temps = 0
 
-    this.interval = setInterval(() => {
-      let minutes = parseInt(this.temps / 60, 10)
-      let secondes = parseInt(this.temps % 60, 10)
+        this.interval = setInterval(() => {
+          let minutes = parseInt(this.temps / 60, 10)
+          let secondes = parseInt(this.temps % 60, 10)
 
-      minutes = minutes < 10 ? "0" + minutes : minutes
-      secondes = secondes < 10 ? "0" + secondes : secondes
+          minutes = minutes < 10 ? "0" + minutes : minutes
+          secondes = secondes < 10 ? "0" + secondes : secondes
 
-      this.timerTarget.innerText = `${minutes}:${secondes}`
-      this.temps = this.temps + 1
-    }, 1000)
-    }
-    else {
-    this.interval = setInterval(() => {
-      let minutes = parseInt(this.temps / 60, 10)
-      let secondes = parseInt(this.temps % 60, 10)
+          this.timerTarget.innerText = `${minutes}:${secondes}`
+          this.temps = this.temps + 1
+        }, 1000)
+      }
+      else {
+        this.interval = setInterval(() => {
+          let minutes = parseInt(this.temps / 60, 10)
+          let secondes = parseInt(this.temps % 60, 10)
 
-      minutes = minutes < 10 ? "0" + minutes : minutes
-      secondes = secondes < 10 ? "0" + secondes : secondes
+          minutes = minutes < 10 ? "0" + minutes : minutes
+          secondes = secondes < 10 ? "0" + secondes : secondes
 
-      this.timerTarget.innerText = `${minutes}:${secondes}`
-      this.temps = this.temps + 1
-
-    }, 1000)
-
-    }
+          this.timerTarget.innerText = `${minutes}:${secondes}`
+          this.temps = this.temps + 1
+        }, 1000)
+      }
     }
     else {
       clearInterval(this.interval)
     }
-  }
   }

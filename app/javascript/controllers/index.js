@@ -18,3 +18,6 @@ application.register("play", PlayController)
 
 import WaterController from "./water_controller"
 application.register("water", WaterController)
+
+import WeatherController from "./weather_controller"
+application.register("weather", WeatherController)
