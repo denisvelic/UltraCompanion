@@ -10,13 +10,6 @@ export default class extends Controller {
     console.log("hello");
   }
 
-
-  toggle() {
-    // console.log(this.pauseTarget);
-    this.iconTarget.classList.toggle("d-none")
-    this.pauseTarget.classList.toggle("d-none")
-  }
-
   toggle() {
     this.iconTarget.classList.toggle("d-none")
     this.pauseTarget.classList.toggle("d-none")
@@ -25,7 +18,7 @@ export default class extends Controller {
   start() {
     let temps = 0
 
-    let Interval = setInterval(() => {
+    setInterval(() => {
       let minutes = parseInt(temps / 60, 10)
       let secondes = parseInt(temps % 60, 10)
 
