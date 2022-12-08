@@ -260,8 +260,8 @@ file = File.open(Rails.root.join('db/seeds/images/races/bm.jpg'))
 race7.photo.attach(io: file, filename: "bm.jpg", content_type: "image/png")
 race7.save
 
-file = File.open(Rails.root.join('db/seeds/images/races/pays.jpg'))
-race8.photo.attach(io: file, filename: "pays.jpg", content_type: "image/png")
+file = File.open(Rails.root.join('db/seeds/images/races/vtt.jpeg'))
+race8.photo.attach(io: file, filename: "vtt.jpeg", content_type: "image/png")
 race8.save
 
 puts "Adding Drinking Water GPX location"
