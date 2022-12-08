@@ -8,6 +8,7 @@ class WatersController < ApplicationController
     @race = Race.find(params[:race_id])
     @water_markers = parse_gpx('db/seeds/fixtures/paysloire.txt')
     @markers = @race.gpx_path
+    # @status = @race.status
   end
 
   private

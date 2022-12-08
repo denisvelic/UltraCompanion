@@ -11,8 +11,8 @@
     <div style ="margin-top: 7px;">
       <%=image_tag("icons/clock.svg")%>
     </div>
-    <div>
-      <p><strong>5 h 30 </strong></p>
+    <div class="barre-top-time" data-controller="play" data-action= "click->play#toggle" data-play-target="pause">
+      <p><strong> yeahhh </strong></p>
       <p style ="color:#245611;margin-top: -3px;">Temps passé</p>
     </div>
     <div style ="margin-top: 7px;">
@@ -26,47 +26,28 @@
 
   <div class="menu-map-bottom">
     <div class="menu-map-bottom-water">
-      <h5><% if  @race.started_at == nil %>
             <%= link_to "" do %>
             <%= image_tag("icons/bottle.svg",  size: "40x40") %>
             <% end %>
-        <%# <i class="fa-regular fa-square-check"></i> %>
-      <% else %>
-        <i class="fa-regular fa-square"></i>
-      <% end%></h5>
       <p>Eau</p>
     </div>
     <div class="menu-map-bottom-direction">
-      <h5><% if  @race.started_at == nil %>
             <%= link_to "" do %>
             <%= image_tag("icons/direction.svg",  size: "40x40") %>
-            <% end %>
-        <%# <i class="fa-regular fa-square-check"></i> %>
-      <% else %>
-        <i class="fa-regular fa-square"></i>
-      <% end%></h5>
+      <% end%>
       <p>Localisation</p>
     </div>
-    <div class="menu-map-bottom-play" data-controller="play">
-      <h5 data-action="click->play#toggle">
-        <%= link_to "" do %>
-          <%= image_tag("play.svg",  size: "40x40", data: {target: "icon"}) %>
-        <% end %>
-        <%# <i class="fa-regular fa-square-check"></i> %>
-      </h5>
+    <div class="menu-map-bottom-play" data-controller="play" data-action= "click->play#toggle" >
+          <%= image_tag("play.svg",  size: "40x40", data: {play_target: "icon"}) %>
+          <%= image_tag("pause.svg",  size: "40x40", data: {play_target: "pause"}, class: "d-none") %>
       <p>Démarrer</p>
     </div>
   </div>
 
   <div class="menu-map-bottom-progression">
-  <h5><% if  @race.started_at == nil %>
             <%= link_to race_progressions_path(@race) do %>
             <%= image_tag("icons/person-biking.svg",  size: "40x40") %>
             <% end %>
-        <%# <i class="fa-regular fa-square-check"></i> %>
-      <% else %>
-        <i class="fa-regular fa-square"></i>
-      <% end%></h5>
       <p>Progression</p>
   </div>
 </div>
