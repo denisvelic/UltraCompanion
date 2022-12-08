@@ -4,17 +4,27 @@
   background-position: 25% 48%;
   width: 100%;
   height: 24vh;
-
-  h3 {
-    margin: auto;
-  }
 }
 
+.carousel-meteo {
+  scroll-behavior: smooth;
+  display: flex;
+  flex-wrap: wrap;
+  @media screen and (min-width: $large) {
+    display: block;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    scroll-snap-type: y mandatory;
+  }
+
+}
 .content {
   text-align: center;
   width: 90%;
   margin: 0 15px 15px 15px;
-  padding-top: 25vh;
+  padding-top: 21vh;
+  padding-bottom: 80px;
 
   .formulaire {
     width: 46vw;
@@ -28,12 +38,15 @@
   background-color: #FAFAFA;
   border-radius: 5px;
   filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.25));
-  height: 24vh;
+  height: 15vh;
+  width: 100vw;
   padding: 10px;
   display: flex;
   align-items: center;
   margin-top: 25px;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
 }
 
 .position {
