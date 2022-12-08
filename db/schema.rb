@@ -42,6 +42,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_102035) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "drinking_waters", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.text "gpx_file"
+  end
+
   create_table "progressions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -63,8 +70,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_102035) do
     t.text "comp_distance"
     t.text "comp_elevation"
     t.text "comp_time"
-    t.string "status"
     t.time "started_at"
+    t.string "status"
     t.string "gpx_path"
     t.string "elevations"
     t.index ["user_id"], name: "index_races_on_user_id"

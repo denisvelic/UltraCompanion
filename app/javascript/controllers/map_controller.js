@@ -47,18 +47,41 @@ export default class extends Controller {
     })
 
 
-    // this.#addMarkersToMap()
+    this.#addMarkersToMap()
     this.#fitMapToMarkers()
     // console.log(this.markersValue);
   }
 
-  // #addMarkersToMap() {
-  //   this.markersValue.forEach((marker) => {
-  //   new mapboxgl.Marker()
-  //     .setLngLat([ marker.lng, marker.lat ])
-  //     .addTo(this.map)
-  // })
-  // }
+  #addMarkersToMap() {
+
+    let point = this.markersValue[0]
+    const customMarker = document.createElement("div")
+    customMarker.className = "marker"
+    customMarker.style.backgroundImage = "asset-url('icons/cloud.svg')"
+    customMarker.style.backgroundSize = "contain"
+    customMarker.style.backgroundColor = "#04AA6D"
+    customMarker.style.borderRadius = "100%"
+    customMarker.style.width = "25px"
+    customMarker.style.height = "25px"
+    new mapboxgl.Marker(customMarker)
+      .setLngLat([ point[0], point[1] ])
+      .addTo(this.map)
+
+
+    let pont = this.markersValue.pop()
+  const customPoint = document.createElement("div")
+  customPoint.className = "marker"
+  customPoint.style.backgroundImage = "asset-url('icons/clock.svg')"
+  customPoint.style.backgroundSize = "contain"
+  customPoint.style.backgroundColor = "#E60F05"
+  customPoint.style.borderRadius = "100%"
+  customPoint.style.width = "25px"
+  customPoint.style.height = "25px"
+
+  new mapboxgl.Marker(customPoint)
+    .setLngLat([ pont[0], pont[1] ])
+    .addTo(this.map)
+  }
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()

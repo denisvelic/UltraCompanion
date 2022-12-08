@@ -33,7 +33,7 @@
         <h5><strong>Profil de la course</strong></h5>
       </div >
       <div>
-      <%= area_chart @elevations.map.with_index{|idx, ele| [ele, idx]}, colors: ["#2C445C"], width: "400px", height: "220px" %>
+       <%= area_chart @elevations.map.with_index{|idx, ele| [ele, idx]}, min: 0, xmin: 0, xmax: 8000, points: false, colors: ["#245611", "#666"], width: "auto", height: "25vh" %>
       </div>
     </div>
   </div>

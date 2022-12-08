@@ -16,10 +16,12 @@ class RacesController < ApplicationController
     @race = Race.new
   end
 
-  def update
-    @race.update(race_params)
-    redirect_to race_path(@race)
+
+
+  def start
+
   end
+
 
   def create
     @race = Race.new(race_params)
@@ -50,6 +52,21 @@ class RacesController < ApplicationController
       [lng, lat]
     end
   end
+
+  # def parse_gpx(file)
+  #     # file = File.read(filepath)
+  #     doc = Nokogiri::XML(file)
+  #     trackpoints = doc.xpath('//xmlns:trkpt')
+  #     # funnel = Array.new
+  #     yaya = trackpoints.map do |trkpt|
+  #       {
+  #       lat: trkpt.xpath('@lat').to_s.to_f,
+  #       lng: trkpt.xpath('@lon').to_s.to_f,
+  #       image_url: helpers.asset_url("pierre.png")
+  #       }
+  #     end
+  #     yaya
+  # end
 
   # parsing du fichier pour obtenir les valeurs de l'élévation
   def elevation_parse(file)
