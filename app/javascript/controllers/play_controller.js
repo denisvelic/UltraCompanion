@@ -52,3 +52,4 @@ export default class extends Controller {
       clearInterval(this.interval)
     }
   }
+}
