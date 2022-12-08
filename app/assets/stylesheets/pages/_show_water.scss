@@ -104,7 +104,15 @@
 .menu-map-bottom-play {
   padding-top: 3vh;
   padding-bottom: 2vh;
+  .yeah1 {
+    margin-top: 1vh;
+  }
+  .yeah {
+    margin-top: 1vh;
+  }
 }
+
+
 
 .menu-map-bottom-progression {
   // display: none;
@@ -119,6 +127,7 @@
   padding-top: 3vh;
   padding-bottom: 2vh;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+  height: 14vh;
 }
 
 .menu-map-bottom-navigation {

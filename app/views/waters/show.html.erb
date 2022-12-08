@@ -44,11 +44,12 @@
       <% end%></h5>
       <p>Localisation</p>
     </div>
-    <div class="menu-map-bottom-play" data-action="click->play#start click->play#toggle">
-        <%= image_tag("play.svg",  size: "40x40", data: {play_target: "icon"}) %>
-        <%= image_tag("pause.svg",  size: "40x40", data: {play_target: "pause"}, class: "d-none") %>
+    <div class="menu-map-bottom-play" data-action="click->play#toggle">
+        <%= image_tag("play.svg",  size: "40x40", data: {action: "click->play#start", play_target: "icon"}, class: "play-button") %>
+        <%= image_tag("pause.svg",  size: "40x40", data: {action: "click->play#start", play_target: "pause"}, class: "pause-button d-none") %>
 
-      <p>Démarrer</p>
+      <p> <div class ="yeah1" data-play-target="switchstart">Démarrer</div></p>
+      <p> <div class="yeah d-none" data-play-target="switchpause">Pause</div></p>
     </div>
   </div>
 
