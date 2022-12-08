@@ -1,24 +1,33 @@
-<div class="content">
-  <h4>Profile</h4>
-    <div class="avatar-profil">
-    </div>
-
-    <p>pierre@comp.fr</p>
-    <h4>Pierre, 34 ans</h4>
-      <div class="bio">
-        <p>Passionné de velo et plus particulièrement de VTT depuis tout jeune. J’aspire à de nouveaux défis pour me ressourcer et partager le plaisir de la route.</p>
-        <p><i class="fa-solid fa-flag-checkered"></i>
-        <%= @races %>
-        <strong>courses</strong> </p>
-      </div>
+<div class = "container-profil " >
+	<div class="test">
+		<h3>Profile</h3>
+	</div>
 </div>
 
-    <div class="setup">
+
+<div class = "card-profil">
+    <div class="center-avatar">
+      <div class="avatar2">
+      </div>
+    </div>
+
+    <div style ="text-align: center; margin-top:10px">
+      <p>pierre@comp.fr</p>
+      <h4>Pierre, 34 ans</h4>
+      <p><%= @races %> <strong>courses</strong>   <i class="fa-solid fa-flag-checkered"></i></p>
+    </div>
+
+    <div class="white-card" style="margin-top:20px; margin-bottom:20px;">
+      <p>Passionné de velo et plus particulièrement de VTT depuis tout jeune. J’aspire à de nouveaux défis pour me ressourcer et partager le plaisir de la route.</p>
+    </div>
+</div>
+
+    <div class="setup" style="margin-left: 30px; margin-right:25px">
       <div class="set">
         <%= link_to image_tag("icons/param.svg")%>
         Paramètres
       </div>
-      <div class="deconect">
+      <div class="deconect" style="margin-top:15px">
         <%= link_to image_tag("icons/deconect.svg")%>
         Se déconnecter
       </div>
