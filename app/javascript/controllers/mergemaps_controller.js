@@ -127,7 +127,4 @@ export default class extends Controller {
     this.racepointsValue.forEach(point => bounds.extend([ point[0], point[1] ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
-
-
-
 }

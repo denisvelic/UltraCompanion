@@ -4,11 +4,15 @@ export default class extends Controller {
   static targets = ["input", "city", "date", "temperature", "icon"]
 
   initialize() {
-    this.apiKey = "cbfd159cccd8cb52badfad88cc8b1aca"
   }
 
   connect() {
-    this.fetchWeatherByCoordinates()
+    this.apiKey = "cbfd159cccd8cb52badfad88cc8b1aca"
+
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=Nantes&appid=${this.apiKey}&units=metric`)
+    .then(response => response.json())
+    .then(data => this.#updateCard(data))
+
   }
 
   fetchWeather(event) {
@@ -19,20 +23,23 @@ export default class extends Controller {
       .then(data => this.#updateCard(data))
   }
 
-  fetchWeatherByCoordinates() {
-    navigator.geolocation.getCurrentPosition((data) => {
-      fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${data.coords.latitude}&lon=${data.coords.longitude}&appid=${this.apiKey}&units=metric`)
-        .then(response => response.json())
-        .then(data => this.#updateCard(data))
-    })
-  }
+  // fetchWeatherByCoordinates() {
+  //   navigator.geolocation.getCurrentPosition(() => {
+  //     fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=47.218371&lon=-1.553621&appid=${this.apiKey}&units=metric`)
+  //       .then(response => response.json())
+  //       .then(data => this.#updateCard(data))
+  //   })
+  // }
+
+  // ${data.coords.latitude} et ${data.coords.longitude}
 
   #updateCard(data) {
+    // console.log(data);
     this.cityTargets.forEach((target, index) => {
       this.iconTargets[index].src = `https://openweathermap.org/img/w/${data["list"][index].weather[0].icon}.png`
       this.temperatureTargets[index].innerText = `${Math.round(data["list"][index].main.temp)} °C`
       // this.descriptionTarget.innerText = data.weather[0].description
-      target.innerText = data["city"]["name"]
+      target.innerText = "Nantes"
       const today = new Date();
       const localOffset = data["list"][index].dt_txt + today.getTimezoneOffset() * 60
       const localDate = new Date(today.setUTCSeconds(localOffset))
