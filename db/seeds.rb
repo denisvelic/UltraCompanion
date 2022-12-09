@@ -44,23 +44,23 @@ race_gpx_1 = 'db/seeds/fixtures/race1.txt'
 
 race_gpx_2 = 'db/seeds/fixtures/race2.txt'
 
-race_gpx_3 = 'db/seeds/fixtures/race3.txt'
+# race_gpx_3 = 'db/seeds/fixtures/race3.txt'
 
-race_gpx_4 = 'db/seeds/fixtures/race4.txt'
+# race_gpx_4 = 'db/seeds/fixtures/race4.txt'
 
 race_gpx_5 = 'db/seeds/fixtures/race5.txt'
 
 race_gpx_6 = 'db/seeds/fixtures/race6.txt'
 
-race_gpx_7 = 'db/seeds/fixtures/race7.txt'
+# race_gpx_7 = 'db/seeds/fixtures/race7.txt'
 
-race_gpx_8 = 'db/seeds/fixtures/race8.txt'
+# race_gpx_8 = 'db/seeds/fixtures/race8.txt'
 
 puts "Creating races"
 
 race1 = Race.create!(
   user: pierre,
-  name: "Bikingman Cannes",
+  name: "Biking Man Cannes",
   date: DateTime.strptime("09/12/2022 09:57", "%m/%d/%Y %H:%M"),
   distance: 1040,
   elevationgain: 20_000,
@@ -100,47 +100,47 @@ race2.gpx_path = parse_gpx(race_gpx_2)
 race2.elevations = elevation_parse(race_gpx_2)
 race2.save
 
-race3 = Race.create!(
-  user: pierre,
-  name: "Ultra Nantes",
-  date: DateTime.strptime("11/12/2022 09:57", "%m/%d/%Y %H:%M"),
-  distance: 480,
-  elevationgain: 2330,
-  elevationloss: 2327,
-  gpx_file: race_gpx_3,
-  city: "Nantes",
-  country: "France",
-  time: 30,
-  comp_distance: "Une distance intéressante de preque 500 km. Prends le temps de t'hydrater et de te reposer.",
-  comp_elevation: "La sucession des petites bosses bretonnes va t'émousser. Attaque les tranquillement.",
-  comp_time: "Le temps estimé est de 30 heures.",
-  status: "undone"
-)
+# race3 = Race.create!(
+#   user: pierre,
+#   name: "Ultra Nantes",
+#   date: DateTime.strptime("11/12/2022 09:57", "%m/%d/%Y %H:%M"),
+#   distance: 480,
+#   elevationgain: 2330,
+#   elevationloss: 2327,
+#   gpx_file: race_gpx_3,
+#   city: "Nantes",
+#   country: "France",
+#   time: 30,
+#   comp_distance: "Une distance intéressante de preque 500 km. Prends le temps de t'hydrater et de te reposer.",
+#   comp_elevation: "La sucession des petites bosses bretonnes va t'émousser. Attaque les tranquillement.",
+#   comp_time: "Le temps estimé est de 30 heures.",
+#   status: "undone"
+# )
 
-race3.gpx_path = parse_gpx(race_gpx_3)
-race3.elevations = elevation_parse(race_gpx_3)
-race3.save
+# race3.gpx_path = parse_gpx(race_gpx_3)
+# race3.elevations = elevation_parse(race_gpx_3)
+# race3.save
 
-race4 = Race.create!(
-  user: pierre,
-  name: "Ultra de Noël",
-  date: DateTime.strptime("09/12/2022 09:57", "%m/%d/%Y %H:%M"),
-  distance: 1013,
-  elevationgain: 6563,
-  elevationloss: 6561,
-  gpx_file: race_gpx_4,
-  city: "Nantes",
-  country: "France",
-  time: 80,
-  comp_distance: "Une distance sérieuse de 1000 km. Prends le temps de t'hydrater et de te reposer.",
-  comp_elevation: "La sucession des petites bosses bretonnes va t'émousser. Attaque les tranquillement.",
-  comp_time: "Le temps estimé est de 80 heures.",
-  status: "undone"
-)
+# race4 = Race.create!(
+#   user: pierre,
+#   name: "Ultra de Noël",
+#   date: DateTime.strptime("09/12/2022 09:57", "%m/%d/%Y %H:%M"),
+#   distance: 1013,
+#   elevationgain: 6563,
+#   elevationloss: 6561,
+#   gpx_file: race_gpx_4,
+#   city: "Nantes",
+#   country: "France",
+#   time: 80,
+#   comp_distance: "Une distance sérieuse de 1000 km. Prends le temps de t'hydrater et de te reposer.",
+#   comp_elevation: "La sucession des petites bosses bretonnes va t'émousser. Attaque les tranquillement.",
+#   comp_time: "Le temps estimé est de 80 heures.",
+#   status: "undone"
+# )
 
-race4.gpx_path = parse_gpx(race_gpx_4)
-race4.elevations = elevation_parse(race_gpx_4)
-race4.save
+# race4.gpx_path = parse_gpx(race_gpx_4)
+# race4.elevations = elevation_parse(race_gpx_4)
+# race4.save
 
 race5 = Race.create!(
   user: pierre,
@@ -184,47 +184,47 @@ race6.gpx_path = parse_gpx(race_gpx_6)
 race6.elevations = elevation_parse(race_gpx_6)
 race6.save
 
-race7 = Race.create!(
-  user: celine,
-  name: "Nantes Centre",
-  date: DateTime.strptime("07/12/2022 09:57", "%m/%d/%Y %H:%M"),
-  distance: 17,
-  elevationgain: 113,
-  elevationloss: 113,
-  gpx_file: race_gpx_7,
-  city: "Nantes",
-  country: "France",
-  time: 1,
-  comp_distance: "pas de commentaire",
-  comp_elevation: "pas de commentaire",
-  comp_time: "pas de commentaire",
-  status: "undone"
-)
+# race7 = Race.create!(
+#   user: celine,
+#   name: "Nantes Centre",
+#   date: DateTime.strptime("07/12/2022 09:57", "%m/%d/%Y %H:%M"),
+#   distance: 17,
+#   elevationgain: 113,
+#   elevationloss: 113,
+#   gpx_file: race_gpx_7,
+#   city: "Nantes",
+#   country: "France",
+#   time: 1,
+#   comp_distance: "pas de commentaire",
+#   comp_elevation: "pas de commentaire",
+#   comp_time: "pas de commentaire",
+#   status: "undone"
+# )
 
-race7.gpx_path = parse_gpx(race_gpx_7)
-race7.elevations = elevation_parse(race_gpx_7)
-race7.save
+# race7.gpx_path = parse_gpx(race_gpx_7)
+# race7.elevations = elevation_parse(race_gpx_7)
+# race7.save
 
-race8 = Race.create!(
-  user: pierre,
-  name: "Nantes Beaujoire",
-  date: DateTime.strptime("08/12/2022 09:57", "%m/%d/%Y %H:%M"),
-  distance: 17,
-  elevationgain: 110,
-  elevationloss: 110,
-  gpx_file: race_gpx_8,
-  city: "Nantes",
-  country: "France",
-  time: 1,
-  comp_distance: "pas de commentaire",
-  comp_elevation: "pas de commentaire",
-  comp_time: "pas de commentaire",
-  status: "undone"
-)
+# race8 = Race.create!(
+#   user: pierre,
+#   name: "Nantes Beaujoire",
+#   date: DateTime.strptime("08/12/2022 09:57", "%m/%d/%Y %H:%M"),
+#   distance: 17,
+#   elevationgain: 110,
+#   elevationloss: 110,
+#   gpx_file: race_gpx_8,
+#   city: "Nantes",
+#   country: "France",
+#   time: 1,
+#   comp_distance: "pas de commentaire",
+#   comp_elevation: "pas de commentaire",
+#   comp_time: "pas de commentaire",
+#   status: "undone"
+# )
 
-race8.gpx_path = parse_gpx(race_gpx_8)
-race8.elevations = elevation_parse(race_gpx_8)
-race8.save
+# race8.gpx_path = parse_gpx(race_gpx_8)
+# race8.elevations = elevation_parse(race_gpx_8)
+# race8.save
 
 puts "Adding races map pictures"
 
@@ -240,13 +240,13 @@ file = File.open(Rails.root.join('db/seeds/images/races/bm.jpg'))
 race2.photo.attach(io: file, filename: "bm.jpg", content_type: "image/png")
 race2.save
 
-file = File.open(Rails.root.join('db/seeds/images/races/tourmalet.jpg'))
-race3.photo.attach(io: file, filename: "tourmalet.jpg", content_type: "image/png")
-race3.save
+# file = File.open(Rails.root.join('db/seeds/images/races/tourmalet.jpg'))
+# race3.photo.attach(io: file, filename: "tourmalet.jpg", content_type: "image/png")
+# race3.save
 
-file = File.open(Rails.root.join('db/seeds/images/races/biking.jpg'))
-race4.photo.attach(io: file, filename: "biking.jpg", content_type: "image/png")
-race4.save
+# file = File.open(Rails.root.join('db/seeds/images/races/biking.jpg'))
+# race4.photo.attach(io: file, filename: "biking.jpg", content_type: "image/png")
+# race4.save
 
 file = File.open(Rails.root.join('db/seeds/images/races/pays.jpg'))
 race5.photo.attach(io: file, filename: "pays.jpg", content_type: "image/png")
@@ -256,24 +256,24 @@ file = File.open(Rails.root.join('db/seeds/images/races/gravel.jpg'))
 race6.photo.attach(io: file, filename: "gravel.jpg", content_type: "image/png")
 race6.save
 
-file = File.open(Rails.root.join('db/seeds/images/races/bm.jpg'))
-race7.photo.attach(io: file, filename: "bm.jpg", content_type: "image/png")
-race7.save
+# file = File.open(Rails.root.join('db/seeds/images/races/bm.jpg'))
+# race7.photo.attach(io: file, filename: "bm.jpg", content_type: "image/png")
+# race7.save
 
-file = File.open(Rails.root.join('db/seeds/images/races/vtt.jpeg'))
-race8.photo.attach(io: file, filename: "vtt.jpeg", content_type: "image/png")
-race8.save
+# file = File.open(Rails.root.join('db/seeds/images/races/vtt.jpeg'))
+# race8.photo.attach(io: file, filename: "vtt.jpeg", content_type: "image/png")
+# race8.save
 
 puts "Adding Drinking Water GPX location"
 # Points d'eau pour la région Pays de la Loire
 
-water_gpx_paysloire = 'db/seeds/fixtures/paysloire.txt'
+# water_gpx_paysloire = 'db/seeds/fixtures/paysloire.txt'
 water_gpx_west_france = 'db/seeds/fixtures/water_west_france.txt'
 
-water_paysloire = Water.create!(
-  name: "Water Pays de la loire",
-  gpx_file: water_gpx_paysloire
-)
+# water_paysloire = Water.create!(
+#   name: "Water Pays de la loire",
+#   gpx_file: water_gpx_paysloire
+# )
 
 water_west_france = Water.create!(
   name: "Water Ouest France",
