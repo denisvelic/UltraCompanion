@@ -16,12 +16,9 @@ class RacesController < ApplicationController
     @race = Race.new
   end
 
-
-
   def start
 
   end
-
 
   def create
     @race = Race.new(race_params)
