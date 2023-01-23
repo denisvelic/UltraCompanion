@@ -21,21 +21,19 @@
     </div>
 
     <%# Avancer en temps et distance de l'utilisateur %>
-  <div class="white-card">
-
+  <div class="race-summary">
     <div>
-      <%=image_tag("icons/bike.svg")%>
-      <p style="margin-top: 3px; font-size: 0.8rem"><strong>318 km</strong></p>
+      <%=image_tag("icons/bike.svg")%> <p style="margin-top: 3px; font-size: 0.8rem">
     </div>
     <div>
-      <%=image_tag("icons/denivele.svg")%>
-      <p style="margin-top: 3px; font-size: 0.8rem"><strong>1257 m</strong></p>
+      <strong> 318 km</strong></p>
     </div>
     <div>
-      <%=image_tag("icons/clock.svg")%>
-      <p style="margin-top: 3px; font-size: 0.8rem"><strong>16 h</strong></p>
+      <%=image_tag("icons/denivele.svg")%><p style="margin-top: 3px; font-size: 0.8rem">
     </div>
-
+    <div>
+      <strong>1257 m</strong></p>
+    </div>
   </div>
     <%# Ajouter ici l'automatisation du temps passé plus de la distance%>
 
@@ -46,7 +44,7 @@
           <h5><strong>Profil de la course</strong></h5>
         </div >
         <div>
-         <%= area_chart @elevations.map.with_index{|idx, ele| [ele, idx]}, min: 0, xmin: 0, xmax: 6500, points: false, colors: ["#245611", "#666"], width: "auto", height: "25vh" %>
+          <%= area_chart @elevations.map.with_index{|idx, ele| [ele, idx]}, min: 0, xmin: 0, xmax: 6500, points: false, colors: ["#245611", "#666"], width: "auto", height: "25vh" %>
         </div>
       </div>
     </div>
