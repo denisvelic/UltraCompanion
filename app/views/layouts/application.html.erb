@@ -39,7 +39,7 @@
 
   </head>
 
-  <body><%= render "shared/navbar" unless current_page?('/') %>
+  <body><%= render "shared/navbar" unless current_page?('/')  || current_page?('/users/sign_in') %>
   <%= render "shared/flashes" %>
 
     <%= yield %>
