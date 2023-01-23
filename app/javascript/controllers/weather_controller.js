@@ -44,8 +44,8 @@ export default class extends Controller {
       const localOffset = data["list"][index].dt_txt + today.getTimezoneOffset() * 60
       const localDate = new Date(today.setUTCSeconds(localOffset))
       const date = new Date(data["list"][index].dt_txt)
-      const options = { day: 'numeric', month: 'long', hour: 'numeric', minute: 'numeric' }
-      const formattedDate = date.toLocaleDateString("fr-Fr", options)
+      const options = {  day: 'numeric', month: 'long', hour: 'numeric', minute: 'numeric' }
+      const formattedDate = date.toLocaleDateString("fr-fr")
       this.dateTargets[index].innerText = formattedDate
     })
   }
