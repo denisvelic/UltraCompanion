@@ -6,22 +6,16 @@
     data-mergemaps-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 <div data-controller="play">
-  <div class="menu-map-top">
-    <div style ="margin-top: 7px;">
-      <%=image_tag("icons/clock.svg")%>
+  <%= link_to new_race_path do %>
+    <div class="menu-map-top">
+      <div style ="margin-top: 7px;">
+        <%=image_tag("icons/upload.svg")%>
+      </div>
+      <div>
+        <p style ="margin-top: -3px; margin-right: 15px;">Ajouter mon parcours</p>
+      </div>
     </div>
-    <div>
-      <p><div data-play-target="timer">00:00</div></p>
-      <p style ="color:#245611;margin-top: -3px;">Temps passé</p>
-    </div>
-    <div style ="margin-top: 7px;">
-      <%=image_tag("icons/bike.svg")%>
-    </div>
-    <div>
-      <p>0 km</p>
-      <p style ="color:#245611; margin-top: -3px;">Parcouru</p>
-    </div>
-  </div>
+  <% end %>
 
   <div class="menu-map-bottom">
 
