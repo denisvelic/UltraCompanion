@@ -17,13 +17,12 @@
         <%= f.button :submit, "Se connecter", class: 'bouton' %>
     <% end %>
 
-    <div id="bloc_page">
-			<div id="gSignIn"></div>
-			<div class="userContent"></div>
-		</div>
+<%= button_to  'Login with Google', user_google_oauth2_omniauth_authorize_path, method: :post, :data => {turbo: "false"} %>
+
 
   </div>
   <div class="inscrire">
     <%= render "devise/shared/links" %>
-  </div>
+ </div>
+
 </div>
