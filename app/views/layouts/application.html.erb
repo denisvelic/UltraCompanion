@@ -42,7 +42,7 @@
   <body>
 
 
-    <%= render "shared/navbar" unless current_page?('/')  || current_page?('/users/sign_in') || current_page?('/user/sign_in') || current_page?('/user/sign_up') %>
+    <%= render "shared/navbar" unless current_page?('/')  || current_page?('/users/sign_in') || current_page?('/user/sign_in') || current_page?('/user/sign_up') || current_page?('/user/password/new') %>
     <%= render "shared/flashes" %>
     <%= yield %>
   </body>
