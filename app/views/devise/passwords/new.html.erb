@@ -1,4 +1,10 @@
-<h2>Mot de passe oublié ?</h2>
+<div class="fondconnexion">
+  <div class="connexion">
+    <%= image_tag("icons/logo.svg") %>
+      <h2>Mot de passe oublié ?</h2>
+  </div>
+
+
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
@@ -8,11 +14,10 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" } %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Envoyez-moi les instructions de réinitialisation du mot de passe" %>
+    <%= f.button :submit, "Valider", class: 'bouton'  %>
   </div>
 <% end %>
-
+<br>
 <%= render "devise/shared/links" %>
+
+</div>

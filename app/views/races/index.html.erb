@@ -2,7 +2,7 @@
   <%= link_to root_path do %>
   <div class="logo"></div>
   <% end %>
-  
+
   <div class="profil">
     <%= link_to profil_path do %>
       <div class="avatar"></div>
@@ -11,8 +11,8 @@
   </div>
 
   <div class="big-card">
-    <%# <% @races.each do |race| %>
-      <% if @races.last.status == "undone" %>
+      <% if @races.any? && @races.last.status == "undone" %>
+      <%# ajout de .any? pour afficher la page même si pas de races %>
         <div class = "title"><h3>Ma prochaine course</h3></div>
         <%= link_to race_path(id: current_user.races.last.id) do %>
           <div class="big-card-carousel-image">
@@ -33,7 +33,7 @@
           <% end %>
         </div>
       <% end %>
-    <%# <%end%>
+
 <%# Carrousel des courses déjà réalisées %>
     <h3>Mes précédentes courses</h3>
     <div class="wrapper">

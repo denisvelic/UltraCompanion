@@ -3,7 +3,8 @@ class RacesController < ApplicationController
   before_action :set_user, only: [:index]
 
   def index
-    @races = Race.all
+    # @races = Race.all ========== utile que si un seul user pour afficher toutes les races
+    @races = @user.races # associer les courses à l'user
   end
 
   def show
