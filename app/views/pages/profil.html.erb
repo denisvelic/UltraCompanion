@@ -29,6 +29,9 @@
       </div>
       <div class="deconect" style="margin-top:15px">
         <%= link_to image_tag("icons/deconect.svg")%>
-        Se déconnecter
+
+        <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %>
+        <%# A TESTER %>
+
       </div>
     </div>
