@@ -27,6 +27,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Geo-distance is a gem to use haversine method and calculate the global distance of a race
+gem 'geo-distance', '~> 0.2.2'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
