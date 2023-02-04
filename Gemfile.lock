@@ -125,6 +125,23 @@ GEM
     ffi (1.15.5)
     font-awesome-sass (6.2.1)
       sassc (~> 2.0)
+    geo-distance (0.2.2)
+      geo_point (~> 0.2.6)
+      geo_units (~> 0.3.3)
+    geo_calc (0.7.8)
+      activesupport (>= 3.0.1)
+      geo_units (~> 0.3.2)
+      i18n (>= 0.5)
+      require_all (>= 1.2.0)
+      sugar-high (~> 0.7.2)
+      sweetloader
+    geo_point (0.2.6)
+      geo_calc (>= 0.7.7.1)
+    geo_units (0.3.4)
+      activesupport (>= 4)
+      i18n (>= 0.8)
+      sugar-high (~> 0.7.2)
+      sweetloader (~> 0.1.6)
     geocoder (1.8.1)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -237,6 +254,7 @@ GEM
     regexp_parser (2.6.1)
     reline (0.3.1)
       io-console (~> 0.5)
+    require_all (3.0.0)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -273,6 +291,10 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.1.1)
       railties (>= 6.0.0)
+    sugar-high (0.7.3)
+    sweetloader (0.1.6)
+      activesupport (>= 3.0.1)
+      i18n
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.0)
@@ -320,6 +342,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   font-awesome-sass (~> 6.1)
+  geo-distance (~> 0.2.2)
   geocoder
   groupdate
   jbuilder
