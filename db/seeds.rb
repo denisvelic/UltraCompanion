@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'geo-distance'
 require 'date'
 require "nokogiri"
 
@@ -23,71 +24,78 @@ def parse_gpx(filepath)
   end
 end
 
-p parse_gpx(filepath)
+parse_gpx(filepath)
+
+def race_distance(filepath)
+  total_distance = 0.0
+  file = File.read(filepath)
+  doc = Nokogiri::XML(file)
+  trackpoints = doc.xpath("//xmlns:trkpt")
+  trackpoints.each_cons(2) do |p1, p2|
+    lat1 = p1.attr('lat').to_f
+    lon1 = p1.attr('lon').to_f
+    lat2 = p2.attr('lat').to_f
+    lon2 = p2.attr('lon').to_f
+    total_distance += GeoDistance::Haversine.geo_distance(lat1, lon1, lat2, lon2).to_meters
+  end
+  total_distance
+end
+
+race_distance(filepath)
+
 
 # Travailler à partir de la méthode de haversine et voir si j'arrive à faire quelque chose
 
-def haversine_distance(geo_a, geo_b, miles=false)
-  # Get latitude and longitude
-  lat1, lon1 = geo_a
-  lat2, lon2 = geo_b
+# def haversine_distance(geo_a, geo_b, miles=false)
+#   # Get latitude and longitude
+#   lat1, lon1 = geo_a
+#   lat2, lon2 = geo_b
 
-  # Calculate radial arcs for latitude and longitude
-  dLat = (lat2 - lat1) * Math::PI / 180
-  dLon = (lon2 - lon1) * Math::PI / 180
+#   # Calculate radial arcs for latitude and longitude
+#   dLat = (lat2 - lat1) * Math::PI / 180
+#   dLon = (lon2 - lon1) * Math::PI / 180
 
 
-  a = Math.sin(dLat / 2) *
-      Math.sin(dLat / 2) +
-      Math.cos(lat1 * Math::PI / 180) *
-      Math.cos(lat2 * Math::PI / 180) *
-      Math.sin(dLon / 2) * Math.sin(dLon / 2)
+#   a = Math.sin(dLat / 2) *
+#       Math.sin(dLat / 2) +
+#       Math.cos(lat1 * Math::PI / 180) *
+#       Math.cos(lat2 * Math::PI / 180) *
+#       Math.sin(dLon / 2) * Math.sin(dLon / 2)
 
-  c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+#   c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
 
-  d = 6371 * c * (miles ? 1 / 1.6 : 1)
+#   d = 6371 * c * (miles ? 1 / 1.6 : 1)
+# end
+
+def elevation_parse(filepath)
+  file = File.open(filepath)
+  doc = Nokogiri::XML(file)
+  trackpoints = doc.xpath('//xmlns:trkpt')
+  elevation = trackpoints.map do |trkpt|
+    trkpt.text.strip.to_f
+  end
+  elevation
 end
 
+elevation = elevation_parse(filepath)
 
+# Méthode pour calculer l'élavation totale d'un parcours
+def subtract_from_first_number(array)
+  # 1. J'extrait le premier élément de la première coordonnée de l'élévation du parcours
+  first_number = array[0]
+  # 2. Je réalise une initialisation de mon array
+  result = []
+  # 3. Je réalise sur chaque coordonnée une soustraction entre le premier élément et chaque coordonnée.
+  array[1..-1].each do |number| # array[1..-1] in Ruby is a range that represents all elements in the array except for the first one.
+    result << first_number - number
+  end
+  result
+  # 4. J'obtient un nouvel array [2.0, 2.0, 2.0, 3.0, 2.0, 1.0 ...]
+end
 
-# def elevation_parse(filepath)
-#   file = File.open(filepath)
-#   doc = Nokogiri::XML(file)
-#   trackpoints = doc.xpath('//xmlns:trkpt')
-#   elevation = trackpoints.map do |trkpt|
-#     trkpt.text.strip.to_f
-#   end
-#   elevation
-# end
-
-# # Calculer l'élévation totale du parcours chargé par l'utilisateur
-# # 1. Utiliser la méthode elevation_parse pour extraire l'ensemble des élévations d'un fichier.
-# elevations = elevation_parse(filepath)
-# elevations # => It's an Array of coordinate.
-
-# # 2. Calculate a difference between the first elevation and all the others
-# def elevation_sum(elevations)
-# # I select the first element of the array "elevations"
-#   first = elevations[0]
-# # With an iterator map, I'll create an array diff that is the result of first element - each other element.
-#   diff = elevations.map do |elevation|
-#     elevation - first
-#   end
-#   # Sum all element of the array
-# end
-
-# elevation_sum(elevations)
-
-
-
-# Compare the first number of the to each others number
-# Calculate the difference between coordinate 1 to all other one => Create a new array
-# Sum this new difference
-
-# 3. sum elevation diff
-# 4. This will give me the total elevation
-
-
+elevation_substract = subtract_from_first_number(elevation)
+#5. Je réalise la somme des éléments de l'array pour obtenir l'élévation globale.
+total_elevation = elevation_substract.sum
 
 # puts "Destroying all"
 
