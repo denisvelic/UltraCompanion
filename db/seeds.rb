@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-require 'geo-distance'
+
 require 'date'
 require "nokogiri"
+# require 'geo-distance'
 
 filepath = 'db/seeds/fixtures/race8.txt'
 
@@ -26,46 +27,25 @@ end
 
 parse_gpx(filepath)
 
-def race_distance(filepath)
-  total_distance = 0.0
-  file = File.read(filepath)
-  doc = Nokogiri::XML(file)
-  trackpoints = doc.xpath("//xmlns:trkpt")
-  trackpoints.each_cons(2) do |p1, p2|
-    lat1 = p1.attr('lat').to_f
-    lon1 = p1.attr('lon').to_f
-    lat2 = p2.attr('lat').to_f
-    lon2 = p2.attr('lon').to_f
-    total_distance += GeoDistance::Haversine.geo_distance(lat1, lon1, lat2, lon2).to_meters
-  end
-  total_distance
-end
+# Utilisation de la méthode haversine avec la gem 'geo-distance'
 
-race_distance(filepath)
-
-
-# Travailler à partir de la méthode de haversine et voir si j'arrive à faire quelque chose
-
-# def haversine_distance(geo_a, geo_b, miles=false)
-#   # Get latitude and longitude
-#   lat1, lon1 = geo_a
-#   lat2, lon2 = geo_b
-
-#   # Calculate radial arcs for latitude and longitude
-#   dLat = (lat2 - lat1) * Math::PI / 180
-#   dLon = (lon2 - lon1) * Math::PI / 180
-
-
-#   a = Math.sin(dLat / 2) *
-#       Math.sin(dLat / 2) +
-#       Math.cos(lat1 * Math::PI / 180) *
-#       Math.cos(lat2 * Math::PI / 180) *
-#       Math.sin(dLon / 2) * Math.sin(dLon / 2)
-
-#   c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
-
-#   d = 6371 * c * (miles ? 1 / 1.6 : 1)
+# def race_distance(filepath)
+#   total_distance = 0.0
+#   file = File.read(filepath)
+#   doc = Nokogiri::XML(file)
+#   trackpoints = doc.xpath("//xmlns:trkpt")
+#   trackpoints.each_cons(2) do |p1, p2|
+#     lat1 = p1.attr('lat').to_f
+#     lon1 = p1.attr('lon').to_f
+#     lat2 = p2.attr('lat').to_f
+#     lon2 = p2.attr('lon').to_f
+#     total_distance += GeoDistance::Haversine.geo_distance(lat1, lon1, lat2, lon2).to_meters
+#   end
+#   total_distance
 # end
+
+# p race_distance(filepath)
+
 
 def elevation_parse(filepath)
   file = File.open(filepath)
@@ -77,25 +57,20 @@ def elevation_parse(filepath)
   elevation
 end
 
-elevation = elevation_parse(filepath)
-
-# Méthode pour calculer l'élavation totale d'un parcours
-def subtract_from_first_number(array)
-  # 1. J'extrait le premier élément de la première coordonnée de l'élévation du parcours
-  first_number = array[0]
-  # 2. Je réalise une initialisation de mon array
-  result = []
-  # 3. Je réalise sur chaque coordonnée une soustraction entre le premier élément et chaque coordonnée.
-  array[1..-1].each do |number| # array[1..-1] in Ruby is a range that represents all elements in the array except for the first one.
-    result << first_number - number
+def elevation_gain(filepath)
+  file = File.open(filepath)
+  doc = Nokogiri::XML(File.open(file))
+  elevations = doc.xpath('//xmlns:ele').map { |ele| ele.content.to_f }
+  gain = 0
+  elevations.each_with_index do |ele, index|
+    if index > 0 && elevations[index - 1] < ele
+      gain += ele - elevations[index - 1]
+    end
   end
-  result
-  # 4. J'obtient un nouvel array [2.0, 2.0, 2.0, 3.0, 2.0, 1.0 ...]
+  gain
 end
 
-elevation_substract = subtract_from_first_number(elevation)
-#5. Je réalise la somme des éléments de l'array pour obtenir l'élévation globale.
-total_elevation = elevation_substract.sum
+# p elevation_gain(filepath)
 
 # puts "Destroying all"
 

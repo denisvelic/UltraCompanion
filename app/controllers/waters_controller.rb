@@ -27,3 +27,6 @@ class WatersController < ApplicationController
     amenity
   end
 end
+
+
+
