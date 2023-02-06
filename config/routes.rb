@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get 'weather', to: 'pages#weather'
   get 'profil', to: 'pages#profil'
+  get 'point_of_interest', to: 'pages#point_of_interest' # mettre à jour plutard -> test
   # Defines the root path route ("/")
   # root "articles#index"
 

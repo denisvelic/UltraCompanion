@@ -1,0 +1,16 @@
+<%# This script allow the code to get current user position %>
+
+<script>
+  navigator.geolocation.getCurrentPosition(function(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    document.getElementById('latitude').value = latitude;
+    document.getElementById('longitude').value = longitude;
+  });
+</script>
+
+<%= form_tag('/point_of_interest', method: :get) do %>
+  <%= hidden_field_tag :latitude, nil, id: 'latitude' %>
+  <%= hidden_field_tag :longitude, nil, id: 'longitude' %>
+  <%= submit_tag "Search" %>
+<% end %>
