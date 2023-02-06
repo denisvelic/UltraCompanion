@@ -4,6 +4,7 @@ class ProgressionsController < ApplicationController
     @race = Race.find(params[:race_id])
     @markers = @race.gpx_path
     @elevations = @race.elevations
+    
   end
 
   private

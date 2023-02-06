@@ -11,6 +11,7 @@ class RacesController < ApplicationController
     @race = Race.find(params[:id])
     @markers = @race.gpx_path
     @elevations = @race.elevations
+    @gains = @race.gains
   end
 
   def new
@@ -26,6 +27,7 @@ class RacesController < ApplicationController
     gpx_file = params.require(:race).permit(:gpx_file)[:gpx_file].read
     @race.gpx_path = parse_gpx(gpx_file)
     @race.elevations = elevation_parse(gpx_file)
+    @race.gains = elevation_gain(gpx_file)
     @race.user = current_user
     @race.status = "undone"
 
@@ -38,6 +40,7 @@ class RacesController < ApplicationController
 
   private
 
+  # Méthode pour parser les coordonnées lattitude et longitude GPS du fichier GPX
   def parse_gpx(file)
     # file = File.read(filepath)
     doc = Nokogiri::XML(file)
@@ -51,22 +54,7 @@ class RacesController < ApplicationController
     end
   end
 
-  # def parse_gpx(file)
-  #     # file = File.read(filepath)
-  #     doc = Nokogiri::XML(file)
-  #     trackpoints = doc.xpath('//xmlns:trkpt')
-  #     # funnel = Array.new
-  #     yaya = trackpoints.map do |trkpt|
-  #       {
-  #       lat: trkpt.xpath('@lat').to_s.to_f,
-  #       lng: trkpt.xpath('@lon').to_s.to_f,
-  #       image_url: helpers.asset_url("pierre.png")
-  #       }
-  #     end
-  #     yaya
-  # end
-
-  # parsing du fichier pour obtenir les valeurs de l'élévation
+  # Méthode pour parser les coordonnées lattitude et longitude GPS du fichier GPX
   def elevation_parse(file)
     # file = File.open(filepath)
     doc = Nokogiri::XML(file)
@@ -77,6 +65,20 @@ class RacesController < ApplicationController
     end
     elevation
   end
+
+  # Méthode pour calculer l'élévation totale d'un parcours
+def elevation_gain(filepath)
+  # file = File.open(filepath)
+  doc = Nokogiri::XML(File.open(file))
+  elevations = doc.xpath('//xmlns:ele').map { |ele| ele.content.to_f }
+  gain = 0
+  elevations.each_with_index do |ele, index|
+    if index > 0 && elevations[index - 1] < ele
+      gain += ele - elevations[index - 1]
+    end
+  end
+  gain
+end
 
   def race_params
     params.require(:race).permit(:name, :date, :started_at, :gpx_file, :photo)
