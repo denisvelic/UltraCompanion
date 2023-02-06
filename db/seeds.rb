@@ -10,7 +10,7 @@ require 'date'
 require "nokogiri"
 # require 'geo-distance'
 
-filepath = 'db/seeds/fixtures/race8.txt'
+filepath = 'db/seeds/fixtures/race5.txt'
 
 def parse_gpx(filepath)
   file = File.read(filepath)
@@ -46,7 +46,7 @@ parse_gpx(filepath)
 
 # p race_distance(filepath)
 
-
+# Méthode pour parser chaque altitude des coordonnées GPS du fichier GPX
 def elevation_parse(filepath)
   file = File.open(filepath)
   doc = Nokogiri::XML(file)
@@ -57,6 +57,7 @@ def elevation_parse(filepath)
   elevation
 end
 
+# Méthode pour calculer l'élévation totale d'un parcours
 def elevation_gain(filepath)
   file = File.open(filepath)
   doc = Nokogiri::XML(File.open(file))
