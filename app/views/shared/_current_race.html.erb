@@ -18,14 +18,13 @@
       <%=image_tag("icons/bike.svg")%> <p style="margin-top: 3px; font-size: 0.8rem">
     </div>
     <div>
-      <strong> 318 km</strong></p>
+      <strong> <%= @distances %> km </strong></p>
     </div>
     <div>
       <%=image_tag("icons/denivele.svg")%><p style="margin-top: 3px; font-size: 0.8rem">
     </div>
     <div>
-      <strong><%= @gains %> m</strong></p>
-      <%# <%= elevation_gain(filepath) Intégrer le calcul d'élévation gain dans cette page%>
+      <strong><%= @gains %> m </strong></p>
     </div>
   </div>
 

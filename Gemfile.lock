@@ -148,6 +148,7 @@ GEM
     groupdate (6.1.0)
       activesupport (>= 5.2)
     hashie (5.0.0)
+    haversine (0.3.2)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -345,6 +346,7 @@ DEPENDENCIES
   geo-distance (~> 0.2.2)
   geocoder
   groupdate
+  haversine (~> 0.3.0)
   jbuilder
   jsbundling-rails
   omniauth-google-oauth2

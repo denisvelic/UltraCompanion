@@ -8,7 +8,7 @@
 
 require 'date'
 require "nokogiri"
-# require 'geo-distance'
+require 'haversine'
 
 filepath = 'db/seeds/fixtures/race5.txt'
 
@@ -27,24 +27,37 @@ end
 
 parse_gpx(filepath)
 
-# Utilisation de la méthode haversine avec la gem 'geo-distance'
+# Method to get total distance with haversine gem
 
-# def race_distance(filepath)
-#   total_distance = 0.0
-#   file = File.read(filepath)
-#   doc = Nokogiri::XML(file)
-#   trackpoints = doc.xpath("//xmlns:trkpt")
-#   trackpoints.each_cons(2) do |p1, p2|
-#     lat1 = p1.attr('lat').to_f
-#     lon1 = p1.attr('lon').to_f
-#     lat2 = p2.attr('lat').to_f
-#     lon2 = p2.attr('lon').to_f
-#     total_distance += GeoDistance::Haversine.geo_distance(lat1, lon1, lat2, lon2).to_meters
-#   end
-#   total_distance
-# end
+# Load the GPX file into a Nokogiri document
+def total_distance(filepath)
+  file = File.read(filepath)
+  doc = Nokogiri::XML(file)
+  track_points = doc.xpath('//xmlns:trkpt')
+  total_distance = 0.0
 
-# p race_distance(filepath)
+  # Loop through all track points
+  track_points.each_with_index do |point, index|
+    # Get the latitude and longitude of the current track point
+    lat = point.attr('lat').to_f
+    lon = point.attr('lon').to_f
+
+    # Get the latitude and longitude of the next track point (if there is one)
+    next_lat = track_points[index + 1].attr('lat').to_f if index + 1 < track_points.count
+    next_lon = track_points[index + 1].attr('lon').to_f if index + 1 < track_points.count
+
+    # Calculate the distance between the current and next track point (if there is one)
+    if next_lat && next_lon
+      distance = Haversine.distance(lat, lon, next_lat, next_lon).to_km
+      total_distance += distance
+    end
+  end
+  total_distance.round(2)
+end
+
+# Output the result
+p total_distance(filepath)
+
 
 # Méthode pour parser chaque altitude des coordonnées GPS du fichier GPX
 def elevation_parse(filepath)
