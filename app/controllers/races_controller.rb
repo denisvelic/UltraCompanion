@@ -12,9 +12,9 @@ class RacesController < ApplicationController
   def show
     @race = Race.find(params[:id])
     @markers = @race.gpx_path
+    @distances = @race.distances
     @elevations = @race.elevations
     @gains = @race.gains
-    @distances = @race.total_distance
   end
 
   def new
@@ -29,7 +29,7 @@ class RacesController < ApplicationController
     @race = Race.new(race_params)
     gpx_file = params.require(:race).permit(:gpx_file)[:gpx_file].read
     @race.gpx_path = parse_gpx(gpx_file)
-    @race.total_distance = total_distance(gpx_file)
+    @race.distances = total_distance(gpx_file)
     @race.elevations = elevation_parse(gpx_file)
     @race.gains = elevation_gain(gpx_file)
     @race.user = current_user
@@ -59,7 +59,6 @@ class RacesController < ApplicationController
   end
 
   # Method to get total distance with haversine gem
-    # Load the GPX file into a Nokogiri document
   def total_distance(file)
     # file = File.read(filepath)
     doc = Nokogiri::XML(file)
@@ -83,7 +82,7 @@ class RacesController < ApplicationController
       end
     end
     total_distance.round(2)
-    end
+  end
 
   # Méthode pour parser les coordonnées lattitude et longitude GPS du fichier GPX
   def elevation_parse(file)
@@ -98,9 +97,9 @@ class RacesController < ApplicationController
   end
 
   # Méthode pour calculer l'élévation totale d'un parcours
-  def elevation_gain(filepath)
+  def elevation_gain(file)
     # file = File.open(filepath)
-    doc = Nokogiri::XML(File.open(file))
+    doc = Nokogiri::XML(file)
     elevations = doc.xpath('//xmlns:ele').map { |ele| ele.content.to_f }
     gain = 0
     elevations.each_with_index do |ele, index|
