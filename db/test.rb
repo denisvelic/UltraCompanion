@@ -4,7 +4,7 @@ require 'haversine'
 
 filepath = 'db/seeds/fixtures/race5.txt'
 
-# Method to get total distance with haversine gem
+Method to get total distance with haversine gem
 # Load the GPX file into a Nokogiri document
 def total_distance(filepath)
   file = File.read(filepath)
