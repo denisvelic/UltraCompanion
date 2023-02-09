@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get 'weather', to: 'pages#weather'
   get 'profil', to: 'pages#profil'
+  get 'live', to: 'pages#live'
   # Defines the root path route ("/")
   # root "articles#index"
-
 
   resources :races, only: %i[index show new create] do
     resource :waters, only: %i[show]

@@ -29,7 +29,7 @@ class RacesController < ApplicationController
     @race.status = "undone"
 
     if @race.save
-      redirect_to races_path(@race)
+      redirect_to race_waters_path(@race)
     else
       render :new, status: :unprocessable_entity
     end

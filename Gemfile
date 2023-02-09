@@ -53,6 +53,11 @@ gem "chartkick"
 
 gem "groupdate"
 
+gem 'strava-ruby-client'
+
+gem 'omniauth-strava'
+
+gem 'multi_json', '~> 1.11', '>= 1.11.2'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

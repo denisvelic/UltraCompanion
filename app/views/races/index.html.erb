@@ -2,13 +2,19 @@
   <%= link_to root_path do %>
   <div class="logo"></div>
   <% end %>
-  
+
   <div class="profil">
     <%= link_to profil_path do %>
       <div class="avatar"></div>
       <% end %>
     <div class="salut"><p>Salut,<br><strong>Pierre</strong></p></div>
   </div>
+
+  <%# Ajout des propriétés client Strava %>
+
+  <%# <%= @client.athlete.city %> %>
+
+  <%# Fin ajout des propriétés client Strava %>
 
   <div class="big-card">
     <%# <% @races.each do |race| %>
