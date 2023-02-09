@@ -27,8 +27,17 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Geo-distance is a gem to use haversine method and calculate the global distance of a race
+gem 'geo-distance', '~> 0.2.2'
+
+# Haversine is a gem to calculate a total disance of a race
+gem 'haversine', '~> 0.3.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
+
+# HTTP client api for Ruby
+gem 'net-http', '~> 0.3.2'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -58,6 +67,11 @@ gem 'strava-ruby-client'
 gem 'omniauth-strava'
 
 gem 'multi_json', '~> 1.11', '>= 1.11.2'
+
+gem "omniauth-google-oauth2"
+gem "omniauth-rails_csrf_protection"
+# authentification google
+
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

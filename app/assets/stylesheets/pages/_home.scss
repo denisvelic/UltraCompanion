@@ -6,15 +6,17 @@ html {
 }
 
 .home-container {
-  background-image: url('home.jpg');
+  background-image: url('test2.jpg');
   background-size: cover;
-  background-position: 29% 61%;
+  background-position: 53% 60%;
   width: 100%;
   height: 100vh;
 
   h1 {
     font-family: $title-font;
     font-size: 50px;
+    text-align: center;
+    padding-top: 50vh;
   }
 
   h2 {
@@ -25,6 +27,5 @@ html {
   .home-title {
     color: white;
     text-align: center;
-    padding-top: 65vh;
   }
 }

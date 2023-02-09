@@ -1,0 +1,28 @@
+<%# Afficher les informations pour le point d'eau %>
+<% @drinking_waters.each do |drinking_water| %>
+  <p>
+    Name: <%= drinking_water["tags"]["name"] %><br>
+    Latitude: <%= drinking_water["lat"] %><br>
+    Longitude: <%= drinking_water["lon"] %>
+  </p>
+<% end %>
+
+
+<%# Obtenir la géolocalisation de l'utilisateur  %>
+<script>
+  navigator.geolocation.getCurrentPosition(function(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    document.getElementById('latitude').value = latitude;
+    document.getElementById('longitude').value = longitude;
+  });
+</script>
+
+<%# Permettre à l'utilisateur de rechercher un point d'eau %>
+<%= form_tag('/point_of_interest', method: :get) do %>
+  <%= hidden_field_tag :latitude, nil, id: 'latitude' %>
+  <%= hidden_field_tag :longitude, nil, id: 'longitude' %>
+  <%= label_tag :radius, "Radius (meters):" %>
+  <%= text_field_tag :radius, nil, size: 5 %>
+  <%= submit_tag "Search" %>
+<% end %>

@@ -1,25 +1,30 @@
-<h2>Sign up</h2>
+<div class="fondconnexion">
+  <div class="connexion">
+    <%= image_tag("icons/logo.svg") %>
+    <h2>S'inscrire</h2>
+  </div>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form">
     <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
+    <%= f.input :password, label: 'Mot de passe',
                 required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+    <%= f.input :password_confirmation, label: 'Confirmer le mot de passe',
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.button :submit, "S'inscrire", class: 'bouton'  %>
+    <% end %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="inscrire">
+    <%= render "devise/shared/links" %>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+</div>
