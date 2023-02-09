@@ -8,12 +8,7 @@
 <div data-controller="play">
   <%= link_to new_race_path do %>
     <div class="menu-map-top">
-      <div style ="margin-top: 7px;">
-        <%=image_tag("icons/upload.svg")%>
-      </div>
-      <div>
-        <p style ="margin-top: -3px; margin-right: 15px;">Ajouter mon parcours</p>
-      </div>
+        <p style ="margin-top: -3px; margin-right: 15px;"><%= @race.name %></p>
     </div>
   <% end %>
 
