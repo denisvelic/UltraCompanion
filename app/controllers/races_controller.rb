@@ -29,9 +29,9 @@ class RacesController < ApplicationController
     @race = Race.new(race_params)
     gpx_file = params.require(:race).permit(:gpx_file)[:gpx_file].read
     @race.gpx_path = parse_gpx(gpx_file)
-    @race.distances = total_distance(gpx_file)
+    # @race.distances = total_distance(gpx_file)
     @race.elevations = elevation_parse(gpx_file)
-    @race.gains = elevation_gain(gpx_file)
+    # @race.gains = elevation_gain(gpx_file)
     @race.user = current_user
     @race.status = "undone"
 
