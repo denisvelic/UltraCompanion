@@ -27,6 +27,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Json gem This is a JSON implementation as a Ruby extension in C. [https://rubygems.org/gems/json]
+gem 'json', '~> 2.6', '>= 2.6.3'
+
 # Geo-distance is a gem to use haversine method and calculate the global distance of a race
 gem 'geo-distance', '~> 0.2.2'
 
