@@ -75,6 +75,7 @@ export default class extends Controller {
     });
   }
 
+  // This part manage water access on the map.
 
   #addMarkersToMap() {
     this.waterpointsValue.forEach((point) => {
