@@ -42,6 +42,12 @@ class RacesController < ApplicationController
     end
   end
 
+  def destroy
+    @race = Race.find(params[:id])
+    @race.destroy
+    redirect_to live_path, status: :see_other
+  end
+
   private
 
   # Méthode pour parser les coordonnées lattitude et longitude GPS du fichier GPX
