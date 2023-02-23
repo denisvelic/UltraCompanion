@@ -8,6 +8,7 @@ require 'dotenv'
 # gem geocoder
 Dotenv.load
 
+
 def api_poi
   access_token = ENV['MAPBOX_API_KEY']
 
@@ -16,7 +17,7 @@ def api_poi
   longitude = '-2.7599079'
 
   # construct
-  api_url = "https://api.mapbox.com/geocoding/v5/mapbox.places/drinking_water.json?access_token=#{access_token}&proximity=#{longitude},#{latitude}&types=poi&limit=10"
+  api_url = "https://api.mapbox.com/geocoding/v5/mapbox.places/drinking_water.json?type=poi&proximity=-1.5541362,47.2186371&access_token=#{access_token}"
 
   # make an HTTP GET request to the API url
   uri = URI(api_url)
@@ -24,9 +25,17 @@ def api_poi
 
   # parse the JSON response into a Ruby hash
   results = JSON.parse(response)
+
 end
 
 p api_poi
+
+# category = "supermarket"
+# longitude = -1.5541362
+# latitude = 47.2186371
+
+# structure de l'URL de Mapbox
+# "https://api.mapbox.com/geocoding/v5/mapbox.places/#{category}.json?type=poi&proximity=#{longitude},#{latitude}&access_token=#{access_token}"
 
 
 
