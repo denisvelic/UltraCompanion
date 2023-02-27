@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   get 'live', to: 'pages#live'
   get 'point_of_interest', to: 'pages#point_of_interest'
 
-  get '/auth/:provider/callback', to: 'sessions#create'
+  post '/auth/:provider/callback', to: 'auth#create'
   get '/auth/failure', to: redirect('/')
-  get '/logout', to: 'sessions#destroy', as: :logout
+  delete '/logout', to: 'auth#destroy', as: :logout
   get '/auth/strava', as: :strava_login
 
   namespace :strava do
@@ -27,7 +27,6 @@ Rails.application.routes.draw do
       end
     end
   end
-
   # strava
 
   resources :races, only: %i[index show new create destroy] do

@@ -14,7 +14,6 @@ class User < ApplicationRecord
   end
 # Authentification google
 
-
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
