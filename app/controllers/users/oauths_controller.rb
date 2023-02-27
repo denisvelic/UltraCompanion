@@ -15,4 +15,3 @@ class Strava::OauthsController < ApplicationController
 
     redirect_to redirect_url
   end
-end
