@@ -27,7 +27,7 @@ end
 
 parse_gpx(filepath)
 
-Method to get total distance with haversine gem
+# Method to get total distance with haversine gem
 # Load the GPX file into a Nokogiri document
 def total_distance(filepath)
   file = File.read(filepath)
@@ -280,7 +280,6 @@ race6.save
 # race8.save
 
 puts "Adding races map pictures"
-
 
 file = File.open(Rails.root.join('db/seeds/images/races/pierre.png'))
 pierre.photo.attach(io: file, filename: "pierre.png", content_type: "image/png")
