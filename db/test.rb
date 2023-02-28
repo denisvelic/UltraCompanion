@@ -10,14 +10,14 @@ Dotenv.load
 
 
 def api_poi
-  access_token = ENV['MAPBOX_API_KEY']
+  access_token = ENV['GEOAPIFY']
 
   # get the user's current location using the geolocation API of the browser
-  latitude = '47.6586772'
-  longitude = '-2.7599079'
+  # latitude = '47.6586772'
+  # longitude = '-2.7599079'
 
   # construct
-  api_url = "https://api.mapbox.com/geocoding/v5/mapbox.places/drinking_water.json?type=poi&proximity=-1.5541362,47.2186371&access_token=#{access_token}"
+  api_url = "https://api.geoapify.com/v2/places?categories=amenity.drinking_water&filter=circle:-1.5768993084440663,47.21595744839796,1000&limit=5&apiKey=#{access_token}"
 
   # make an HTTP GET request to the API url
   uri = URI(api_url)
@@ -25,10 +25,11 @@ def api_poi
 
   # parse the JSON response into a Ruby hash
   results = JSON.parse(response)
-
+  # puts results
+  puts results["features"][0]["properties"]["lat"]
 end
 
-p api_poi
+api_poi
 
 # category = "supermarket"
 # longitude = -1.5541362
