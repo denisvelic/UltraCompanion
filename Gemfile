@@ -65,9 +65,9 @@ gem "chartkick"
 
 gem "groupdate"
 
-gem 'strava-ruby-client'
+# gem 'strava-ruby-client'
 
-gem 'omniauth-strava'
+# gem 'omniauth-strava'
 
 gem 'multi_json', '~> 1.11', '>= 1.11.2'
 
