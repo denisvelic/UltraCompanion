@@ -18,20 +18,10 @@
   <%= link_to "Vous n'avez pas reçu les instructions de déverrouillage ?", new_unlock_path(resource_name) %><br />
 <% end %>
 
-<%# <%- if devise_mapping.omniauthable? %>
-  <%# <%- resource_class.omniauth_providers.each do |provider| %>
-    <%# <%= link_to "Connectez-vous avec #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %> <br/>
-  <%# <% end %>
-<%# <% end %>
-
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= form_for "Login",
-      url: omniauth_authorize_path(resource_name, provider),
-      method: :post,
-      data: {turbo: "false"} do |f| %>
-        <%= f.submit "Login", type: "image", src: url_for("/assets/btn_google_signin_dark_normal_web.png") %>
-    <% end %>
+    <%= link_to "Se connecter avec Google", user_google_oauth2_omniauth_authorize_path, method: :post %>
+    <%# <%= link_to "Se connecter avec Strava", user_strava_omniauth_authorize_path, method: :post %>
   <% end %>
 <% end %>
-<%# auth google %>
+<%# auth google & strava %>

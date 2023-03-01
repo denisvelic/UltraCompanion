@@ -12,16 +12,20 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
     end
   end
+
+
+
+
 # Authentification google
 
-def self.from_omniauth(auth)
-  # Crée ou récupère l'utilisateur qui s'est connecté via Omniauth-Strava
-  user = User.find_or_create_by(strava_id: auth.uid)
-  user.name = auth.info.name
-  user.access_token = auth.credentials.token
-  user.save!
-  user
-end
+# def self.from_omniauth(auth)
+#   # Crée ou récupère l'utilisateur qui s'est connecté via Omniauth-Strava
+#   user = User.find_or_create_by(strava_id: auth.uid)
+#   user.name = auth.info.name
+#   user.access_token = auth.credentials.token
+#   user.save!
+#   user
+# end
 
   # def self.create_with_omniauth(auth)
   #   create! do |user|
