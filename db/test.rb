@@ -13,11 +13,13 @@ def api_poi
   access_token = ENV['GEOAPIFY']
 
   # get the user's current location using the geolocation API of the browser
-  # latitude = '47.6586772'
-  # longitude = '-2.7599079'
+  category = "amenity.drinking_water"
+  latitude = 47.21595744839796
+  longitude = -1.5768993084440663
+  perimeter = 10000
 
   # construct
-  api_url = "https://api.geoapify.com/v2/places?categories=amenity.drinking_water&filter=circle:-1.5768993084440663,47.21595744839796,1000&limit=5&apiKey=#{access_token}"
+  api_url = "https://api.geoapify.com/v2/places?categories=#{category}&filter=circle:#{longitude},#{latitude},#{perimeter}&limit=5&apiKey=#{access_token}"
 
   # make an HTTP GET request to the API url
   uri = URI(api_url)
@@ -26,7 +28,8 @@ def api_poi
   # parse the JSON response into a Ruby hash
   results = JSON.parse(response)
   # puts results
-  puts results["features"][0]["properties"]["lat"]
+  p results["features"][0]["properties"]["lat"]
+  p results["features"][0]["properties"]["lon"]
 end
 
 api_poi
