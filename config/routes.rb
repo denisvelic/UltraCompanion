@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'weather', to: 'pages#weather'
   get 'profil', to: 'pages#profil'
   get 'live', to: 'pages#live'
-  get 'point_of_interest', to: 'pages#point_of_interest'
+  get 'geolocation', to: 'pages#geolocation'
 
   # post '/auth/:provider/callback', to: 'auth#create'
   # get '/auth/failure', to: redirect('/')
