@@ -33,21 +33,21 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # récupérer emails
   end
 
-  def strava
-    auth_hash = request.env['omniauth.auth']
-    # Récupération des informations d'authentification de Strava depuis auth_hash
-    auth_token = auth_hash['credentials']['token']
-    # Utilisation de l'API Strava pour récupérer les informations de l'utilisateur
-    strava_client = Strava::Api::V3::Client.new(access_token: auth_token)
-    athlete_info = strava_client.retrieve_current_athlete
-    # Création ou mise à jour de l'utilisateur dans la base de données de votre application
-    user = User.find_or_create_by(strava_id: athlete_info['id']) do |u|
-      u.name = athlete_info['firstname'] + ' ' + athlete_info['lastname']
-      u.access_token = auth_token
-    end
-    # Connexion de l'utilisateur dans votre application
-    sign_in_and_redirect user, event: :authentication
-  end
+  # def strava
+  #   auth_hash = request.env['omniauth.auth']
+  #   # Récupération des informations d'authentification de Strava depuis auth_hash
+  #   auth_token = auth_hash['credentials']['token']
+  #   # Utilisation de l'API Strava pour récupérer les informations de l'utilisateur
+  #   strava_client = Strava::Api::V3::Client.new(access_token: auth_token)
+  #   athlete_info = strava_client.retrieve_current_athlete
+  #   # Création ou mise à jour de l'utilisateur dans la base de données de votre application
+  #   user = User.find_or_create_by(strava_id: athlete_info['id']) do |u|
+  #     u.name = athlete_info['firstname'] + ' ' + athlete_info['lastname']
+  #     u.access_token = auth_token
+  #   end
+  #   # Connexion de l'utilisateur dans votre application
+  #   sign_in_and_redirect user, event: :authentication
+  # end
 
   protected
 
