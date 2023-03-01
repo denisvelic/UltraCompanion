@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable,
-          :omniauthable, omniauth_providers: [:google_oauth2, :strava]
+          :omniauthable, omniauth_providers: [:google_oauth2]
           # authentification google & strava
 
   def self.from_omniauth(auth)

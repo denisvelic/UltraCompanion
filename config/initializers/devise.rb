@@ -23,7 +23,7 @@ Devise.setup do |config|
   }
   # authentification google
 
-  config.omniauth :strava, ENV['STRAVA_CLIENT_ID'], ENV['STRAVA_CLIENT_SECRET']
+  # config.omniauth :strava, ENV['STRAVA_CLIENT_ID'], ENV['STRAVA_CLIENT_SECRET']
   # authentification strava
 
   # ==> Controller configuration
