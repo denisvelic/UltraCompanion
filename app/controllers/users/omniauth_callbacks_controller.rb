@@ -27,9 +27,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session["devise.google_data"] = request.env["omniauth.auth"]
       redirect_to new_user_session_path
     end
+
+    auth = request.env['omniauth.auth']
+    email = auth.info.email
+  # récupérer emails
   end
-
-
 
   def strava
     auth_hash = request.env['omniauth.auth']
