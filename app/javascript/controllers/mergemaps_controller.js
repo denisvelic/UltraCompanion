@@ -88,7 +88,7 @@ export default class extends Controller {
       customMarker.style.height = "25px"
 
       new mapboxgl.Marker(customMarker)
-        .setLngLat([ point.lng, point.lat ])
+        .setLngLat([ point.lon, point.lat ])
         .addTo(this.map)
     })
 

@@ -28,8 +28,18 @@ def api_poi
   # parse the JSON response into a Ruby hash
   results = JSON.parse(response)
   # puts results
-  p results["features"][0]["properties"]["lat"]
-  p results["features"][0]["properties"]["lon"]
+  # puts results["features"][0]["properties"]["lat"]
+  # puts results["features"][0]["properties"]["lon"]
+  amenity = results["features"].map do |feature|
+    {
+      lat: feature["properties"]["lat"],
+      lon: feature["properties"]["lon"],
+      # image_url: helpers.asset_url("icons/bottle_true.svg")
+    }
+    # puts feature["properties"]["lat"]
+    # puts feature["properties"]["lon"]
+  end
+  puts amenity
 end
 
 api_poi
