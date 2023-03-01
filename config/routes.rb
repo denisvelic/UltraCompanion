@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # devise_for :users
   devise_for :user, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
-  # authentification google
+  # authentification google & strava
 
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   get 'live', to: 'pages#live'
   get 'point_of_interest', to: 'pages#point_of_interest'
 
-  post '/auth/:provider/callback', to: 'auth#create'
+  # post '/auth/:provider/callback', to: 'auth#create'
   # get '/auth/failure', to: redirect('/')
-  delete '/logout', to: 'auth#destroy', as: :logout
-  get '/auth/strava', as: :strava_login
+  # delete '/logout', to: 'auth#destroy', as: :logout
+  # get '/auth/strava', as: :strava_login
 
   # namespace :strava do
   #   resource :oauth, only: [] do
