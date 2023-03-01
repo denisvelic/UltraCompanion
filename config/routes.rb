@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   devise_for :user, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
   # authentification google & strava
 
-
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get 'weather', to: 'pages#weather'
