@@ -121,8 +121,6 @@ GEM
     faraday (2.7.4)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
-    faraday-multipart (1.0.4)
-      multipart-post (~> 2)
     faraday-net_http (3.0.2)
     ffi (1.15.5)
     font-awesome-sass (6.2.1)
@@ -182,7 +180,6 @@ GEM
     msgpack (1.6.0)
     multi_json (1.15.0)
     multi_xml (0.6.0)
-    multipart-post (2.3.0)
     net-http (0.3.2)
       uri
     net-imap (0.3.1)
@@ -219,9 +216,6 @@ GEM
     omniauth-rails_csrf_protection (0.1.2)
       actionpack (>= 4.2)
       omniauth (>= 1.3.1)
-    omniauth-strava-oauth2 (0.0.2)
-      omniauth (~> 1.0)
-      omniauth-oauth2 (~> 1.1)
     orm_adapter (0.5.0)
     pg (1.4.5)
     public_suffix (5.0.0)
@@ -295,11 +289,6 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.1.1)
       railties (>= 6.0.0)
-    strava-ruby-client (1.0.1)
-      activesupport
-      faraday (>= 2.0)
-      faraday-multipart (>= 1.0)
-      hashie
     sugar-high (0.7.3)
     sweetloader (0.1.6)
       activesupport (>= 3.0.1)
@@ -362,7 +351,6 @@ DEPENDENCIES
   net-http (~> 0.3.2)
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
-  omniauth-strava-oauth2 (~> 0.0.2)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
@@ -371,7 +359,6 @@ DEPENDENCIES
   simple_form!
   sprockets-rails
   stimulus-rails
-  strava-ruby-client
   turbo-rails
   tzinfo-data
   web-console
