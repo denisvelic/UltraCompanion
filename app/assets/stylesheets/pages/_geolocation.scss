@@ -1,0 +1,33 @@
+// Specific CSS for geolocation page
+// html {
+//   margin: 0;
+//   padding: 0;
+//   height: 92%;
+// }
+
+.geo-container {
+
+  .geo-image {
+    padding-top: 5vh;
+    display:flex;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 20px;
+    color: #245611;
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    font-weight: bold;
+  }
+
+  p {
+    color:black;
+    font-size: 18px;
+    // justify-content: center;
+    margin-right: 4vh;
+    margin-left: 4vh;
+    text-align: center;
+  }
+}
