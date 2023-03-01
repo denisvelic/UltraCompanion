@@ -19,6 +19,8 @@ Devise.setup do |config|
   config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH_CLIENT_ID'], ENV['GOOGLE_OAUTH_CLIENT_SECRET']
   # authentification google
 
+  config.omniauth :strava, ENV['STRAVA_CLIENT_ID'], ENV['STRAVA_CLIENT_SECRET']
+  # authentification strava
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
