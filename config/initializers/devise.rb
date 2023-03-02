@@ -18,8 +18,7 @@ Devise.setup do |config|
 
   config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH_CLIENT_ID'], ENV['GOOGLE_OAUTH_CLIENT_SECRET'], {
     access_type: "offline",
-    prompt: "consent",
-    scope: "email,profile"
+    approval_prompt: ""
   }
   # authentification google
 
