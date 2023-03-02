@@ -65,14 +65,10 @@ gem "chartkick"
 
 gem "groupdate"
 
-# gem 'strava-ruby-client'
-
-# gem 'omniauth-strava'
-
 gem 'multi_json', '~> 1.11', '>= 1.11.2'
 
 gem "omniauth-google-oauth2"
-gem "omniauth-rails_csrf_protection"
+# gem "omniauth-rails_csrf_protection"
 # authentification google
 
 # gem 'strava-ruby-client'
