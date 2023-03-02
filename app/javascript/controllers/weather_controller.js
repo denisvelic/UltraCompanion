@@ -22,13 +22,11 @@ export default class extends Controller {
   }
 
   #updateCard(data) {
-    // console.log(data);
     this.cityTargets.forEach((target, index) => {
       this.iconTargets[index].src = `https://openweathermap.org/img/w/${data["list"][index].weather[0].icon}.png`
       this.temperatureTargets[index].innerText = `${Math.round(data["list"][index].main.temp)} °C`
       // this.descriptionTarget.innerText = data.weather[0].description
-      this.cityTargets[index].innerText = `${data.city}`
-      // const city = this.inputTarget.value
+      this.cityTargets[index].innerText = `${data.city.name}`
       const today = new Date();
       const localOffset = data["list"][index].dt_txt + today.getTimezoneOffset() * 60
       const localDate = new Date(today.setUTCSeconds(localOffset))
