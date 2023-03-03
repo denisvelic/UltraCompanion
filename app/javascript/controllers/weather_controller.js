@@ -63,4 +63,5 @@ export default class extends Controller {
 }
 // A FAIRE : nom de la ville = arrondissement
 // Ajouter les heures sous la date
+// permettre la geolocalisation par défaut
 // CSS
