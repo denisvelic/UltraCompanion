@@ -13,6 +13,29 @@ export default class extends Controller {
     .then(data => this.#updateCard(data))
   }
 
+  // connect() {
+  //   this.apiKey = "cbfd159cccd8cb52badfad88cc8b1aca";
+  //   navigator.geolocation.getCurrentPosition(position => {
+  //     const { latitude, longitude } = position.coords;
+  //     const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${this.apiKey}&units=metric`;
+  //     fetch(apiUrl)
+  //       .then(response => response.json())
+  //       .then(data => this.#updateCard(data))
+  //       .catch(error => console.log(error));
+  //   }, error => {
+  //     console.log(error);
+  //     // Si l'utilisateur refuse la géolocalisation, récupérez les données de prévision météorologique de Nantes
+  //     const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=Nantes&appid=${this.apiKey}&units=metric`;
+  //     fetch(apiUrl)
+  //       .then(response => response.json())
+  //       .then(data => this.#updateCard(data))
+  //       .catch(error => console.log(error));
+  //   });
+  // }
+
+
+
+
   fetchWeather(event) {
     event.preventDefault() //eviter de devoir recharger la page
     const city = this.inputTarget.value
@@ -27,6 +50,7 @@ export default class extends Controller {
       this.temperatureTargets[index].innerText = `${Math.round(data["list"][index].main.temp)} °C`
       // this.descriptionTarget.innerText = data.weather[0].description
       this.cityTargets[index].innerText = `${data.city.name}`
+      // cette ligne va chercher le nom de la ville demandé dans la requete (json)
       const today = new Date();
       const localOffset = data["list"][index].dt_txt + today.getTimezoneOffset() * 60
       const localDate = new Date(today.setUTCSeconds(localOffset))
@@ -39,4 +63,5 @@ export default class extends Controller {
 }
 // A FAIRE : nom de la ville = arrondissement
 // Ajouter les heures sous la date
+// permettre la geolocalisation par défaut
 // CSS
