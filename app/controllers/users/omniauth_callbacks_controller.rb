@@ -28,3 +28,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 end
 
 # authentification
+# je voudrais que la page après authentification soit la page d'autorisation de geoloc de pierre
