@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   # devise_for :users
   devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
-  # authentification google (retirer s de user)
-  # get "/users/auth/:provider/callback", to: "users/omniauth_callbacks#google_oauth2"
+  # authentification google 
 
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
