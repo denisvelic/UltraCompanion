@@ -6,35 +6,32 @@ export default class extends Controller {
   initialize() {
   }
 
-  connect() {
-    this.apiKey = "cbfd159cccd8cb52badfad88cc8b1aca"
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=Nantes&appid=${this.apiKey}&units=metric`)
-    .then(response => response.json())
-    .then(data => this.#updateCard(data))
-  }
-
   // connect() {
-  //   this.apiKey = "cbfd159cccd8cb52badfad88cc8b1aca";
-  //   navigator.geolocation.getCurrentPosition(position => {
-  //     const { latitude, longitude } = position.coords;
-  //     const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${this.apiKey}&units=metric`;
-  //     fetch(apiUrl)
-  //       .then(response => response.json())
-  //       .then(data => this.#updateCard(data))
-  //       .catch(error => console.log(error));
-  //   }, error => {
-  //     console.log(error);
-  //     // Si l'utilisateur refuse la géolocalisation, récupérez les données de prévision météorologique de Nantes
-  //     const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=Nantes&appid=${this.apiKey}&units=metric`;
-  //     fetch(apiUrl)
-  //       .then(response => response.json())
-  //       .then(data => this.#updateCard(data))
-  //       .catch(error => console.log(error));
-  //   });
-  // }
+  //   this.apiKey = "cbfd159cccd8cb52badfad88cc8b1aca"
+  //   fetch(`https://api.openweathermap.org/data/2.5/forecast?q=Nantes&appid=${this.apiKey}&units=metric`)
+  //   .then(response => response.json())
+  //   .then(data => this.#updateCard(data))
+  // } uniquement pour mettre nantes par defaut
 
-
-
+  connect() {
+    this.apiKey = "cbfd159cccd8cb52badfad88cc8b1aca";
+    navigator.geolocation.getCurrentPosition(position => {
+      const { latitude, longitude } = position.coords;
+      const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${this.apiKey}&units=metric`;
+      fetch(apiUrl) // api permet de geoloc la position avec demande d'autorisation
+        .then(response => response.json())
+        .then(data => this.#updateCard(data))
+        .catch(error => console.log(error));
+    }, error => {
+      console.log(error);
+      // Si l'utilisateur refuse la géolocalisation, récupérez les données de prévision météorologique de Nantes
+      const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=Nantes&appid=${this.apiKey}&units=metric`;
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => this.#updateCard(data))
+        .catch(error => console.log(error));
+    });
+  }
 
   fetchWeather(event) {
     event.preventDefault() //eviter de devoir recharger la page
@@ -63,5 +60,4 @@ export default class extends Controller {
 }
 // A FAIRE : nom de la ville = arrondissement
 // Ajouter les heures sous la date
-// permettre la geolocalisation par défaut
 // CSS
