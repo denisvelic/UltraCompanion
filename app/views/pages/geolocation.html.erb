@@ -1,18 +1,10 @@
-<div class ="geo-container">
-  <div class ="geo-image">
-  <%=image_tag("icons/geolocation.svg")%>
-  </div>
-  <h1>Partage ta position</h1>
-  <p>L'application nécessite ta position GPS pour te fournir des informations précises sur les points d'intérêt à proximité. Autorises-tu l'accès à ta position GPS ?</p>
-  <div>
-    <button class="geo-button" onclick="myGeolocator()">Autoriser maintenant</button>
-    <div id="result"></div>
-    <%= link_to "Explorer", live_path, class: "geo-button" %>
-    <p>Plus tard</p>
-  </div>
-</div>
 
-<script>
+    <div data-controller="geolocation">
+      <button data-action="click->geolocation#geolocate">Autoriser le partage</button>
+      <a data-geolocation-target="link"></a>
+    </div>
+
+<%# <script>
   let result = document.getElementById("result");
   let userLocation = navigator.geolocation;
   function myGeolocator() {
@@ -30,4 +22,4 @@
     + "<br>Longitude: "
     + long;
   }
-</script>
+</script> %>
