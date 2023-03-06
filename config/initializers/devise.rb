@@ -21,7 +21,7 @@ Devise.setup do |config|
     approval_prompt: "",
     scope: 'email',
     prompt: 'select_account',
-    redirect_uri: 'http://localhost:3000/users/auth/google_oauth2/callback'
+    redirect_uri: 'http://localhost:3000/user/auth/google_oauth2/callback'
   }
   # authentification google
 
