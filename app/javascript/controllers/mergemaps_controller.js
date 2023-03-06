@@ -92,7 +92,7 @@ export default class extends Controller {
         .addTo(this.map)
     })
 
-
+  // This part adds racepoints markers on the map (latitude and longitude) with style
 
     let point = this.racepointsValue[0]
     const customMarker = document.createElement("div")
