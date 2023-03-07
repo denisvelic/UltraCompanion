@@ -53,11 +53,10 @@ export default class extends Controller {
       const localDate = new Date(today.setUTCSeconds(localOffset))
       const date = new Date(data["list"][index].dt_txt)
       const options = {  day: 'numeric', month: 'long', hour: 'numeric', minute: 'numeric' }
-      const formattedDate = date.toLocaleDateString("fr-fr")
+      const formattedDate = date.toLocaleDateString("fr-fr", options);
       this.dateTargets[index].innerText = formattedDate
     })
   }
 }
 // A FAIRE : nom de la ville = arrondissement
-// Ajouter les heures sous la date
 // CSS
