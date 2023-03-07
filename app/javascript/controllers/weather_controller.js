@@ -14,7 +14,7 @@ export default class extends Controller {
   // } uniquement pour mettre nantes par defaut
 
   connect() {
-    this.apiKey = "cbfd159cccd8cb52badfad88cc8b1aca";
+    this.apiKey = "cbfd159cccd8cb52badfad88cc8b1aca"
     navigator.geolocation.getCurrentPosition(position => {
       const { latitude, longitude } = position.coords;
       const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${this.apiKey}&units=metric`;
@@ -45,7 +45,6 @@ export default class extends Controller {
     this.cityTargets.forEach((target, index) => {
       this.iconTargets[index].src = `https://openweathermap.org/img/w/${data["list"][index].weather[0].icon}.png`
       this.temperatureTargets[index].innerText = `${Math.round(data["list"][index].main.temp)} °C`
-      // this.descriptionTarget.innerText = data.weather[0].description
       this.cityTargets[index].innerText = `${data.city.name}`
       // cette ligne va chercher le nom de la ville demandé dans la requete (json)
       const today = new Date();
@@ -58,5 +57,6 @@ export default class extends Controller {
     })
   }
 }
-// A FAIRE : nom de la ville = arrondissement
+// A FAIRE :
+// nom de la ville = arrondissement
 // CSS
