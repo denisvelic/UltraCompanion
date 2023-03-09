@@ -2,15 +2,17 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["input", "city", "date", "temperature", "icon"]
+  static values = {
+    apiKey: String
+  }
 
   initialize() {
   }
 
   connect() {
-    this.apiKey = env.OPENWEATHER_API_KEY
     navigator.geolocation.getCurrentPosition(position => {
       const { latitude, longitude } = position.coords;
-      const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${this.apiKey}&units=metric`;
+      const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${this.apiKeyValue}&units=metric`;
       fetch(apiUrl) // api permet de geoloc la position avec demande d'autorisation
         .then(response => response.json())
         .then(data => this.#updateCard(data))
@@ -18,7 +20,7 @@ export default class extends Controller {
     }, error => {
       console.log(error);
       // Si l'utilisateur refuse la géolocalisation, récupérez les données de prévision météorologique de Nantes
-      const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=Nantes&appid=${this.apiKey}&units=metric`;
+      const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=Nantes&appid=${this.apiKeyValue}&units=metric`;
       fetch(apiUrl)
         .then(response => response.json())
         .then(data => this.#updateCard(data))
@@ -29,7 +31,7 @@ export default class extends Controller {
   fetchWeather(event) {
     event.preventDefault() //eviter de devoir recharger la page
     const city = this.inputTarget.value
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${this.apiKey}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${this.apiKeyValue}&units=metric`)
       .then(response => response.json())
       .then(data => this.#updateCard(data))
   }
