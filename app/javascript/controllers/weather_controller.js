@@ -6,15 +6,8 @@ export default class extends Controller {
   initialize() {
   }
 
-  // connect() {
-  //   this.apiKey = const apiKey = '<%= ENV["OPENWEATHER_API_KEY"] %>';
-  //   fetch(`https://api.openweathermap.org/data/2.5/forecast?q=Nantes&appid=${this.apiKey}&units=metric`)
-  //   .then(response => response.json())
-  //   .then(data => this.#updateCard(data))
-  // } uniquement pour mettre nantes par defaut
-
   connect() {
-    this.apiKey = OPENWEATHER_API_KEY;
+    this.apiKey = env.OPENWEATHER_API_KEY
     navigator.geolocation.getCurrentPosition(position => {
       const { latitude, longitude } = position.coords;
       const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${this.apiKey}&units=metric`;
