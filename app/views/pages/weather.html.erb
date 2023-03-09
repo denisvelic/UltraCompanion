@@ -4,7 +4,8 @@
 		<h3>Météo</h3>
 	</div>
 
-  <div class="content" data-controller="weather">
+  <div class="content" data-controller="weather"
+  data-weather-api-key-value="<%= ENV['OPENWEATHER_API_KEY'] %>">
     <form class="ligne" data-action="submit->weather#fetchWeather">
       <input type="text" placeholder="Ville" class="formulaire" data-weather-target="input">
       <a href="" class="position" data-action="click->weather#fetchWeatherByCoordinates"><i class="bi bi-geo-alt"></i></a>

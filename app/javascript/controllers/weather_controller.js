@@ -2,22 +2,18 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["input", "city", "date", "temperature", "icon"]
+  static values = {
+    apiKey: String
+    // appel directement la key dans env
+  }
 
   initialize() {
   }
 
-  // connect() {
-  //   this.apiKey = "cbfd159cccd8cb52badfad88cc8b1aca"
-  //   fetch(`https://api.openweathermap.org/data/2.5/forecast?q=Nantes&appid=${this.apiKey}&units=metric`)
-  //   .then(response => response.json())
-  //   .then(data => this.#updateCard(data))
-  // } uniquement pour mettre nantes par defaut
-
   connect() {
-    this.apiKey = "cbfd159cccd8cb52badfad88cc8b1aca"
     navigator.geolocation.getCurrentPosition(position => {
       const { latitude, longitude } = position.coords;
-      const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${this.apiKey}&units=metric`;
+      const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${this.apiKeyValue}&units=metric`;
       fetch(apiUrl) // api permet de geoloc la position avec demande d'autorisation
         .then(response => response.json())
         .then(data => this.#updateCard(data))
@@ -25,7 +21,7 @@ export default class extends Controller {
     }, error => {
       console.log(error);
       // Si l'utilisateur refuse la géolocalisation, récupérez les données de prévision météorologique de Nantes
-      const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=Nantes&appid=${this.apiKey}&units=metric`;
+      const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=Nantes&appid=${this.apiKeyValue}&units=metric`;
       fetch(apiUrl)
         .then(response => response.json())
         .then(data => this.#updateCard(data))
@@ -36,7 +32,7 @@ export default class extends Controller {
   fetchWeather(event) {
     event.preventDefault() //eviter de devoir recharger la page
     const city = this.inputTarget.value
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${this.apiKey}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${this.apiKeyValue}&units=metric`)
       .then(response => response.json())
       .then(data => this.#updateCard(data))
   }
