@@ -4,6 +4,7 @@ export default class extends Controller {
   static targets = ["input", "city", "date", "temperature", "icon"]
   static values = {
     apiKey: String
+    // appel directement la key dans env
   }
 
   initialize() {
