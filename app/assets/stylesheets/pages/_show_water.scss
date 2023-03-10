@@ -73,15 +73,17 @@
   position: relative;
 }
 
+// cacher le bouton par defaut de mapbox pour geolocalisation
 .mapboxgl-ctrl-top-right {
   left: 0;
   bottom: 155px;
   width: 90px;
   height: 11vh;
   top: unset;
-  opacity: 0;
+  opacity: 0; // permet de cacher le bouton de geoloc sous notre bouton à nous
   margin: 0 0 0 15px;
 }
+
 .mapboxgl-ctrl-group:not(:empty) {
   box-shadow: none;
 }
@@ -95,11 +97,6 @@
   width: 90px;
   height: 103px;
 }
-
-
-
-
-
 
 .menu-map-bottom-play {
   padding-top: 3vh;
