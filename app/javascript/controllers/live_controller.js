@@ -7,17 +7,20 @@ export default class extends Controller {
   }
 
   connect() {
+    // Mapbox api key.
     mapboxgl.accessToken = this.apiKeyValue
-
+    // Get the user's current location using the browser's geolocation API.
     navigator.geolocation.getCurrentPosition(
-      // La connexion à la position GPS de l''utilisateur est un succès.
+       // Success callback function if user grants location access.
       (position) => {
+        // Extract latitude and longitude from the position object.
         const latitude = position.coords.latitude
         const longitude = position.coords.longitude
 
         console.log(latitude);
         console.log(longitude);
 
+        // Create a new Mapbox map with the user's location as the center.
         this.map = new mapboxgl.Map({
           container: this.element,
           style: "mapbox://styles/mapbox/streets-v12",
@@ -26,6 +29,7 @@ export default class extends Controller {
           pitch: 0
         })
 
+        // Add the geolocate control to the map, which allows the user to center the map on their location.
         const geolocate = new mapboxgl.GeolocateControl({
           positionOptions: {
             enableHighAccuracy: true
@@ -33,19 +37,20 @@ export default class extends Controller {
           trackUserLocation: true
           });
 
-              // Add the control to the map.
           this.map.addControl(geolocate);
-          // Set an event listener that fires
-          // when a geolocate event occurs.
+
+          // Set an event listener that fires when the geolocate button is clicked.
           geolocate.on('geolocate', () => {
             console.log('A geolocate event has occurred.');
     });
       },
-       // L'utilisateur n'accèpte pas de partager sa position GPS. Il est par défaut positionné sur Nantes.
+       // Error callback function if user denies location access.
       (error) => {
+         // Set a default location (Nantes, France) if user denies location access
         const latitude = 47.218371
         const longitude = -1.553621
 
+        // Create a new Mapbox map with the default location as the center.
         this.map = new mapboxgl.Map({
           container: this.element,
           style: "mapbox://styles/mapbox/streets-v12",
