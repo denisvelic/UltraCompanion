@@ -16,6 +16,9 @@ application.register("mergemaps", MergemapsController)
 import PlayController from "./play_controller"
 application.register("play", PlayController)
 
+import PoiController from "./poi_controller"
+application.register("poi", PoiController)
+
 import WaterController from "./water_controller"
 application.register("water", WaterController)
 
