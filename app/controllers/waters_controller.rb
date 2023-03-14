@@ -65,3 +65,25 @@ class WatersController < ApplicationController
   end
 
 end
+
+
+def api_poi
+  access_token = ENV['GEOAPIFY']
+
+  api_url = "https://api.geoapify.com/v2/places?categories=amenity.drinking_water&filter=circle:-1.6646715918647903,43.38746478130658,1000&limit=5&apiKey=#{access_token}"
+
+  # make an HTTP GET request to the API url
+  uri = URI(api_url)
+  response = Net::HTTP.get(uri)
+
+  # parse the JSON response into a Ruby hash
+  results = JSON.parse(response)
+  amenity = results["features"].map do |feature|
+    {
+      lat: feature["properties"]["lat"],
+      lon: feature["properties"]["lon"],
+      image_url: helpers.asset_url("icons/bottle_true.svg")
+    }
+  end
+  amenity
+end
