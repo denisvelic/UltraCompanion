@@ -45,8 +45,8 @@ export default class extends Controller {
       // console.log(poiCoordinates);
 
       // 5. Create a new map
-      const map = new mapboxgl.Map({
-        container: 'map', // container ID
+      this.map = new mapboxgl.Map({
+        container: this.element, // container ID
         style: 'mapbox://styles/mapbox/streets-v12', // style URL
         center: [longitude, latitude], // starting position [lng, lat]
         zoom: 12 // starting zoom
@@ -56,8 +56,23 @@ export default class extends Controller {
       poiCoordinates.forEach((coordinate) => {
         new mapboxgl.Marker()
           .setLngLat(coordinate)
-          .addTo(map);
+          .addTo(this.map);
       });
+
+ // Add the geolocate control to the map, which allows the user to center the map on their location.
+        const geolocate = new mapboxgl.GeolocateControl({
+          positionOptions: {
+            enableHighAccuracy: true
+          },
+          trackUserLocation: true
+          });
+
+          this.map.addControl(geolocate);
+
+          // Set an event listener that fires when the geolocate button is clicked.
+          geolocate.on('geolocate', () => {
+            console.log('A geolocate event has occurred.');
+    });
 
       }
       )
