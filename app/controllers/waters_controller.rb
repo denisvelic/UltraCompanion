@@ -63,7 +63,6 @@ class WatersController < ApplicationController
     end
     amenity
   end
-
 end
 
 
