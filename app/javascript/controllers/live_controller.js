@@ -28,21 +28,6 @@ export default class extends Controller {
           zoom: 12,
           pitch: 0
         })
-
-        // Add the geolocate control to the map, which allows the user to center the map on their location.
-        const geolocate = new mapboxgl.GeolocateControl({
-          positionOptions: {
-            enableHighAccuracy: true
-          },
-          trackUserLocation: true
-          });
-
-          this.map.addControl(geolocate);
-
-          // Set an event listener that fires when the geolocate button is clicked.
-          geolocate.on('geolocate', () => {
-            console.log('A geolocate event has occurred.');
-    });
       },
        // Error callback function if user denies location access.
       (error) => {
