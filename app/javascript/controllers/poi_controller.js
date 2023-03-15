@@ -8,9 +8,9 @@ export default class extends Controller {
   }
 
   async connect() {
-    // geoapify api key
+    // geoapify & mapbox api keys
     const geoapifyApiKey = this.geoapifyApiKeyValue;
-    const mapboxApiKey = this.mapboxApiKeyValue;
+    mapboxgl.accessToken = this.mapboxApiKeyValue;
 
     navigator.geolocation.getCurrentPosition(
       // Success callback function if user grants location access.
@@ -19,28 +19,30 @@ export default class extends Controller {
       const longitude = success.coords.longitude
       const latitude = success.coords.latitude
 
-      console.log(longitude);
-      console.log(latitude);
+      // console.log(longitude);
+      // console.log(latitude);
 
       // 2. Query Geoapify API from URL
       const categories = "amenity.drinking_water";
-      const filter = `circle:${longitude},${latitude},50000`;
+      const filter = `circle:${longitude},${latitude},100000`;
+      const bias = `proximity:${longitude},${latitude}`;
       const limit = 20;
-      const url = `https://api.geoapify.com/v2/places?categories=${categories}&filter=${filter}&limit=${limit}&apiKey=${geoapifyApiKey}`;
+      const url = `https://api.geoapify.com/v2/places?categories=${categories}&filter=${filter}&bias=${bias}&limit=${limit}&apiKey=${geoapifyApiKey}`;
 
-      console.log(url);
+      // console.log(url);
 
       // 3. Get POI from URL
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
+
+      // console.log(data);
 
       // 4. Get each POI Coordinates
       const poiCoordinates = data.features.map((feature) => {
         return feature.geometry.coordinates;
       });
 
-      console.log(poiCoordinates);
+      // console.log(poiCoordinates);
 
       // 5. Create a new map
       const map = new mapboxgl.Map({
