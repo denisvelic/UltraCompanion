@@ -6,36 +6,41 @@ export default class extends Controller {
     apiKey: String
   }
 
-  connect() {
-    // Mapbox api key - Corriger le chargement de ces API - Est-ce que j'ai besoin de mapbox ?
-    mapboxgl.accessToken = this.apiKeyValue
-    geopify.accessToken = this.apiKeyValue
+  async connect() {
+    // geoapify api key
+    const apiKey = this.apiKeyValue
 
     navigator.geolocation.getCurrentPosition(
       // Success callback function if user grants location access.
-      (success) => {
-       // Extract latitude and longitude from the success object.
+      async (success) => {
+      // 1. Extract latitude and longitude from the success object.
       const latitude = success.coords.latitude
       const longitude = success.coords.longitude
 
       console.log(latitude);
       console.log(longitude);
 
-      // 1. Fetch Geopify API and get poi coordinates around me
-      async function fetchPlaces(apiKey, options) {
+      // 2. Query Geopify API and get poi drinking water coordinates around me
+      async function fetchPlaces(apiKey, latitude, longitude) {
         const defaultOptions = {
-          categories: "amenity.drinking_water",
-          filter: `circle:${latitude},${longitude},10000`,
-          limit: 5,
+          categories: "amenity.drinking_water", // Type d'amenity
+          filter: `circle:${latitude},${longitude},100000`, // Methode Geoapify avec un rayon de 10 km
+          limit: 10,
         };
         const urlSearchParams = new URLSearchParams({
           ...defaultOptions,
-          ...options,
-          apiKey,
+          apiKey: apiKey,
         });
         const api_url = `https://api.geoapify.com/v2/places?${urlSearchParams}`;
-
         console.log(api_url)
+        }
+          await fetchPlaces(apiKey, latitude, longitude);
+        }
+      )
+    }
+  }
+
+
 
 
       // 2. Make it flexible to get any type of amenity
@@ -57,16 +62,6 @@ export default class extends Controller {
       //       .setLngLat([ point.lon, point.lat ])
       //       .addTo(this.map)
       //   })
-
-
-
-
-
-      }
-    )
-  }
-}
-
 
 
 
@@ -104,25 +99,25 @@ export default class extends Controller {
 //   }
 // }
 
-// // This function maps features from the Places API response to a simpler format
-// function mapPlacesToAmenity(features) {
-//   return features.map((feature) => ({
-//     lat: feature.properties.lat,
-//     lon: feature.properties.lon,
-//     image_url: helpers.asset_url("icons/bottle_true.svg"),
-//   }));
-// }
+// This function maps features from the Places API response to a simpler format
+function mapPlacesToAmenity(features) {
+  return features.map((feature) => ({
+    lat: feature.properties.lat,
+    lon: feature.properties.lon,
+    image_url: helpers.asset_url("icons/bottle_true.svg"),
+  }));
+}
 
-// // This function is the entry point to the module, and returns a Promise that resolves to an array of amenity locations
-// async function getAmenity() {
-//   // Get the Geoapify API key from an environment variable
-//   const apiKey = process.env.GEOAPIFY;
-//   // Fetch data from the Places API using default options
-//   const features = await fetchPlaces(apiKey, {
-//     categories: "amenity.drinking_water",
-//     filter: "circle:-1.6646715918647903,43.38746478130658,1000",
-//     limit: 5,
-//   });
-//   // Map the API response to a simpler format and return it
-//   return mapPlacesToAmenity(features);
-// }
+// This function is the entry point to the module, and returns a Promise that resolves to an array of amenity locations
+async function getAmenity() {
+  // Get the Geoapify API key from an environment variable
+  const apiKey = process.env.GEOAPIFY;
+  // Fetch data from the Places API using default options
+  const features = await fetchPlaces(apiKey, {
+    categories: "amenity.drinking_water",
+    filter: "circle:-1.6646715918647903,43.38746478130658,1000",
+    limit: 5,
+  });
+  // Map the API response to a simpler format and return it
+  return mapPlacesToAmenity(features);
+}
