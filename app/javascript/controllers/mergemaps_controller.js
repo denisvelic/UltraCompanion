@@ -11,8 +11,11 @@ export default class extends Controller {
   connect() {
     // console.log(this.racepointsValue);
     // console.log(this.waterpointsValue);
+
+    // mapbox api key
     mapboxgl.accessToken = this.apiKeyValue
 
+    // 1. Create a new map
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v12",
@@ -21,6 +24,7 @@ export default class extends Controller {
       pitch: 0
     })
 
+    // 2. Add button to geolocate user geolocation using its browser
     const geolocate = new mapboxgl.GeolocateControl({
       positionOptions: {
         enableHighAccuracy: true
@@ -28,7 +32,7 @@ export default class extends Controller {
       trackUserLocation: true
       });
 
-
+    // 3. Display racepoints on map
     this.map.on('load', () => {
       this.map.addSource('route', {
           'type': 'geojson',
@@ -46,6 +50,7 @@ export default class extends Controller {
           }
         });
 
+        // 4. Customize racepoints
         this.map.addLayer({
           'id': 'race',
           'type': 'line',
@@ -66,7 +71,7 @@ export default class extends Controller {
     this.#fitMapToMarkers()
 
 
-    // Add the control to the map.
+    // 5. Add the control to the map.
     this.map.addControl(geolocate);
     // Set an event listener that fires
     // when a geolocate event occurs.
@@ -75,7 +80,7 @@ export default class extends Controller {
     });
   }
 
-  // This part manage water access on the map.
+  // 6. This part manage water access on the map
 
   #addMarkersToMap() {
     this.waterpointsValue.forEach((point) => {
@@ -92,7 +97,7 @@ export default class extends Controller {
         .addTo(this.map)
     })
 
-  // This part adds racepoints markers on the map (latitude and longitude) with style
+  // 7. This part adds racepoints markers on the map (latitude and longitude) with style
 
     let point = this.racepointsValue[0]
     const customMarker = document.createElement("div")
@@ -122,6 +127,8 @@ export default class extends Controller {
     .setLngLat([ pont[0], pont[1] ])
     .addTo(this.map)
   }
+
+// 8. Fit the map borders close to the starting point of the race
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
