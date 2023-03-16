@@ -20,6 +20,9 @@ export default class extends Controller {
         const longitude = success.coords.longitude
         const latitude = success.coords.latitude
 
+        console.log(longitude)
+        console.log(latitude)
+
         // 2. Query Geoapify API from URL
         const categories = "amenity.drinking_water";
         const filter = `circle:${longitude},${latitude},100000`;
@@ -31,10 +34,14 @@ export default class extends Controller {
         const response = await fetch(url);
         const data = await response.json();
 
+        console.log(data)
+
         // 4. Get each POI Coordinates
         const poiCoordinates = data.features.map((feature) => {
           return feature.geometry.coordinates;
         });
+
+        console.log(poiCoordinates)
 
         // 5. Create a new Mapbox map with the user's location as the center.
         this.map = new mapboxgl.Map({
@@ -47,7 +54,10 @@ export default class extends Controller {
 
         // 6. Add markers for each POI coordinate
         poiCoordinates.forEach((coordinate) => {
-          new mapboxgl.Marker()
+          // Create a new marker with a custom HTML element.
+          const marker = document.createElement('div');
+          marker.className = 'marker';
+          new mapboxgl.Marker({ element: marker })
             .setLngLat(coordinate)
             .addTo(this.map);
         });
