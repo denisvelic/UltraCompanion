@@ -30,6 +30,8 @@ export default class extends Controller {
         const limit = 20;
         const url = `https://api.geoapify.com/v2/places?categories=${categories}&filter=${filter}&bias=${bias}&limit=${limit}&apiKey=${geoapifyApiKey}`;
 
+        console.log(url)
+        
         // 3. Get POI from URL
         const response = await fetch(url);
         const data = await response.json();
