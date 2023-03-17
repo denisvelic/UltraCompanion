@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get 'weather', to: 'pages#weather'
   get 'profil', to: 'pages#profil'
   get 'live', to: 'pages#live'
-  get 'poi', to: 'pages#poi'
   get '/users/auth/google_oauth2/callback', to: 'users/omniauth_callbacks#google_oauth2'
 
   resources :races, only: %i[index show new create destroy] do
