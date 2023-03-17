@@ -1,8 +1,8 @@
 require 'haversine'
 
 class RacesController < ApplicationController
-  before_action :set_race, only: [:show, :update]
-  before_action :set_user, only: [:index]
+  # before_action :set_race, only: [:show, :update]
+  # before_action :set_user, only: [:index]
 
   def index
     # @races = Race.all ========== utile que si un seul user pour afficher toutes les races

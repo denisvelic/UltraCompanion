@@ -44,16 +44,21 @@
 .menu-map-bottom {
   position: absolute;
   width: 90px;
-  bottom: 6vh;
+  bottom: 17vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: white;
+  // background-color: white;
   opacity: 0.8;
   border-radius: 10px;
   margin-left: 2vh;
   text-align: center;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+  // box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+  .img {
+    color: $green; // marche pas mais à faire
+  }
 }
 
 // .menu-map-bottom-water {
@@ -64,21 +69,21 @@
 //   border-bottom-color: #2C445C;
 // }
 
-.menu-map-bottom-direction {
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-  border-bottom: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: #2C445C;
-  position: relative;
-}
+// .menu-map-bottom-direction {
+//   padding-top: 2vh;
+//   padding-bottom: 2vh;
+//   border-bottom: solid;
+//   border-bottom-width: 1px;
+//   border-bottom-color: #2C445C;
+//   position: relative;
+// }
 
 // cacher le bouton par defaut de mapbox pour geolocalisation
 .mapboxgl-ctrl-top-right {
   left: 0;
   bottom: 155px;
   width: 90px;
-  height: 11vh;
+  height: 1vh;
   top: unset;
   opacity: 0; // permet de cacher le bouton de geoloc sous notre bouton à nous
   margin: 0 0 0 15px;
