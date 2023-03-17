@@ -31,6 +31,9 @@ gem "jbuilder"
 # Json gem This is a JSON implementation as a Ruby extension in C. [https://rubygems.org/gems/json]
 gem 'json', '~> 2.6', '>= 2.6.3'
 
+# Haversine is a gem to calculate a total disance of a race
+gem 'haversine', '~> 0.3.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
