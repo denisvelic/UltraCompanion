@@ -6,27 +6,6 @@
   margin: auto;
 }
 
-.big-card-carousel-image {
-  border-radius: 20px;
-  height: 30vh;
-  width: calc(100% - 33px);
-  margin: 0px 0px 2vh 33px;
-  position: relative;
-}
-
-.big-card-carousel-image .big-image-carousel {
-  border-radius: 20px;
-  height: 30vh;
-  width: calc(100% - 33px);
-  background-size: cover;
-  background-position: center;
-  margin: 0px 0px 0px 0px;
-  overflow: hidden;
-  padding: 0px;
-  object-fit: cover;
-  position: absolute;
-}
-
 .big-card-text {
   border-radius: 20px 20px 20px 20px;
   display: flex;
@@ -82,26 +61,6 @@
 }
 
 // Titre à l'interieur de la card
-.card-carousel-image {
-  border-radius: 20px;
-  height: 30vh;
-  width: 200px;
-  margin: 0px 0px 0px 33px;
-  position: relative;
-}
-
-.card-carousel-image .image-carousel {
-  border-radius: 20px;
-  height: 30vh;
-  width: 200px;
-  background-size: cover;
-  background-position: center;
-  margin: 0px 0px 0px 0px;
-  overflow: hidden;
-  padding: 0px;
-  object-fit: cover;
-  position: absolute;
-}
 
 .card-text {
   border-radius: 20px 20px 20px 20px;
