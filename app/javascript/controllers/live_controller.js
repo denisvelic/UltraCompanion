@@ -17,8 +17,8 @@ export default class extends Controller {
         const latitude = position.coords.latitude
         const longitude = position.coords.longitude
 
-        console.log(latitude);
-        console.log(longitude);
+        // console.log(latitude);
+        // console.log(longitude);
 
         // Create a new Mapbox map with the user's location as the center.
         this.map = new mapboxgl.Map({
