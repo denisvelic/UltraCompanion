@@ -32,10 +32,10 @@ gem "jbuilder"
 gem 'json', '~> 2.6', '>= 2.6.3'
 
 # Geo-distance is a gem to use haversine method and calculate the global distance of a race
-gem 'geo-distance', '~> 0.2.2'
+# gem 'geo-distance', '~> 0.2.2'
 
 # Haversine is a gem to calculate a total disance of a race
-gem 'haversine', '~> 0.3.0'
+# gem 'haversine', '~> 0.3.0'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -70,10 +70,6 @@ gem 'multi_json', '~> 1.11', '>= 1.11.2'
 
 gem "omniauth-google-oauth2"
 # authentification google
-
-# gem 'strava-ruby-client'
-# gem 'omniauth-strava-oauth2', '~> 0.0.2'
-# authentification strava
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
