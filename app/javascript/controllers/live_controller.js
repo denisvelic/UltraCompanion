@@ -43,6 +43,8 @@ export default class extends Controller {
           return feature.geometry.coordinates;
         });
 
+        // console.log(latitude);
+        // console.log(longitude);
         console.log(poiCoordinates)
 
         // 5. Create a new Mapbox map with the user's location as the center.
