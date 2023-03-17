@@ -27,11 +27,11 @@ export default class extends Controller {
         const categories = "amenity.drinking_water";
         const filter = `circle:${longitude},${latitude},100000`;
         const bias = `proximity:${longitude},${latitude}`;
-        const limit = 20;
+        const limit = 5;
         const url = `https://api.geoapify.com/v2/places?categories=${categories}&filter=${filter}&bias=${bias}&limit=${limit}&apiKey=${geoapifyApiKey}`;
 
         console.log(url)
-        
+
         // 3. Get POI from URL
         const response = await fetch(url);
         const data = await response.json();
