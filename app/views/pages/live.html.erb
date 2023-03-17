@@ -1,15 +1,17 @@
-<div class = "map-live">
-  <div style="width: 100%; height: 92vh;"
-    data-controller="live"
-    data-live-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+<div id="map-container" style="width: 100%; height: 92vh;"
+  data-controller="live"
+  data-live-geoapify-api-key-value="<%= ENV['GEOAPIFY'] %>"
+  data-live-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="marker"></div>
+</div>
+
 <div data-controller="play">
-  <%= link_to new_race_path do %>
-    <div class="menu-map-top">
-      <div style ="margin-top: 7px;">
-        <%=image_tag("icons/upload.svg")%>
-      </div>
-      <div>
+  <%# <%= link_to new_race_path do %>
+    <%# <div class="menu-map-top"> %>
+      <%# <div style ="margin-top: 7px;"> %>
+        <%# <%=image_tag("icons/upload.svg")%>
+      <%# </div> %>
+      <%# <div>
         <p style ="margin-top: -3px; margin-right: 15px;">Ajouter mon parcours</p>
       </div>
     </div>
@@ -18,18 +20,8 @@
   <div class="menu-map-bottom">
     <div class="menu-map-bottom-direction">
         <%= link_to "" do %>
-          <%= image_tag("icons/direction.svg",  size: "40x40") %>
+          <%= image_tag("icons/gps.svg",  size: "40x40") %>
         <% end %>
-
-      <p>Localisation</p>
-    </div>
-    <div class="menu-map-bottom-play" data-action="click->play#toggle">
-        <%= image_tag("play.svg",  size: "40x40", data: {action: "click->play#start", play_target: "icon"}, class: "play-button") %>
-        <%= image_tag("pause.svg",  size: "40x40", data: {action: "click->play#start", play_target: "pause"}, class: "pause-button d-none") %>
-
-      <p><div data-play-target="switchstart">Démarrer</div></p>
-      <p><div data-play-target="switchpause" class="d-none">Pause</div></p>
-    </div>
   </div>
 </div>
 </div>

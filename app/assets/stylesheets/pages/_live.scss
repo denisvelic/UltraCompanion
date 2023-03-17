@@ -1,0 +1,44 @@
+.marker {
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  width: 40px;
+  height: 40px;
+  background-image: url('icons/bottle.svg');
+  background-size: cover;
+  border-radius: 50%;
+  // border: 2px solid #2C435B;
+}
+
+.form-add {
+  margin-top: 6vh;
+  margin-bottom: 65px;
+  margin-right: 20px;
+  margin-left: 20px;
+  .form-race {
+    padding: 0px;
+  }
+}
+
+.new-container {
+  background-image: url('road.jpg');
+  background-size: cover;
+  background-position: 25% 75%;
+  width: 100%;
+  height: 24vh;}
+
+
+.test {
+  background-color: #FAFAFA;
+  border-radius: 5px;
+  filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.25));
+  height: 55px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  top: 20vh;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  position: relative;
+  }

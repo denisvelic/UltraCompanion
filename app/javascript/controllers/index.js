@@ -7,20 +7,8 @@ import { application } from "./application"
 import LiveController from "./live_controller"
 application.register("live", LiveController)
 
-import MapController from "./map_controller"
-application.register("map", MapController)
-
 import MergemapsController from "./mergemaps_controller"
 application.register("mergemaps", MergemapsController)
-
-import PlayController from "./play_controller"
-application.register("play", PlayController)
-
-import PoiController from "./poi_controller"
-application.register("poi", PoiController)
-
-import WaterController from "./water_controller"
-application.register("water", WaterController)
 
 import WeatherController from "./weather_controller"
 application.register("weather", WeatherController)
