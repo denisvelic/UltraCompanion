@@ -33,6 +33,7 @@ $large: 1200px;
   }
   .btn-primary {
     width: 30vw;
+    margin-bottom: 1vh;
   }
 }
 
@@ -58,7 +59,9 @@ $large: 1200px;
 
 .ligne {
   display: inline-flex;
+  flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
   width: 100%;
 }
 
