@@ -8,7 +8,58 @@
 }
 
 .p-feedback {
-  margin-top: 22vh;
-  margin-left: 3vh;
-  margin-right: 3vh ;
+  margin-top: 23vh;
+  padding-top: 1vh;
+  margin-left: 2em;
+  margin-right: 2em;
+  text-align: center;
+  background-color: #f2eded;
+  border-radius: 5px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+p {
+  line-height: 3vh;
+  margin-bottom: 1em;
+}
+
+.form-feedback {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  margin-top: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #245611;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #25561193;
 }
