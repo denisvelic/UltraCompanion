@@ -2,6 +2,7 @@
   <div class="test">
 		<h3>Bienvenue</h3>
 	</div>
+
   <div class="p-feedback">
     <p>Nous souhaitons vous offrir <b>la meilleure expérience possible.</b> C'est pourquoi nous vous encourageons à nous faire part de vos commentaires et de vos suggestions d’améliorations.</p>
     <%# <p>Si vous avez <b>des idées pour de nouvelles fonctionnalités ou des améliorations</b> que nous pourrions apporter à l'application, nous serions ravis de les entendre ! <b>Contactez-nous via ce formulaire pour partager vos retours.</b></p> %>
@@ -11,14 +12,11 @@
 
   <div class="form-feedback">
     <%= form_with url: '/feedback', method: :post, local: false do |form| %>
-      <%= form.label :name, 'Prénom & Nom' %>
-      <%= form.text_field :name %>
+      <%= form.text_field :name, placeholder: 'Prénom & Nom' %>
 
-      <%# <%= form.label :email, 'Adresse e-mail' %>
-      <%# <%= form.email_field :email %>
+      <%= form.email_field :email, placeholder: 'Adresse e-mail' %>
 
-      <%= form.label :suggestion, 'Commentaires' %>
-      <%= form.text_area :suggestion %>
+      <%= form.text_area :suggestion, placeholder: 'Commentaires' %>
 
       <%= form.submit 'Envoyer' %>
     <% end %>
