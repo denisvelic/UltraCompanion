@@ -11,7 +11,8 @@
   </div>
 
   <div class="form-feedback">
-    <%= form_with url: '/feedback', method: :post, local: false do |form| %>
+    <%= form_with model: Feedback.new, url: feedback_path, method: :post do |form| %>
+      
       <%= form.text_field :name, placeholder: 'Prénom & Nom' %>
 
       <%= form.email_field :email, placeholder: 'Adresse e-mail' %>
