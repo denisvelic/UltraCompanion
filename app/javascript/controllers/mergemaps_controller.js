@@ -128,7 +128,7 @@ export default class extends Controller {
     .addTo(this.map)
   }
 
-// 8. Fit the map borders close to the starting point of the race
+// 8. Fit the map borders close to the start of the race
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
